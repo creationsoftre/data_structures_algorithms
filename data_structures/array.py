@@ -26,10 +26,15 @@ volk_racing_te37 = Wheel(
     )
 
 # Access individual fields using dot notation
-print(f"Model: {volk_racing_te37.name}")          # Output: Model: Volk Racing TE37
-print(f"Diameter: {volk_racing_te37.diameter}")      # Output: Diameter: 18
-print(f"Width: {volk_racing_te37.width}")         # Output: Width: 9.5
-print(f"Bolt Pattern: {volk_racing_te37.bolt_pattern}")  # Output: Bolt Pattern: 5x114.3
-print(f"Color: {volk_racing_te37.color}")         # Output: Color: Matte Bronze
-print(f"Price: ${volk_racing_te37.price:.2f}")         # Output: Price: $3500.00
+# Better method to print the wheel information. A function that takes a wheel record as an argument and prints its specifications.
+def display_wheel_specs(wheel:Wheel):
+    print(f"Model: {wheel.name}")
+    print(f"Diameter: {wheel.diameter} inches")
+    print(f"Width: {wheel.width} inches")
+    print(f"Bolt Pattern: {wheel.bolt_pattern}")
+    print(f"Color: {wheel.color}")
+    print(f"Price: ${wheel.price:.2f}")
 
+
+# Display the specifications of the wheel
+display_wheel_specs(volk_racing_te37)
