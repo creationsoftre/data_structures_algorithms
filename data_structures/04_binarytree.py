@@ -118,3 +118,23 @@ class BinarySearchTree:
 
         # Visit the right subtree: More Expensive Wheels
         self._display_in_order_recursive(node.right) # Visit the right subtree
+
+    # SEARCH:
+    # Search for wheel using its price
+    def search_by_price(self, search_price):
+        current_node = self.root
+        
+        while current_node is not None:
+            wheel = current_node.data
+
+            # Found the maching price.
+            if search_price == wheel.price:
+                return wheel
+            
+            # If the search price is smaller, go left.
+            elif search_price < wheel.price:
+                current_node = current_node.left
+            # If the search price is larger, go right.
+            else:
+                current_node = current_node.right
+        return None
