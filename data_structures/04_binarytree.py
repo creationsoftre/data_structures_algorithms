@@ -121,6 +121,8 @@ class BinarySearchTree:
 
     # SEARCH:
     # Search for wheel using its price
+    # A binary tree is only fast when you search using the same field the tree is sorted by.
+    # - We sort by price, searching by price is effcient
     def search_by_price(self, search_price):
         current_node = self.root
         
@@ -138,3 +140,6 @@ class BinarySearchTree:
             else:
                 current_node = current_node.right
         return None
+    
+    #
+    
