@@ -49,3 +49,18 @@ inventory.append(new_wheel)
 # Display the specifications of all wheels in the inventory after appending a new wheel
 display_wheel_specs(inventory)
 
+# SEARCH: Find a wheel in the array by its name
+search_wheel_name = "Work Emitz"
+found_wheel = None # Boolean Placeholder for the found wheel 
+
+for wheel in inventory:
+    if wheel.name == search_wheel_name:
+        found_wheel = wheel
+        break
+
+print(f"Search Result for '{search_wheel_name}':")
+if found_wheel:
+    print(f"Wheel found: {found_wheel.name}")
+else:
+    print("Wheel not found.")
+
