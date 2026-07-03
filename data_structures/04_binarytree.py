@@ -94,3 +94,27 @@ class BinarySearchTree:
                     current_node.right = new_node
                     return
                 current_node = current_node.right # Move to the right child and continue searching
+        
+    # DISPLAY:
+    # Print the tree in order (left, root, right) to display the wheels sorted by price
+    def display_in_order(self, node):
+        self._display_in_order_recursive(node)
+
+    def _display_in_order_recursive(self, node): # Helper function to recursively traverse the tree in order for internal use
+        if node is not None:
+            return
+        
+        # Visit the left subtree: Cheaper Wheels
+        self._display_in_order_recursive(node.left) # Visit the left subtree
+
+        # Print the current node's data
+        print(f"Model: {node.data.name}")
+        print(f"Diameter: {node.data.diameter} inches")
+        print(f"Width: {node.data.width} inches")
+        print(f"Bolt Pattern: {node.data.bolt_pattern}")
+        print(f"Color: {node.data.color}")
+        print(f"Price: ${node.data.price:.2f}")
+        print()
+
+        # Visit the right subtree: More Expensive Wheels
+        self._display_in_order_recursive(node.right) # Visit the right subtree
