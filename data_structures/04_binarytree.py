@@ -141,5 +141,30 @@ class BinarySearchTree:
                 current_node = current_node.right
         return None
     
-    #
+    # FIND MINIMUM: 
+    # The cheapest wheel is the farthest left node.
+    def find_cheapest(self):
+        if self.root is None:
+            return None
+        
+        current_node = self.root
+
+        while current_node.left is not None:
+            current_node = current_node.left
+        
+        return current_node.data 
+    
+    # FIND Maximum: 
+    # The most expensive wheel is the farthest right node.
+    def find_cheapest(self):
+        if self.root is None:
+            return None
+        
+        current_node = self.root
+
+        while current_node.right is not None:
+            current_node = current_node.right
+        
+        return current_node.data 
+    
     
