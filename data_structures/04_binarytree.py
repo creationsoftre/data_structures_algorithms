@@ -52,3 +52,16 @@ class Wheel:
     bolt_pattern: str   # The bolt pattern of the wheel, e.g., "5x114.3"
     color: str          # The color of the wheel
     price: float        # The price of the wheel in dollars
+
+# NODE:
+# A Tree node stores three things: 
+# 1 data -> the wheel record
+# 2 left -> smaller child node
+# 3 right -> larger child node
+
+class TreeNode:
+    def __init__(self, wheel: Wheel):
+        self.data = wheel # stores the wheel record 
+        self.left = None # stores the smaller child node
+        self.right = None # stores the larger child node
+
