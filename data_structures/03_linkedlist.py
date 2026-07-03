@@ -1,5 +1,39 @@
-# A linked list is a data structure where each item points to the next item.
+# A linked list is a data structure where each item points to the next item in a linear order.
 # Each item is called a node, and each node contains data and a reference to the next node in the list.
+
+## TIME COMPLEXITY:
+# Big O describes how the work grows as the amount of data grows.
+#
+# From fastest to slower:
+# O(1)  -> Constant time
+#          The operation takes about the same amount of work no matter how much data exists.
+#
+# O(n)  -> Linear time
+#          The operation gets slower as the amount of data grows because you may need to check each item.
+#
+# Simple rule:
+# O(1) is usually better/faster than O(n).
+#
+# - Access by index/search: O(n)
+#   You must start at the head and move node by node.
+#
+# - Insert at head: O(1)
+#   You only update the new node to point to the old head, then update head.
+#
+# - Insert at tail without a tail pointer: O(n)
+#   You must traverse the list to find the last node.
+#
+# - Insert at tail with a tail pointer: O(1)
+#   If the list tracks the tail, you can add directly to the end.
+#
+# - Delete from head: O(1)
+#   You only move the head to the next node.
+#
+# - Delete by value/search: O(n)
+#   You must traverse the list to find the node to remove.
+#
+# - Delete a known node/reference: O(1)
+#   If you already have the node and previous node reference, relinking is constant time.
 
 from dataclasses import dataclass
 
