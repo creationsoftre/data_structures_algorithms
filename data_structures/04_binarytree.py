@@ -65,3 +65,32 @@ class TreeNode:
         self.left = None # stores the smaller child node
         self.right = None # stores the larger child node
 
+# BINARY SEARCH TREE:
+# The three keeps track of the first node in the tree, called the root node.
+class BinarySearchTree:
+    def __init__(self):
+        self.root = None # The root node of the tree, initially empty
+    
+    #INSERT:
+    # Add a new wheel to the tree
+    def insert(self,data):
+        new_node = TreeNode(data) # Create a new node with the wheel data
+
+        if self.root is None: # If the tree is empty, set the new node as the root
+            self.root = new_node
+            return
+        
+        # Start at the root and look for the correct position to insert the new node
+        current_node = self.root
+
+        while True:
+            if data.price < current_node.data.price: # If the new wheel's price is less than the current node's price, go left
+                if current_node.left is None: # If there is no left child, insert the new node here
+                    current_node.left = new_node
+                    return
+                current_node = current_node.left # Move to the left child and continue searching
+            else: # If the new wheel's price is greater than or equal to the current node's price, go right
+                if current_node.right is None: # If there is no right child, insert the new node here
+                    current_node.right = new_node
+                    return
+                current_node = current_node.right # Move to the right child and continue searching
