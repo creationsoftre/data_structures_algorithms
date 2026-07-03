@@ -63,4 +63,14 @@ if found_wheel:
     print(f"Wheel found: {found_wheel.name}")
 else:
     print("Wheel not found.")
+    
+
+# REMOVE: Remove last item from the array with pop() method.
+remove_wheel = inventory.pop() 
+
+# Display the specifications of all wheels in the inventory after removing the last wheel
+print(f"Removed Wheel: {remove_wheel.name}")
+
+print("Inventory after removing the last wheel:")
+display_wheel_specs(inventory)
 
