@@ -31,3 +31,24 @@
 #
 # - Find minimum/maximum: O(log n) average, O(n) worst case
 #   You keep moving left for minimum or right for maximum.
+
+# A binary search tree is a data structure where each node can have up to two children
+# Values smaller than current node go to the left
+# Values larger than the current node go to the right.
+
+from dataclasses import dataclass
+
+# RECORD: 
+
+# A record for one wheel.
+@dataclass
+class Wheel:
+    # Each variable below is a field in the record.
+    # A field stores one piece of information about the wheel.
+
+    name: str           # The name of the wheel
+    diameter: int       # The diameter of the wheel in inches
+    width: float        # The width of the wheel in inches
+    bolt_pattern: str   # The bolt pattern of the wheel, e.g., "5x114.3"
+    color: str          # The color of the wheel
+    price: float        # The price of the wheel in dollars
