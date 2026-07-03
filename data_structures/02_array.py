@@ -41,3 +41,8 @@ def display_wheel_specs(wheel:Wheel):
 
 # Display the specifications of all wheels in the inventory
 display_wheel_specs(inventory)
+
+# APPEND: Add a new item to the end of the array
+new_wheel = Wheel("Enkei RPF1", 18, 9, "5x114.3", "Gunmetal", 3000.00)
+inventory.append(new_wheel) 
+
