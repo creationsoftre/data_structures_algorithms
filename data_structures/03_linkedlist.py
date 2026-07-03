@@ -14,7 +14,9 @@
 # Simple rule:
 # O(1) is usually better/faster than O(n).
 #
-# - Access by index/search: O(n)
+# LINKED LIST TIME COMPLEXITY:
+#
+# - Access by position/search: O(n)
 #   You must start at the head and move node by node.
 #
 # - Insert at head: O(1)
@@ -32,7 +34,7 @@
 # - Delete by value/search: O(n)
 #   You must traverse the list to find the node to remove.
 #
-# - Delete a known node/reference: O(1)
+# - Delete a known node with previous node reference: O(1)
 #   If you already have the node and previous node reference, relinking is constant time.
 
 from dataclasses import dataclass

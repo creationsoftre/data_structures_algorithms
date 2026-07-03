@@ -1,7 +1,42 @@
 # An array is a data structure that stores multiple values in order.
 
-from dataclasses import dataclass
+## TIME COMPLEXITY:
+# Big O describes how the work grows as the amount of data grows.
+#
+# From fastest to slower:
+# O(1)  -> Constant time
+#          The operation takes about the same amount of work no matter how much data exists.
+#
+# O(n)  -> Linear time
+#          The operation gets slower as the amount of data grows because you may need to check each item.
+#
+# Simple rule:
+# O(1) is usually better/faster than O(n).
+#
+# ARRAY / LIST TIME COMPLEXITY:
+#
+# - Access by index: O(1)
+#   You can jump directly to an item if you know its index, such as inventory[0].
+#
+# - Search by value: O(n)
+#   You may need to check each item until you find the one you want.
+#
+# - Append to end: O(1) average
+#   Adding to the end is usually constant time in Python lists.
+#
+# - Insert at beginning or middle: O(n)
+#   Items may need to shift to make room.
+#
+# - Delete from end: O(1)
+#   Removing the last item with pop() is constant time.
+#
+# - Delete from beginning or middle: O(n)
+#   Items may need to shift after the removal.
+#
+# - Loop through all items: O(n)
+#   You visit each item one time.
 
+from dataclasses import dataclass
 
 # A record for one wheel.
 @dataclass

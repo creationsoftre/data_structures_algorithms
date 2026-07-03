@@ -1,5 +1,32 @@
 from dataclasses import dataclass
 
+## TIME COMPLEXITY:
+# Big O describes how the work grows as the amount of data grows.
+#
+# From fastest to slower:
+# O(1)  -> Constant time
+#          The operation takes about the same amount of work no matter how much data exists.
+#
+# O(n)  -> Linear time
+#          The operation gets slower as the amount of data grows because you may need to check each item.
+#
+# Simple rule:
+# O(1) is usually better/faster than O(n).
+#
+# RECORD TIME COMPLEXITY:
+#
+# - Access a field: O(1)
+#   You can access a field directly by name, such as wheel.color.
+#
+# - Update a field: O(1)
+#   You can update a field directly, such as wheel.color = "Bronze".
+#
+# - Create a record: O(1)
+#   Creating one record takes a fixed amount of work when the number of fields is fixed.
+#
+# - Compare two records: O(1)
+#   Usually constant time if the record has a fixed number of fields.
+
 # A record stores related data together
 # This record represents a vehicle wheel
 @dataclass
