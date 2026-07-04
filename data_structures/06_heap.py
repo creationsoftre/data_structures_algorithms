@@ -107,3 +107,30 @@ def create_inventory_heap():
     heapq.heappush(inventory,(7500.00, Wheel("BBS LM", 18, 10.5, "5x114.3", "Polished Silver", 7500.00)))
 
     return inventory
+
+# =========================================
+# DISPLAY
+# =========================================
+
+# DISPLAY:
+# Show the current heap.
+#
+# Important:
+# A heap is not the same as a sorted list.
+#
+# The first item is guaranteed to be the smallest.
+# The rest of the items are arranged in a way that keeps the heap working,
+# but they may not appear fully sorted.
+
+def display_heap(inventory, title):
+    show_section_title(title)
+
+    for index, item in enumerate(inventory):
+        price, wheel = item
+
+        print(f"Heap Index: {index}")
+        print(f"Priority Price: ${price:.2f}")
+        print(f"Model: {wheel.name}")
+        print(f"Color: {wheel.color}")
+        print(f"Price: ${wheel.price:.2f}")
+        print()
