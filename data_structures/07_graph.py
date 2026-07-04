@@ -1,0 +1,43 @@
+## TIME COMPLEXITY:
+# Big O describes how the work grows as the amount of data grows.
+#
+# From fastest to slower:
+# O(1)     -> Constant time
+#             The operation takes about the same amount of work no matter how much data exists.
+#
+# O(log n) -> Logarithmic time
+#             The operation gets faster than O(n) because the data is split into smaller parts.
+#
+# O(n)     -> Linear time
+#             The operation gets slower as the amount of data grows because you may need to check each item.
+#
+# O(V + E) -> Graph traversal time
+#             V means vertices/nodes.
+#             E means edges/connections.
+#             A graph traversal may need to visit every node and every connection.
+#
+# Simple rule:
+# O(1) is usually better/faster than O(log n), and O(log n) is usually better/faster than O(n).
+#
+# GRAPH TIME COMPLEXITY:
+#
+# - Add node: O(1)
+#   Adding a node to an adjacency list is usually constant time.
+#
+# - Add edge/connection: O(1)
+#   Adding a connection is usually constant time when using sets or lists.
+#
+# - Check if a node exists: O(1)
+#   Dictionary lookup is usually constant time.
+#
+# - Get neighbors/connections: O(1)
+#   You can directly access a node's connection list.
+#
+# - Search/traverse graph with BFS or DFS: O(V + E)
+#   You may need to visit every node and every edge.
+#
+# - Remove node: O(V + E)
+#   You must remove the node and also remove connections pointing to it.
+#
+# - Remove edge/connection: O(1) average with sets
+#   Removing a connection is usually fast if neighbors are stored in a set.
