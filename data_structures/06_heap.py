@@ -46,3 +46,24 @@
 
 from dataclasses import dataclass
 import heapq
+
+# =========================================
+# RECORD
+# =========================================
+
+# RECORD:
+# Represents one wheel.
+#
+# This is the same Wheel record used in the previous examples.
+# The heap will store Wheel records, but it needs a number to sort by.
+#
+# In this example, we sort by price.
+
+@dataclass
+class Wheel:
+    name: str           # The name of the wheel
+    diameter: int       # The diameter of the wheel in inches
+    width: float        # The width of the wheel in inches
+    bolt_pattern: str   # The bolt pattern of the wheel, e.g., "5x114.3"
+    color: str          # The color of the wheel
+    price: float        # The price of the wheel in dollars
