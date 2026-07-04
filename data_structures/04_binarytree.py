@@ -97,27 +97,28 @@ class BinarySearchTree:
         
     # DISPLAY:
     # Print the tree in order (left, root, right) to display the wheels sorted by price
-    def display_in_order(self, node):
-        self._display_in_order_recursive(node)
+    def display_in_order(self):
+        self._display_in_order_recursive(self.root)
 
-    def _display_in_order_recursive(self, node): # Helper function to recursively traverse the tree in order for internal use
-        if node is not None:
+    def _display_in_order_recursive(self, current_node): # Helper function to recursively traverse the tree in order for internal use
+        if current_node is None:
             return
         
         # Visit the left subtree: Cheaper Wheels
-        self._display_in_order_recursive(node.left) # Visit the left subtree
+        self._display_in_order_recursive(self, current_node.left) # Visit the left subtree
 
         # Print the current node's data
-        print(f"Model: {node.data.name}")
-        print(f"Diameter: {node.data.diameter} inches")
-        print(f"Width: {node.data.width} inches")
-        print(f"Bolt Pattern: {node.data.bolt_pattern}")
-        print(f"Color: {node.data.color}")
-        print(f"Price: ${node.data.price:.2f}")
+        wheel = current_node.data
+        print(f"Model: {wheel.name}")
+        print(f"Diameter: {wheel.diameter} inches")
+        print(f"Width: {wheel.width} inches")
+        print(f"Bolt Pattern: {wheel.bolt_pattern}")
+        print(f"Color: {wheel.color}")
+        print(f"Price: ${wheel.price:.2f}")
         print()
 
         # Visit the right subtree: More Expensive Wheels
-        self._display_in_order_recursive(node.right) # Visit the right subtree
+        self._display_in_order_recursive(current_node.right) # Visit the right subtree
 
     # SEARCH:
     # Search for wheel using its price
@@ -167,4 +168,33 @@ class BinarySearchTree:
         
         return current_node.data 
     
+# ====================================
+# HELPER FUNCTIONS
+# ====================================
     
+# Print the title of the section for visual separation.
+def show_section_title(title):
+    print("\n" + "=" * len(title))
+    print(title)
+    print("=" * len(title) + "\n")
+
+
+def create_inventory_tree():
+    inventory = BinarySearchTree() # Create an empty Binary Search Tree for the inventory
+
+    inventory.insert(Wheel("Volk Racing TE37", 18, 9.5, "5x114.3", "Matte Bronze", 3500.00))
+    inventory.insert(Wheel("Work VSKF", 18, 10.0, "5x114.3", "Silver", 4500.00))
+    inventory.insert(Wheel("Work Emitz", 18, 11.5, "5x114.3", "Gold", 5500.00))
+    inventory.insert(Wheel("BBS LM", 18, 10.5, "5x114.3", "Polished Silver", 7500.00))
+
+    return inventory
+
+# ====================================
+# MAIN PROGRAM
+# ====================================
+
+inventory = create_inventory_tree()
+
+show_section_title("1. Display Binary Search Tree Inventory")
+print("wheels are displayed from cheapest to most expensive:\n")
+inventory.display_in_order()
