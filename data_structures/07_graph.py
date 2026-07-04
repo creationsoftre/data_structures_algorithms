@@ -134,3 +134,36 @@ def add_edge(self, node1, node2):
 
     # Connect node2 back to node1.
     self.adjacency_list[node2].add(node1)
+
+# =========================================
+# DISPLAY
+# =========================================
+
+# DISPLAY:
+# Print every node and its connections.
+#
+# This helps us see the full graph.
+
+def display(self):
+    for node, neighbors in self.adjacency_list.items():
+        print(f"{node} is connected to:")
+
+        for neighbor in neighbors:
+            print(f"  - {neighbor}")
+
+        print()
+
+# =========================================
+# GET CONNECTIONS
+# =========================================
+
+# GET CONNECTIONS:
+# Return all neighbors connected to a node.
+#
+# This is useful when we want to ask:
+# "What cars are compatible with this wheel?"
+#
+# If the node does not exist, return an empty set.
+
+def get_connections(self, node):
+    return self.adjacency_list.get(node, set())
