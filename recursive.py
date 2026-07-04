@@ -34,3 +34,18 @@
 #
 # Dynamic programming fixes this by remembering answers.
 #
+# ------------------------------------------------------------
+# BIG O / SPEED
+# ------------------------------------------------------------
+#
+# Basic recursion:
+#   O(2^n)
+#   Very slow as n grows.
+#
+# Dynamic programming:
+#   O(n)
+#   Much faster.
+#
+# Why?
+#   Each Fibonacci number is solved once and reused.
+#
