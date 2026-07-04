@@ -114,5 +114,27 @@ def display_inventory(inventory):
         print(f"Price: ${wheel.price:.2f}")
         print()
 
+#===========================================
+# INSERT
+# ==========================================
 
-    
+# INSERT:
+# Add a new key-value pair to the hash table.
+#
+# If the key does not exist, Python adds it.
+# If the key already exists, Python replaces the old value. 
+
+def add_inventory_item(inventory, wheel):
+    show_section_title("2. INSERT INTO HASH TABLE")
+
+    # The wheel name becomes the key.
+    # The full wheel record becomes the value
+    inventory[wheel.name] = Wheel
+
+    print(f"Added wheel using key: {wheel.name}")
+    print(f"Inventory count is now: {len(inventory)}")
+
+#===========================================
+# SEARCH
+# ==========================================
+
