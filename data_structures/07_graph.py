@@ -93,3 +93,21 @@ class Graph:
         # No nodes or edges exist yet.
         self.adjacency_list = {}
 
+
+    # =========================================
+    # ADD NODE
+    # =========================================
+
+    # ADD NODE:
+    # Add a new node to the graph.
+    #
+    # If the node already exists, we do not overwrite it.
+    #
+    # Each node starts with an empty set of connections.
+
+    def add_node(self, node):
+        if node not in self.adjacency_list:
+            self.adjacency_list[node] = set()
+
+
+
