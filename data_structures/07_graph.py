@@ -94,20 +94,43 @@ class Graph:
         self.adjacency_list = {}
 
 
-    # =========================================
-    # ADD NODE
-    # =========================================
+# =========================================
+# ADD NODE
+# =========================================
 
-    # ADD NODE:
-    # Add a new node to the graph.
-    #
-    # If the node already exists, we do not overwrite it.
-    #
-    # Each node starts with an empty set of connections.
+# ADD NODE:
+# Add a new node to the graph.
+#
+# If the node already exists, we do not overwrite it.
+#
+# Each node starts with an empty set of connections.
 
-    def add_node(self, node):
-        if node not in self.adjacency_list:
-            self.adjacency_list[node] = set()
+def add_node(self, node):
+    if node not in self.adjacency_list:
+        self.adjacency_list[node] = set()
 
 
+# =========================================
+# ADD EDGE
+# =========================================
 
+# ADD EDGE:
+# Add a connection between two nodes.
+#
+# Since this is an undirected graph,
+# we connect both directions.
+#
+# Example:
+# wheel -> car
+# car   -> wheel
+
+def add_edge(self, node1, node2):
+    # Make sure both nodes exist before connecting them.
+    self.add_node(node1)
+    self.add_node(node2)
+
+    # Connect node1 to node2.
+    self.adjacency_list[node1].add(node2)
+
+    # Connect node2 back to node1.
+    self.adjacency_list[node2].add(node1)
