@@ -68,3 +68,51 @@ def show_section_title(title):
     print("\n" + "=" * len(title))
     print(title)
     print("=" * len(title) + "\n")
+
+#===========================================
+# CREATE HASH TABLE
+# ==========================================
+
+# CREATEHASH TABLE:
+# This function creates and returns our starting has table.
+#
+# The key is the wheel name.
+# The value is the wheel record.
+#
+# This lets us quickly find a wheel if we know it's name. 
+
+def create_inventory():
+    inventory = {
+        "Volk Racing TE37": Wheel("Volk Racing TE37", 18, 9.5, "5x114.3", "Matte Bronze", 3500.00),
+        "Work VSKF": Wheel("Work VSKF", 18, 10.0, "5x114.3", "Silver", 4500.00),
+        "Work Emitz": Wheel("Work Emitz", 18, 11.5, "5x114.3", "Gold", 5500.00),
+        "BBS LM": Wheel("BBS LM", 18, 10.5, "5x114.3", "Polished Silver", 7500.00),
+    }
+
+    return inventory
+
+#===========================================
+# DISPLAY
+# ==========================================
+
+# DISPLAY
+# Loop through all of the key-value pairs in the hash table.
+#
+# Key = the name used to find the wheel
+# Value = the wheel record stored under that key
+
+def display_inventory(inventory):
+    show_section_title("1. DISPLAY HASH TABLE INVENTORY")
+
+    for key, wheel in inventory.items():
+        print(f"Key: {key}")
+        print(f"Model: {wheel.name}")
+        print(f"Diameter: {wheel.diameter} inches")
+        print(f"Width: {wheel.width} inches")
+        print(f"Bolt Pattern: {wheel.bolt_pattern}")
+        print(f"Color: {wheel.color}")
+        print(f"Price: ${wheel.price:.2f}")
+        print()
+
+
+    
