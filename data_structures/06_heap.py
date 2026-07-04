@@ -33,3 +33,16 @@
 #
 # - Loop through all items: O(n)
 #   You must visit every item once.
+
+# A heap is a priority-based data structure.
+#
+# In Python, heapq gives us a min-heap.
+#
+# Min-heap rule:
+# The smallest value stays at the top.
+#
+# For this project:
+# The wheel with the lowest price will be treated as the highest-priority item.
+
+from dataclasses import dataclass
+import heapq
