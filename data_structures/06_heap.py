@@ -134,3 +134,22 @@ def display_heap(inventory, title):
         print(f"Color: {wheel.color}")
         print(f"Price: ${wheel.price:.2f}")
         print()
+
+# =========================================
+# INSERT
+# =========================================
+
+# INSERT:
+# Add a new wheel to the heap.
+#
+# heappush() adds the item and automatically reorganizes the heap
+# so the lowest price stays near the top.
+
+def add_inventory_item(inventory, wheel):
+    show_section_title("2. INSERT INTO HEAP")
+
+    heapq.heappush(inventory, (wheel.price, wheel)) # Use wheel.price as priority and store the wheel object as the value.
+
+    print(f"Added wheel to heap: {wheel.name}")
+    print(f"Priority price: ${wheel.price:.2f}")
+    print(f"Heap count is now: {len(inventory)}")
