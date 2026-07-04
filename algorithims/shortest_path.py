@@ -71,21 +71,24 @@
 # ------------------------------------------------------------
 # IMPORTANT NOTE
 # ------------------------------------------------------------
+# BFS finds the shortest path by checking paths level by level.
 #
-# BFS works for shortest path when the graph is unweighted.
+# If more than one shortest path exists, the path returned depends
+# on the order of the neighbors in the graph.
 #
-# If the graph has weighted edges, use a different algorithm.
+# In this graph, A lists B before C:
 #
-# Example weighted graph:
+#   "A": ["B", "C"]
 #
-#   A --5-- B
-#   A --1-- C
+# So BFS checks the B side first and finds:
 #
-# In a weighted graph, the shortest path may not be the path
-# with the fewest steps.
+#   A -> B -> D -> F
 #
-# For weighted graphs, Dijkstra's algorithm is usually used.
-# ============================================================
+# If A listed C before B, BFS may find:
+#
+#   A -> C -> E -> F
+#
+# Both paths are valid because they have the same number of steps.
 
 
 # ------------------------------------------------------------
@@ -201,34 +204,54 @@ def shortest_path_with_trace(graph, start, target):
 
     print(f"Finding shortest path from {start} to {target}")
     print("-" * 40)
+    print("BFS checks paths in the order they are added to the queue.")
+    print("The first time we reach the target, that path is the shortest.")
+    print("-" * 40)
+    print()
 
     while queue:
         path = queue.pop(0)
         current = path[-1]
 
-        print(f"Checking path: {path}")
+        print(f"Current path being checked: {path}")
+        print(f"Current node: {current}")
 
         if current in visited:
-            print(f"{current} was already visited. Skip it.")
+            print(f"{current} was already visited, so we skip this path.")
             print()
             continue
 
         visited.add(current)
 
         if current == target:
-            print(f"Found target: {target}")
+            print(f"{current} is the target.")
+            print("Because BFS checks shortest paths first, this is the shortest path.")
             return path
 
-        print(f"Current node: {current}")
-        print(f"Neighbors: {graph[current]}")
+        print(f"{current} is not the target.")
+        print(f"Now we look at {current}'s neighbors: {graph[current]}")
 
         for neighbor in graph[current]:
             if neighbor not in visited:
                 new_path = path + [neighbor]
-                print(f"Add new path to queue: {new_path}")
-                queue.append(new_path)
 
-        print(f"Queue now: {queue}")
+                print()
+                print(f"Why add {neighbor}?")
+                print(f"{neighbor} is connected to {current}.")
+                print(f"So we create a new possible path: {new_path}")
+
+                queue.append(new_path)
+            else:
+                print()
+                print(f"Why skip {neighbor}?")
+                print(f"{neighbor} was already visited.")
+
+        print()
+        print(f"Queue after checking {current}:")
+        for queued_path in queue:
+            print(f"  {queued_path}")
+
+        print("-" * 40)
         print()
 
     print(f"No path found from {start} to {target}")
