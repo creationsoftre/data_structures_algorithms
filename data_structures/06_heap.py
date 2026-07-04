@@ -178,3 +178,30 @@ def peek_cheapest_wheel(inventory):
     print("Cheapest wheel currently in heap:")
     print(f"Model: {wheel.name}")
     print(f"Price: ${price:.2f}")
+
+# =========================================
+# REMOVE (POP)
+# =========================================
+
+# REMOVE (POP):
+# Remove and return the highest-priority item.
+#
+# In this min-heap, that means removing the cheapest wheel.
+#
+# After removing the top item, heapq reorganizes the heap
+# so the next cheapest wheel moves to the top.
+
+def remove_cheapest_wheel(inventory):
+    show_section_title("4. POP CHEAPEST WHEEL FROM HEAP")
+
+    if len(inventory) == 0:
+        print("Heap is empty.")
+        return None
+
+    price, wheel = heapq.heappop(inventory)
+
+    print(f"Removed cheapest wheel: {wheel.name}")
+    print(f"Price: ${price:.2f}")
+    print(f"Heap count is now: {len(inventory)}")
+
+    return wheel
