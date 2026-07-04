@@ -160,7 +160,7 @@ class BinarySearchTree:
     
     # FIND Maximum: 
     # The most expensive wheel is the farthest right node.
-    def find_cheapest(self):
+    def find_most_expensive(self):
         if self.root is None:
             return None
         
@@ -185,10 +185,12 @@ def show_section_title(title):
 def create_inventory_tree():
     inventory = BinarySearchTree() # Create an empty Binary Search Tree for the inventory
 
-    inventory.insert(Wheel("Volk Racing TE37", 18, 9.5, "5x114.3", "Matte Bronze", 3500.00))
-    inventory.insert(Wheel("Work VSKF", 18, 10.0, "5x114.3", "Silver", 4500.00))
-    inventory.insert(Wheel("Work Emitz", 18, 11.5, "5x114.3", "Gold", 5500.00))
     inventory.insert(Wheel("BBS LM", 18, 10.5, "5x114.3", "Polished Silver", 7500.00))
+    inventory.insert(Wheel("Volk Racing TE37", 18, 9.5, "5x114.3", "Matte Bronze", 3500.00))
+    inventory.insert(Wheel("Work Emitz", 18, 11.5, "5x114.3", "Gold", 5500.00))
+    inventory.insert(Wheel("Work VSKF", 18, 10.0, "5x114.3", "Silver", 4500.00))
+    
+    
 
     return inventory
 
@@ -199,5 +201,56 @@ def create_inventory_tree():
 inventory = create_inventory_tree()
 
 show_section_title("1. Display Binary Search Tree Inventory")
-print("wheels are displayed from cheapest to most expensive:\n")
+print("Wheels are displayed from cheapest to most expensive:\n")
+inventory.display_in_order()
+
+
+show_section_title("2. Insert Into Binary Search Tree")
+
+new_wheel = Wheel("SSR Professor SP1", 18, 10.5, "5x114.3", "Silver", 6000.00)
+inventory.insert(new_wheel)
+
+print(f"Added new wheel to inventory: {new_wheel.name}")
+print(f"Price: ${new_wheel.price:.2f}")
+
+
+show_section_title("3. Search Binary Search Tree By Price")
+
+search_price = 4500.00
+result = inventory.search_by_price(search_price)
+
+print(f"Search Result for price ${search_price:.2f}:")
+
+if result:
+    print(f"Wheel found: {result.name}")
+    print(f"Color: {result.color}")
+    print(f"Price: ${result.price:.2f}")
+else:
+    print("Wheel not found.")
+
+
+show_section_title("4. Find Cheapest Wheel")
+
+cheapest_wheel = inventory.find_cheapest()
+
+if cheapest_wheel:
+    print(f"Cheapest wheel: {cheapest_wheel.name}")
+    print(f"Price: ${cheapest_wheel.price:.2f}")
+else:
+    print("Inventory is empty.")
+
+
+show_section_title("5. Find Most Expensive Wheel")
+
+most_expensive_wheel = inventory.find_most_expensive()
+
+if most_expensive_wheel:
+    print(f"Most expensive wheel: {most_expensive_wheel.name}")
+    print(f"Price: ${most_expensive_wheel.price:.2f}")
+else:
+    print("Inventory is empty.")
+
+
+show_section_title("6. Final Binary Search Tree Inventory")
+print("Final inventory from cheapest to most expensive:\n")
 inventory.display_in_order()
