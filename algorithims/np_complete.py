@@ -163,8 +163,11 @@ def subset_sum(numbers, target):
 def subset_sum_with_trace(numbers, target):
     combinations = [[]]
 
+    print("Subset Sum Trace")
+    print("-" * 40)
     print(f"Numbers: {numbers}")
     print(f"Target: {target}")
+    print(f"Goal: Find a combination that adds up to {target}")
     print("-" * 40)
 
     for number in numbers:
@@ -199,11 +202,25 @@ def subset_sum_with_trace(numbers, target):
 numbers = [3, 5, 7, 10]
 target = 15
 
+print("Subset Sum Example")
+print("-" * 40)
+print(f"Numbers: {numbers}")
+print(f"Target: {target}")
+print(f"Goal: Find a combination of numbers that adds up to {target}")
+print()
+
+print("Checking possible answers:")
+print(f"Does [5, 10] add up to {target}?")
 print(check_subset_answer([5, 10], target))  # True
+
+print(f"Does [3, 7] add up to {target}?")
 print(check_subset_answer([3, 7], target))   # False
 
 print()
+print("Running brute force search:")
+print(f"Trying to find any combination that adds up to {target}")
 print(subset_sum(numbers, target))           # True
 
 print()
+print("Running brute force search with trace:")
 subset_sum_with_trace(numbers, target)
