@@ -41,3 +41,30 @@
 # Example:
 # Key -> Work Emitz
 # Value -> Wheel("Work Emitz", 18, 11.5, "5x114.3", "Gold", 5500.00)
+
+from dataclasses import dataclass
+
+# ================================
+# RECORD
+#=================================
+
+# RECORD:
+# Represents one wheel.
+@dataclass
+class Wheel:
+    name: str           # The name of the wheel
+    diameter: int       # The diameter of the wheel in inches 
+    width: float        # The width of the wheel in inches
+    bolt_pattern: str   # The bolt pattern of the wheel, e.g., "5x114.3"
+    color: str          # The color of the wheel
+    price: float        # The price of the wheel in dollars
+
+#===========================================
+# HELPER FUNCTIONS
+# ===========================================
+
+# Print the title of the section for visual separation.
+def show_section_title(title):
+    print("\n" + "=" * len(title))
+    print(title)
+    print("=" * len(title) + "\n")
