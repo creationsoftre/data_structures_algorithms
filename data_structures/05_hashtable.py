@@ -138,3 +138,28 @@ def add_inventory_item(inventory, wheel):
 # SEARCH
 # ==========================================
 
+# SEARCH: 
+# Search for a wheel by key.
+#
+# Hash tables are great when you know the key. 
+# Instead of checking every wheel one by one,
+# Python uses the key to quickly find the value.
+
+def search_inventory_by_name(inventory, search_name):
+    show_section_title("3. SEARCH HASH TABLE")
+
+    # get() safely looks for the key
+    #
+    # If the key exist, it returns the value.
+    # If the key does not exist, it returns None.
+
+    result = inventory.get(search_name)
+
+    print(f"Search Result for '{search_name}':")
+
+    if result:
+        print(f"Wheel found: {result.name}")
+        print(f"Color: {result.color}")
+        print(f"Price: ${result.price:.2f}")
+    else:
+        print("Wheel not found.")
