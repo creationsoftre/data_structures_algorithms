@@ -41,3 +41,22 @@
 #
 # - Remove edge/connection: O(1) average with sets
 #   Removing a connection is usually fast if neighbors are stored in a set.
+
+
+# A graph is a data structure made of nodes and edges.
+#
+# Node:
+# A thing in the graph.
+#
+# Edge:
+# A connection between two nodes.
+#
+# In this project:
+# Nodes are wheels and cars.
+# Edges are compatibility connections.
+#
+# Example:
+# "Volk Racing TE37" is connected to "Nissan 350Z"
+
+from collections import deque
+
