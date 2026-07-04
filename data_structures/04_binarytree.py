@@ -60,8 +60,8 @@ class Wheel:
 # 3 right -> larger child node
 
 class TreeNode:
-    def __init__(self, wheel: Wheel):
-        self.data = wheel # stores the wheel record 
+    def __init__(self, data):
+        self.data = data # stores the wheel record 
         self.left = None # stores the smaller child node
         self.right = None # stores the larger child node
 
@@ -88,11 +88,14 @@ class BinarySearchTree:
                 if current_node.left is None: # If there is no left child, insert the new node here
                     current_node.left = new_node
                     return
+                
                 current_node = current_node.left # Move to the left child and continue searching
+
             else: # If the new wheel's price is greater than or equal to the current node's price, go right
                 if current_node.right is None: # If there is no right child, insert the new node here
                     current_node.right = new_node
                     return
+                
                 current_node = current_node.right # Move to the right child and continue searching
         
     # DISPLAY:
@@ -105,7 +108,7 @@ class BinarySearchTree:
             return
         
         # Visit the left subtree: Cheaper Wheels
-        self._display_in_order_recursive(self, current_node.left) # Visit the left subtree
+        self._display_in_order_recursive(current_node.left) # Visit the left subtree
 
         # Print the current node's data
         wheel = current_node.data
