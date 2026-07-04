@@ -205,3 +205,81 @@ def remove_cheapest_wheel(inventory):
     print(f"Heap count is now: {len(inventory)}")
 
     return wheel
+
+# =========================================
+# SEARCH
+# =========================================
+
+# SEARCH:
+# Search for a wheel by name.
+#
+# Important:
+# A heap is not designed for fast searching by name.
+#
+# Even though the cheapest item is easy to find,
+# a specific name could be anywhere in the heap.
+#
+# That means we may need to check every item.
+
+def search_heap_by_name(inventory, search_name):
+    show_section_title("5. SEARCH HEAP BY NAME")
+
+    found_wheel = None
+
+    for price, wheel in inventory:
+        if wheel.name == search_name:
+            found_wheel = wheel
+            break
+
+    print(f"Search Result for '{search_name}':")
+
+    if found_wheel:
+        print(f"Wheel found: {found_wheel.name}")
+        print(f"Color: {found_wheel.color}")
+        print(f"Price: ${found_wheel.price:.2f}")
+    else:
+        print("Wheel not found.")
+
+# =========================================
+# MAIN PROGRAM
+# =========================================
+
+# Create the starting heap inventory.
+inventory = create_inventory_heap()
+
+
+# SECTION 1:
+# Display the internal heap.
+#
+# Remember:
+# It may not look fully sorted.
+# Only the first item is guaranteed to be the cheapest.
+display_heap(inventory, "1. DISPLAY HEAP INVENTORY")
+
+
+# SECTION 2:
+# Insert a new wheel into the heap.
+new_wheel = Wheel("Enkei RPF1", 18, 9.0, "5x114.3", "Hyper Silver", 3600.00)
+add_inventory_item(inventory, new_wheel)
+
+
+# SECTION 3:
+# Peek at the cheapest wheel without removing it.
+peek_cheapest_wheel(inventory)
+
+
+# SECTION 4:
+# Remove the cheapest wheel from the heap.
+remove_cheapest_wheel(inventory)
+
+
+# SECTION 5:
+# Search for a wheel by name.
+#
+# This works, but it is not what heaps are best at.
+search_heap_by_name(inventory, "Work VSKF")
+
+
+# SECTION 6:
+# Display the final heap after all changes.
+display_heap(inventory, "6. FINAL HEAP INVENTORY")
