@@ -13,3 +13,24 @@
 #   Solve smaller problems.
 #   Store the answers.
 #   Reuse those answers later.
+#
+# ------------------------------------------------------------
+# SIMPLE EXAMPLE
+# ------------------------------------------------------------
+#
+# Fibonacci sequence:
+#
+#   0, 1, 1, 2, 3, 5, 8, 13, 21...
+#
+# Each number is made by adding the two numbers before it.
+#
+# Example:
+#   3        2        1
+#   fib(5) = fib(4) + fib(3)
+#
+# The problem:
+#
+#   A basic recursive solution recalculates the same values many times.
+#
+# Dynamic programming fixes this by remembering answers.
+#
