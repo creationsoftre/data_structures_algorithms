@@ -67,3 +67,13 @@ class Wheel:
     bolt_pattern: str   # The bolt pattern of the wheel, e.g., "5x114.3"
     color: str          # The color of the wheel
     price: float        # The price of the wheel in dollars
+
+# =========================================
+# HELPER FUNCTIONS
+# =========================================
+
+# Print the title of the section for visual separation.
+def show_section_title(title):
+    print("\n" + "=" * len(title))
+    print(title)
+    print("=" * len(title) + "\n")
