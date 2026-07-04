@@ -97,6 +97,7 @@
 # ------------------------------------------------------------
 
 
+
 def check_subset_answer(possible_answer, target):
     # Checking an answer is fast.
     # We only add the numbers and compare the total to the target.
@@ -224,3 +225,24 @@ print(subset_sum(numbers, target))           # True
 print()
 print("Running brute force search with trace:")
 subset_sum_with_trace(numbers, target)
+
+# ------------------------------------------------------------
+# Why use brute force here?
+# ------------------------------------------------------------
+#
+# We are not using brute force because it is the best solution.
+#
+# We are using brute force because it clearly shows the problem:
+#
+#   Each number gives us two choices:
+#
+#       Use it
+#       Skip it
+#
+#   This causes the number of combinations to double.
+#
+# That is what makes this type of problem slow as the input grows.
+#
+# Later, smarter solutions can use pruning, caching, or dynamic
+# programming to avoid checking unnecessary combinations.
+# ------------------------------------------------------------
