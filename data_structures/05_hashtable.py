@@ -35,33 +35,40 @@
 # Worst case can become O(n) if many keys collide,
 # but Python dictionaries are highly optimized for normal use.
 
-# A hash table stores as key-value pairs.
+
+# A hash table stores data as key-value pairs.
 #
-# In Python, a dictionary is a built-in hash table
+# In Python, a dictionary is a built-in hash table.
+#
 # Example:
-# Key -> Work Emitz
-# Value -> Wheel("Work Emitz", 18, 11.5, "5x114.3", "Gold", 5500.00)
+# key   -> "Work VSKF"
+# value -> Wheel("Work VSKF", 18, 10.0, "5x114.3", "Silver", 4500.00)
 
 from dataclasses import dataclass
 
-# ================================
+
+# =========================================
 # RECORD
-#=================================
+# =========================================
 
 # RECORD:
 # Represents one wheel.
+#
+# This is the value we will store inside the hash table.
+
 @dataclass
 class Wheel:
     name: str           # The name of the wheel
-    diameter: int       # The diameter of the wheel in inches 
+    diameter: int       # The diameter of the wheel in inches
     width: float        # The width of the wheel in inches
     bolt_pattern: str   # The bolt pattern of the wheel, e.g., "5x114.3"
     color: str          # The color of the wheel
     price: float        # The price of the wheel in dollars
 
-#===========================================
+
+# =========================================
 # HELPER FUNCTIONS
-# ===========================================
+# =========================================
 
 # Print the title of the section for visual separation.
 def show_section_title(title):
@@ -69,17 +76,18 @@ def show_section_title(title):
     print(title)
     print("=" * len(title) + "\n")
 
-#===========================================
-# CREATE HASH TABLE
-# ==========================================
 
-# CREATEHASH TABLE:
-# This function creates and returns our starting has table.
+# =========================================
+# CREATE HASH TABLE
+# =========================================
+
+# CREATE HASH TABLE:
+# This function creates and returns our starting hash table.
 #
 # The key is the wheel name.
-# The value is the wheel record.
+# The value is the Wheel record.
 #
-# This lets us quickly find a wheel if we know it's name. 
+# This lets us quickly find a wheel if we know its name.
 
 def create_inventory():
     inventory = {
@@ -91,15 +99,16 @@ def create_inventory():
 
     return inventory
 
-#===========================================
-# DISPLAY
-# ==========================================
 
+# =========================================
 # DISPLAY
-# Loop through all of the key-value pairs in the hash table.
+# =========================================
+
+# DISPLAY:
+# Loop through all key-value pairs in the hash table.
 #
-# Key = the name used to find the wheel
-# Value = the wheel record stored under that key
+# key   = the name used to find the wheel
+# value = the Wheel record stored under that key
 
 def display_inventory(inventory):
     show_section_title("1. DISPLAY HASH TABLE INVENTORY")
@@ -114,45 +123,46 @@ def display_inventory(inventory):
         print(f"Price: ${wheel.price:.2f}")
         print()
 
-#===========================================
+
+# =========================================
 # INSERT
-# ==========================================
+# =========================================
 
 # INSERT:
 # Add a new key-value pair to the hash table.
 #
 # If the key does not exist, Python adds it.
-# If the key already exists, Python replaces the old value. 
+# If the key already exists, Python replaces the old value.
 
 def add_inventory_item(inventory, wheel):
     show_section_title("2. INSERT INTO HASH TABLE")
 
     # The wheel name becomes the key.
-    # The full wheel record becomes the value
-    inventory[wheel.name] = Wheel
+    # The full Wheel record becomes the value.
+    inventory[wheel.name] = wheel
 
     print(f"Added wheel using key: {wheel.name}")
     print(f"Inventory count is now: {len(inventory)}")
 
-#===========================================
-# SEARCH
-# ==========================================
 
-# SEARCH: 
+# =========================================
+# SEARCH
+# =========================================
+
+# SEARCH:
 # Search for a wheel by key.
 #
-# Hash tables are great when you know the key. 
+# Hash tables are great when you know the key.
 # Instead of checking every wheel one by one,
 # Python uses the key to quickly find the value.
 
 def search_inventory_by_name(inventory, search_name):
-    show_section_title("3. SEARCH HASH TABLE")
+    show_section_title("3. SEARCH HASH TABLE BY KEY")
 
-    # get() safely looks for the key
+    # get() safely looks for a key.
     #
-    # If the key exist, it returns the value.
+    # If the key exists, it returns the value.
     # If the key does not exist, it returns None.
-
     result = inventory.get(search_name)
 
     print(f"Search Result for '{search_name}':")
@@ -163,6 +173,7 @@ def search_inventory_by_name(inventory, search_name):
         print(f"Price: ${result.price:.2f}")
     else:
         print("Wheel not found.")
+
 
 # =========================================
 # UPDATE
@@ -210,3 +221,41 @@ def remove_inventory_item(inventory, wheel_name):
         print(f"Wheel '{wheel_name}' not found.")
 
 
+# =========================================
+# MAIN PROGRAM
+# =========================================
+
+# Create the starting hash table inventory.
+inventory = create_inventory()
+
+
+# SECTION 1:
+# Display all key-value pairs.
+display_inventory(inventory)
+
+
+# SECTION 2:
+# Insert a new wheel into the hash table.
+new_wheel = Wheel("Enkei RPF1", 18, 9.0, "5x114.3", "Hyper Silver", 3000.00)
+add_inventory_item(inventory, new_wheel)
+
+
+# SECTION 3:
+# Search for a wheel using its key.
+search_inventory_by_name(inventory, "Work VSKF")
+
+
+# SECTION 4:
+# Update a wheel value using its key.
+update_inventory_item_color(inventory, "Work VSKF", "Burning Black")
+
+
+# SECTION 5:
+# Delete a wheel using its key.
+remove_inventory_item(inventory, "Work Emitz")
+
+
+# SECTION 6:
+# Display the final hash table after all changes.
+show_section_title("6. FINAL HASH TABLE INVENTORY")
+display_inventory(inventory)
