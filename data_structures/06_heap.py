@@ -153,3 +153,28 @@ def add_inventory_item(inventory, wheel):
     print(f"Added wheel to heap: {wheel.name}")
     print(f"Priority price: ${wheel.price:.2f}")
     print(f"Heap count is now: {len(inventory)}")
+
+# =========================================
+# PEEK
+# =========================================
+
+# PEEK:
+# Look at the highest-priority item without removing it.
+#
+# In a min-heap, the highest-priority item is the smallest value.
+#
+# Since we are using price as the priority,
+# the top item is the cheapest wheel.
+
+def peek_cheapest_wheel(inventory):
+    show_section_title("3. PEEK AT CHEAPEST WHEEL")
+
+    if len(inventory) == 0:
+        print("Heap is empty.")
+        return
+
+    price, wheel = inventory[0] # This line is 0(1)becase the top of the heap is always at index 0
+
+    print("Cheapest wheel currently in heap:")
+    print(f"Model: {wheel.name}")
+    print(f"Price: ${price:.2f}")
