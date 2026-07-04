@@ -217,7 +217,6 @@ def shortest_path_with_trace(graph, start, target):
 
         if current == target:
             print(f"Found target: {target}")
-            print(f"Shortest path: {path}")
             return path
 
         print(f"Current node: {current}")
@@ -244,7 +243,7 @@ start = "A"
 target = "F"
 
 print("Shortest Path Example")
-print("-" * 40)
+print("=" * 40)
 
 print("Graph:")
 for node, neighbors in graph.items():
@@ -254,9 +253,30 @@ print()
 print(f"Goal: Find the shortest path from {start} to {target}")
 print()
 
+
+# ------------------------------------------------------------
+# Regular shortest path result
+# ------------------------------------------------------------
+
+print("Regular Shortest Path Result")
+print("-" * 40)
+
 path = shortest_path(graph, start, target)
 
-print(f"Shortest path: {path}")
+print(f"Shortest path from {start} to {target}: {path}")
+
+
+# ------------------------------------------------------------
+# Trace shortest path result
+# ------------------------------------------------------------
 
 print()
-shortest_path_with_trace(graph, start, target)
+print("Trace: How BFS Finds the Shortest Path")
+print("-" * 40)
+
+trace_path = shortest_path_with_trace(graph, start, target)
+
+print()
+print("Trace Result")
+print("-" * 40)
+print(f"Shortest path from {start} to {target}: {trace_path}")
