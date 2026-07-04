@@ -164,6 +164,10 @@ def search_inventory_by_name(inventory, search_name):
     else:
         print("Wheel not found.")
 
+# =========================================
+# UPDATE
+# =========================================
+
 # UPDATE:
 # Update an existing wheel in the hash table.
 #
@@ -180,4 +184,29 @@ def update_inventory_item_color(inventory, wheel_name, new_color):
         print(f"New color: {new_color}")
     else:
         print(f"Wheel '{wheel_name}' not found.")
+
+
+# =========================================
+# DELETE
+# =========================================
+
+# DELETE:
+# Remove a wheel from the hash table using its key.
+#
+# del removes the key-value pair completely.
+
+def remove_inventory_item(inventory, wheel_name):
+    show_section_title("5. DELETE FROM HASH TABLE")
+
+    # Check if the key exists before trying to delete it.
+    if wheel_name in inventory:
+        removed_wheel = inventory[wheel_name]
+
+        del inventory[wheel_name]
+
+        print(f"Removed wheel: {removed_wheel.name}")
+        print(f"Inventory count is now: {len(inventory)}")
+    else:
+        print(f"Wheel '{wheel_name}' not found.")
+
 
