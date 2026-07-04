@@ -34,15 +34,76 @@
 # - Loop through all items: O(n)
 #   You must visit every item once.
 
+
+# MIN-HEAP VISUAL:
+#
 # A heap is a priority-based data structure.
 #
-# In Python, heapq gives us a min-heap.
+# In a min-heap, the smallest value has the highest priority.
+# That means the cheapest wheel stays at the top.
 #
-# Min-heap rule:
-# The smallest value stays at the top.
+# Example using wheel prices:
 #
-# For this project:
-# The wheel with the lowest price will be treated as the highest-priority item.
+#                 $3000
+#                /     \
+#            $3500     $5500
+#           /    \
+#       $7500    $4500
+#
+# Important:
+# A heap is not fully sorted.
+# It only guarantees that the smallest item is at the top.
+#
+# In this project:
+#
+# Lower price = higher priority
+#
+# Mental model:
+#
+# A priority line where the most important item comes out first.
+#
+# Min-Heap = smallest value comes out first
+
+# MAX-HEAP NOTE:
+#
+# Python's heapq is a min-heap by default.
+#
+# Min-heap:
+# - Smallest value comes out first.
+# - Good for finding the cheapest wheel.
+#
+# Max-heap:
+# - Largest value comes out first.
+# - Good for finding the most expensive wheel.
+#
+# Python does not have a separate max-heap tool in heapq.
+# The common trick is to multiply the priority by -1.
+#
+# Example:
+#
+# Min-heap priority:
+# (3000, Wheel(...))
+#
+# Max-heap priority:
+# (-3000, Wheel(...))
+#
+# Why does this work?
+#
+# Python still removes the smallest number first.
+# Since -7500 is smaller than -3000,
+# the $7500 wheel comes out before the $3000 wheel.
+#
+# Original prices:
+# 3000, 3500, 7500
+#
+# Negative priorities:
+# -3000, -3500, -7500
+#
+# Smallest negative number:
+# -7500
+#
+# Result:
+# $7500 comes out first.
 
 from dataclasses import dataclass
 import heapq

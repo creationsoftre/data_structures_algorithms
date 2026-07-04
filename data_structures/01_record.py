@@ -27,6 +27,28 @@ from dataclasses import dataclass
 # - Compare two records: O(1)
 #   Usually constant time if the record has a fixed number of fields.
 
+# RECORD VISUAL:
+#
+# A record groups related fields together into one object.
+#
+# Example:
+#
+# Wheel Record
+# -------------------------------------------------
+# name         -> "Volk Racing TE37"
+# diameter     -> 18
+# width        -> 9.5
+# bolt_pattern -> "5x114.3"
+# color        -> "Matte Bronze"
+# price        -> 3500.00
+# -------------------------------------------------
+#
+# Mental model:
+#
+# One structured thing with named fields.
+#
+# Record = one item with details
+
 # A record stores related data together
 # This record represents a vehicle wheel
 @dataclass

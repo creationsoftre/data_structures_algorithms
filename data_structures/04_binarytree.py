@@ -33,7 +33,9 @@
 #   You keep moving left for minimum or right for maximum.
 
 
-# A binary search tree is a data structure where each node can have up to two children.
+# BINARY SEARCH TREE VISUAL:
+#
+# A binary search tree is a tree where each node can have up to two children.
 #
 # Each node can have:
 # - one left child
@@ -53,8 +55,26 @@
 #                       \
 #                       $5500
 #
-# This structure makes searching faster than checking every item,
-# as long as the tree stays fairly balanced.
+# Same tree with wheel names:
+#
+#                 TE37
+#                $3500
+#               /     \
+#         Enkei RPF1   Work VSKF
+#            $3000       $4500
+#                          \
+#                         Work Emitz
+#                           $5500
+#
+# Mental model:
+#
+# At each node, ask:
+# "Is the new value smaller or larger?"
+#
+# Smaller = go left
+# Larger  = go right
+#
+# Binary Search Tree = sorted decision tree
 
 from dataclasses import dataclass
 

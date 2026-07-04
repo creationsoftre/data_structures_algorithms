@@ -36,13 +36,42 @@
 # but Python dictionaries are highly optimized for normal use.
 
 
+# HASH TABLE VISUAL:
+#
 # A hash table stores data as key-value pairs.
 #
 # In Python, a dictionary is a built-in hash table.
 #
 # Example:
-# key   -> "Work VSKF"
-# value -> Wheel("Work VSKF", 18, 10.0, "5x114.3", "Silver", 4500.00)
+#
+# Key                  Value
+# ---------------------------------------------------------
+# "Volk Racing TE37" -> Wheel("Volk Racing TE37", ...)
+# "Work VSKF"        -> Wheel("Work VSKF", ...)
+# "Work Emitz"       -> Wheel("Work Emitz", ...)
+# "BBS LM"           -> Wheel("BBS LM", ...)
+# ---------------------------------------------------------
+#
+# Mental model:
+#
+# A labeled storage cabinet.
+#
+# If you know the label/key, you can quickly find the value.
+#
+# Hash Table = key-value lookup
+
+# HASH COLLISION VISUAL:
+#
+# A collision happens when two keys point to the same internal storage area.
+#
+# Example:
+#
+# Key A ----\
+#            ---> Same bucket
+# Key B ----/
+#
+# Python handles this internally.
+# For normal use, dictionary lookups are still usually O(1) average time.
 
 from dataclasses import dataclass
 

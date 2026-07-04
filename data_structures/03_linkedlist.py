@@ -37,6 +37,29 @@
 # - Delete a known node with previous node reference: O(1)
 #   If you already have the node and previous node reference, relinking is constant time.
 
+# LINKED LIST VISUAL:
+#
+# A linked list is made of nodes.
+# Each node stores data and a pointer/reference to the next node.
+#
+# Head
+#  |
+#  v
+# [TE37] -> [Work VSKF] -> [Work Emitz] -> [BBS LM] -> None
+#
+# Each node looks like this:
+#
+# [ data | next ]
+#
+# data = the wheel record
+# next = reference to the next node
+#
+# Mental model:
+#
+# A chain where each link points to the next link.
+#
+# Linked List = connected nodes
+
 from dataclasses import dataclass
 
 # RECORD represents one wheel

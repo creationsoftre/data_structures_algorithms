@@ -13,7 +13,7 @@
 # Simple rule:
 # O(1) is usually better/faster than O(n).
 #
-# ARRAY / LIST TIME COMPLEXITY:
+# ARRAY TIME COMPLEXITY:
 #
 # - Access by index: O(1)
 #   You can jump directly to an item if you know its index, such as inventory[0].
@@ -35,6 +35,25 @@
 #
 # - Loop through all items: O(n)
 #   You visit each item one time.
+
+# ARRAY VISUAL:
+#
+# An array/list stores multiple items in order.
+# Each item has a position called an index.
+#
+# Index:    0           1            2          3
+# Value:  [TE37] -> [Work VSKF] -> [Emitz] -> [BBS LM]
+#
+# Access by index:
+#
+# inventory[0] = TE37
+# inventory[1] = Work VSKF
+#
+# Mental model:
+#
+# A row of numbered parking spaces.
+#
+# Array/List = ordered collection
 
 from dataclasses import dataclass
 
