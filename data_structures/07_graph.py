@@ -60,3 +60,36 @@
 
 from collections import deque
 
+
+# =========================================
+# GRAPH
+# =========================================
+
+# GRAPH:
+# This graph uses an adjacency list.
+#
+# The adjacency list is a dictionary:
+#
+# key   = a node
+# value = a set of neighboring nodes
+#
+# Example:
+#
+# {
+#     "Volk Racing TE37": {"Nissan 350Z", "Toyota Supra"},
+#     "Nissan 350Z": {"Volk Racing TE37"}
+# }
+#
+# This graph is undirected.
+#
+# Undirected means the connection goes both ways:
+#
+# If TE37 connects to Nissan 350Z,
+# then Nissan 350Z also connects back to TE37.
+
+class Graph:
+    def __init__(self):
+        # Start with an empty dictionary.
+        # No nodes or edges exist yet.
+        self.adjacency_list = {}
+
