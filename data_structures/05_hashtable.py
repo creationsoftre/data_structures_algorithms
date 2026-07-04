@@ -163,3 +163,21 @@ def search_inventory_by_name(inventory, search_name):
         print(f"Price: ${result.price:.2f}")
     else:
         print("Wheel not found.")
+
+# UPDATE:
+# Update an existing wheel in the hash table.
+#
+# Since we know the key, we can access the wheel directly.
+
+def update_inventory_item_color(inventory, wheel_name, new_color):
+    show_section_title("4. UPDATE HASH TABLE VALUE")
+
+    # Check if the key exists before trying to update it.
+    if wheel_name in inventory:
+        inventory[wheel_name].color = new_color
+
+        print(f"Updated {wheel_name}")
+        print(f"New color: {new_color}")
+    else:
+        print(f"Wheel '{wheel_name}' not found.")
+
