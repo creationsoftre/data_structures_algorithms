@@ -77,3 +77,33 @@ def show_section_title(title):
     print("\n" + "=" * len(title))
     print(title)
     print("=" * len(title) + "\n")
+
+# =========================================
+# CREATE HEAP
+# =========================================
+
+# CREATE HEAP:
+# This function creates and returns our starting heap.
+#
+# A heap is usually stored as a normal Python list,
+# but heapq controls how items are added and removed.
+#
+# Each item in the heap is a tuple:
+#
+# (priority, value)
+#
+# In this project:
+# priority = wheel price
+# value    = Wheel record
+#
+# Since this is a min-heap, the lowest price comes out first.
+
+def create_inventory_heap():
+    inventory = []
+
+    heapq.heappush(inventory,(3500.00, Wheel("Volk Racing TE37", 18, 9.5, "5x114.3", "Matte Bronze", 3500.00)))
+    heapq.heappush(inventory,(4500.00, Wheel("Work VSKF", 18, 10.0, "5x114.3", "Silver", 4500.00)))
+    heapq.heappush(inventory,(5500.00, Wheel("Work Emitz", 18, 11.5, "5x114.3", "Gold", 5500.00)))
+    heapq.heappush(inventory,(7500.00, Wheel("BBS LM", 18, 10.5, "5x114.3", "Polished Silver", 7500.00)))
+
+    return inventory
