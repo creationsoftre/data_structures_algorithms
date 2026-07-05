@@ -237,32 +237,48 @@ def fibonacci_optimized(n):
 # Trace version
 # ------------------------------------------------------------
 #
-# This version shows how dynamic programming stores answers.
+# This version shows how memoization works.
+#
+# It makes the output easier to read by indenting each recursive
+# call based on how deep we are in the call stack.
 # ------------------------------------------------------------
 
-def fibonacci_memo_with_trace(n, memo=None):
+def fibonacci_memo_with_trace(n, memo=None, depth=0):
+    # Create the memo dictionary the first time the function runs.
     if memo is None:
         memo = {}
 
-    print(f"Solving fib({n})")
+    # Indentation helps show the recursive depth.
+    indent = "  " * depth
 
+    print(f"{indent}Call: fib({n})")
+
+    # If we already solved this value, reuse it.
     if n in memo:
-        print(f"fib({n}) already solved. Reuse answer: {memo[n]}")
+        print(f"{indent}Reuse: fib({n}) = {memo[n]}")
         return memo[n]
 
+    # Base case: fib(0) is 0.
     if n == 0:
-        print("fib(0) = 0")
+        print(f"{indent}Base case: fib(0) = 0")
         return 0
 
+    # Base case: fib(1) is 1.
     if n == 1:
-        print("fib(1) = 1")
+        print(f"{indent}Base case: fib(1) = 1")
         return 1
 
-    print(f"Need fib({n - 1}) and fib({n - 2})")
+    # Explain what this call needs.
+    print(f"{indent}Need: fib({n - 1}) + fib({n - 2})")
 
-    memo[n] = fibonacci_memo_with_trace(n - 1, memo) + fibonacci_memo_with_trace(n - 2, memo)
+    # Recursively solve the two smaller problems.
+    left = fibonacci_memo_with_trace(n - 1, memo, depth + 1)
+    right = fibonacci_memo_with_trace(n - 2, memo, depth + 1)
 
-    print(f"Store fib({n}) = {memo[n]}")
+    # Store the answer so we do not have to solve fib(n) again.
+    memo[n] = left + right
+
+    print(f"{indent}Store: fib({n}) = {left} + {right} = {memo[n]}")
 
     return memo[n]
 
@@ -303,4 +319,8 @@ print(f"fib({n}) = {fibonacci_optimized(n)}")
 print()
 print("Trace: Memoization")
 print("-" * 40)
-fibonacci_memo_with_trace(n)
+
+result = fibonacci_memo_with_trace(n)
+
+print("-" * 40)
+print(f"Final result: fib({n}) = {result}")
