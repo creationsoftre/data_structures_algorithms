@@ -24,3 +24,21 @@
 #
 #   "BABC"
 #
+# ------------------------------------------------------------
+# SUBSTRING VS SUBSEQUENCE
+# ------------------------------------------------------------
+#
+# Substring:
+#   Characters must be next to each other.
+#
+#   Example:
+#       "ABC" is a substring of "ABCD"
+#
+# Subsequence:
+#   Characters do not have to be next to each other.
+#
+#   Example:
+#       "ACD" is a subsequence of "ABCD"
+#
+# This file is about substring, not subsequence.
+#
