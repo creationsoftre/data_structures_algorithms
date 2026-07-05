@@ -42,3 +42,30 @@
 #
 # This file is about substring, not subsequence.
 #
+# ------------------------------------------------------------
+# BIG O / SPEED
+# ------------------------------------------------------------
+#
+# Time Complexity:
+#   O(m * n)
+#
+# Speed:
+#   Slower than a simple loop, but much faster than checking
+#   every possible substring manually.
+#
+# Why?
+#   We compare each character from str1 with each character from str2.
+#
+#   m = length of str1
+#   n = length of str2
+#
+# ------------------------------------------------------------
+# SPACE COMPLEXITY
+# ------------------------------------------------------------
+#
+# Space Complexity:
+#   O(m * n)
+#
+# Why?
+#   We create a table with rows for str1 and columns for str2.
+#
