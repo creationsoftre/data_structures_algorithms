@@ -49,3 +49,59 @@
 # Why?
 #   Each Fibonacci number is solved once and reused.
 #
+# ------------------------------------------------------------
+# SPACE COMPLEXITY
+# ------------------------------------------------------------
+#
+# Memoization version:
+#   O(n)
+#
+# Why?
+#   We store answers in a dictionary.
+#
+# Bottom-up version:
+#   O(n)
+#
+# Why?
+#   We store answers in a list.
+#
+# Optimized bottom-up version:
+#   O(1)
+#
+# Why?
+#   We only keep the last two values.
+#
+# ------------------------------------------------------------
+# IMPORTANT NOTE
+# ------------------------------------------------------------
+#
+# Dynamic programming is useful when a problem has repeated work.
+#
+# If the same smaller problem shows up multiple times, we can store
+# the answer instead of solving it again.
+#
+# This is why dynamic programming can make some slow problems faster.
+# ============================================================
+
+
+# ------------------------------------------------------------
+# Example 1: Basic recursion
+# ------------------------------------------------------------
+#
+# This version works, but it is slow.
+#
+# Why?
+#
+#   It recalculates the same Fibonacci values many times.
+#
+# Example:
+#
+#   fib(5)
+#   = fib(4) + fib(3)
+#
+#   fib(4)
+#   = fib(3) + fib(2)
+#
+# Notice fib(3) appears more than once.
+# That means repeated work.
+# ------------------------------------------------------------
