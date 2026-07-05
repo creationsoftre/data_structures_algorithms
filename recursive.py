@@ -122,7 +122,43 @@ def fibonacci_recursive(n):
     return fibonacci_recursive(n - 1) + fibonacci_recursive(n - 2)
 
 
+# ------------------------------------------------------------
+# Example 2: Dynamic programming with memoization
+# ------------------------------------------------------------
+#
+# Memoization means:
+#
+#   Store answers after calculating them.
+#
+# This version uses a dictionary called memo.
+#
+# If we already solved fib(n), we reuse it.
+# ------------------------------------------------------------
 
+def fibonacci_memo(n, memo=None):
+    # Create the memo dictionary the first time the function runs.
+    if memo is None:
+        memo = {}
+
+    # If we already solved this value, return the stored answer.
+    if n in memo:
+        return memo[n]
+
+    # Base case:
+    # fib(0) is 0.
+    if n == 0:
+        return 0
+
+    # Base case:
+    # fib(1) is 1.
+    if n == 1:
+        return 1
+
+    # Solve the problem and store the answer.
+    memo[n] = fibonacci_memo(n - 1, memo) + fibonacci_memo(n - 2, memo)
+
+    # Return the stored answer.
+    return memo[n]
 
 
 
@@ -148,3 +184,8 @@ print()
 print("Regular recursion:")
 print("-" * 40)
 print(f"fib({n}) = {fibonacci_recursive(n)}")
+
+print()
+print("Dynamic programming with memoization:")
+print("-" * 40)
+print(f"fib({n}) = {fibonacci_memo(n)}")
