@@ -161,6 +161,38 @@ def fibonacci_memo(n, memo=None):
     return memo[n]
 
 
+# ------------------------------------------------------------
+# Example 3: Dynamic programming bottom-up
+# ------------------------------------------------------------
+#
+# Bottom-up means:
+#
+#   Start from the smallest answers.
+#   Build up to the answer we want.
+#
+# Instead of starting at fib(n), we start at fib(0) and fib(1).
+# ------------------------------------------------------------
+
+def fibonacci_bottom_up(n):
+    # If n is 0, return 0.
+    if n == 0:
+        return 0
+
+    # Create a list to store Fibonacci answers. 
+    # Var name dp is short for dynamic programing
+    dp = [0] * (n + 1)
+
+    # Store the first two known answers.
+    dp[0] = 0
+    dp[1] = 1
+
+    # Build the answers from 2 up to n.
+    for i in range(2, n + 1):
+        dp[i] = dp[i - 1] + dp[i - 2]
+
+    # Return the answer for fib(n).
+    return dp[n]
+
 
 
 
@@ -189,3 +221,8 @@ print()
 print("Dynamic programming with memoization:")
 print("-" * 40)
 print(f"fib({n}) = {fibonacci_memo(n)}")
+
+print()
+print("Bottom-up dynamic programming:")
+print("-" * 40)
+print(f"fib({n}) = {fibonacci_bottom_up(n)}")
