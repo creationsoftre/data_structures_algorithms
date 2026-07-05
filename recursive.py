@@ -233,7 +233,38 @@ def fibonacci_optimized(n):
 
 
 
+# ------------------------------------------------------------
+# Trace version
+# ------------------------------------------------------------
+#
+# This version shows how dynamic programming stores answers.
+# ------------------------------------------------------------
 
+def fibonacci_memo_with_trace(n, memo=None):
+    if memo is None:
+        memo = {}
+
+    print(f"Solving fib({n})")
+
+    if n in memo:
+        print(f"fib({n}) already solved. Reuse answer: {memo[n]}")
+        return memo[n]
+
+    if n == 0:
+        print("fib(0) = 0")
+        return 0
+
+    if n == 1:
+        print("fib(1) = 1")
+        return 1
+
+    print(f"Need fib({n - 1}) and fib({n - 2})")
+
+    memo[n] = fibonacci_memo_with_trace(n - 1, memo) + fibonacci_memo_with_trace(n - 2, memo)
+
+    print(f"Store fib({n}) = {memo[n]}")
+
+    return memo[n]
 
 
 
@@ -268,3 +299,8 @@ print()
 print("Optimized bottom-up dynamic programming:")
 print("-" * 40)
 print(f"fib({n}) = {fibonacci_optimized(n)}")
+
+print()
+print("Trace: Memoization")
+print("-" * 40)
+fibonacci_memo_with_trace(n)
