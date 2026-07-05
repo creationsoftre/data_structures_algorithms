@@ -194,6 +194,54 @@ def fibonacci_iterative_optimized(n):
 
     return current
 
+# ------------------------------------------------------------
+# Optimized iterative DP with trace
+# ------------------------------------------------------------
+#
+# This version shows how we move only two values forward.
+# ------------------------------------------------------------
+
+def fibonacci_iterative_optimized_with_trace(n):
+    if n == 0:
+        print("fib(0) = 0")
+        return 0
+
+    if n == 1:
+        print("fib(1) = 1")
+        return 1
+
+    previous = 0
+    current = 1
+
+    print(f"Goal: Find fib({n})")
+    print("-" * 40)
+    print("Start with:")
+    print(f"previous = {previous}  # fib(0)")
+    print(f"current  = {current}  # fib(1)")
+    print()
+    print("Move forward one Fibonacci number at a time:")
+    print("-" * 40)
+
+    for i in range(2, n + 1):
+        next_value = previous + current
+
+        print(f"Finding fib({i})")
+        print(f"previous + current = {previous} + {current}")
+        print(f"next_value = {next_value}")
+
+        previous = current
+        current = next_value
+
+        print("Move values forward:")
+        print(f"previous = {previous}")
+        print(f"current  = {current}")
+        print()
+
+    print("-" * 40)
+    print(f"Final answer: fib({n}) = {current}")
+
+    return current
+
 
 # ------------------------------------------------------------
 # Main Program
@@ -219,6 +267,10 @@ print()
 print("Optimized Iterative DP:")
 print("-" * 40)
 print(f"fib({n}) = {fibonacci_iterative_optimized(n)}")
+
 print()
+print("Trace: Optimized Iterative DP")
+print("-" * 40)
+fibonacci_iterative_optimized_with_trace(n)
 
 
