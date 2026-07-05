@@ -109,6 +109,56 @@ def fibonacci_iterative_dp(n):
 
 
 # ------------------------------------------------------------
+# Iterative DP with trace
+# ------------------------------------------------------------
+#
+# This version prints the DP list as it is being built.
+#
+# This helps us see:
+#
+#   Which value is being calculated
+#   Which previous values are being used
+#   How the table grows
+# ------------------------------------------------------------
+
+def fibonacci_iterative_dp_with_trace(n):
+    if n == 0:
+        print("fib(0) = 0")
+        return 0
+
+    dp = [0] * (n + 1)
+
+    dp[0] = 0
+    dp[1] = 1
+
+    print(f"Goal: Find fib({n})")
+    print("-" * 40)
+    print("Start with the known base values:")
+    print(f"dp[0] = {dp[0]}")
+    print(f"dp[1] = {dp[1]}")
+    print()
+    print("Build the table from left to right:")
+    print("-" * 40)
+
+    for i in range(2, n + 1):
+        left = dp[i - 1]
+        right = dp[i - 2]
+
+        dp[i] = left + right
+
+        print(f"Finding fib({i})")
+        print(f"Use fib({i - 1}) + fib({i - 2})")
+        print(f"{left} + {right} = {dp[i]}")
+        print(f"DP table now: {dp[:i + 1]}")
+        print()
+
+    print("-" * 40)
+    print(f"Final answer: fib({n}) = {dp[n]}")
+
+    return dp[n]
+
+
+# ------------------------------------------------------------
 # Main Program
 # ------------------------------------------------------------
 
@@ -121,3 +171,9 @@ print()
 print("Using a DP table:")
 print("-" * 40)
 print(f"fib({n}) = {fibonacci_iterative_dp(n)}")
+
+
+print()
+print("Trace: DP Table")
+print("-" * 40)
+fibonacci_iterative_dp_with_trace(n)
