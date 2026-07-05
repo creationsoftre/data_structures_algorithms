@@ -157,6 +157,43 @@ def fibonacci_iterative_dp_with_trace(n):
 
     return dp[n]
 
+# ------------------------------------------------------------
+# Optimized iterative DP
+# ------------------------------------------------------------
+#
+# This version uses less memory.
+#
+# Instead of storing the whole dp list, we only keep the previous
+# two values.
+#
+# Why does this work?
+#
+#   To calculate the next Fibonacci number, we only need:
+#
+#       fib(i - 1)
+#       fib(i - 2)
+#
+# We do not need the entire list.
+# ------------------------------------------------------------
+
+def fibonacci_iterative_optimized(n):
+    if n == 0:
+        return 0
+
+    if n == 1:
+        return 1
+
+    previous = 0
+    current = 1
+
+    for i in range(2, n + 1):
+        next_value = previous + current
+
+        previous = current
+        current = next_value
+
+    return current
+
 
 # ------------------------------------------------------------
 # Main Program
@@ -177,3 +214,11 @@ print()
 print("Trace: DP Table")
 print("-" * 40)
 fibonacci_iterative_dp_with_trace(n)
+
+print()
+print("Optimized Iterative DP:")
+print("-" * 40)
+print(f"fib({n}) = {fibonacci_iterative_optimized(n)}")
+print()
+
+
