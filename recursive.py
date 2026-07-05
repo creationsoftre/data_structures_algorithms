@@ -194,6 +194,43 @@ def fibonacci_bottom_up(n):
     return dp[n]
 
 
+# ------------------------------------------------------------
+# Example 4: Optimized bottom-up
+# ------------------------------------------------------------
+#
+# This version does not store the whole list.
+#
+# Why?
+#
+#   To calculate the next Fibonacci number,
+#   we only need the previous two numbers.
+#
+# This saves memory.
+# ------------------------------------------------------------
+
+def fibonacci_optimized(n):
+    # fib(0) is 0.
+    if n == 0:
+        return 0
+
+    # fib(1) is 1.
+    if n == 1:
+        return 1
+
+    # Store the previous two Fibonacci numbers.
+    previous = 0
+    current = 1
+
+    # Build from fib(2) up to fib(n).
+    for i in range(2, n + 1):
+        next_value = previous + current
+
+        # Move the values forward.
+        previous = current
+        current = next_value
+
+    return current
+
 
 
 
@@ -226,3 +263,8 @@ print()
 print("Bottom-up dynamic programming:")
 print("-" * 40)
 print(f"fib({n}) = {fibonacci_bottom_up(n)}")
+
+print()
+print("Optimized bottom-up dynamic programming:")
+print("-" * 40)
+print(f"fib({n}) = {fibonacci_optimized(n)}")
