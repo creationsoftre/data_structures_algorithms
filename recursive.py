@@ -105,3 +105,46 @@
 # Notice fib(3) appears more than once.
 # That means repeated work.
 # ------------------------------------------------------------
+
+def fibonacci_recursive(n):
+    # Base case:
+    # fib(0) is 0.
+    if n == 0:
+        return 0
+
+    # Base case:
+    # fib(1) is 1.
+    if n == 1:
+        return 1
+
+    # Recursive case:
+    # Add the previous two Fibonacci numbers.
+    return fibonacci_recursive(n - 1) + fibonacci_recursive(n - 2)
+
+
+
+
+
+
+
+
+
+
+
+
+
+# ============================================
+# MAIN PROGRAM
+# ============================================
+
+n = 6 
+
+print("Dynamic Programing")
+print("=" * 40)
+
+print(f"Goal: Find fib({n})")
+print()
+
+print("Regular recursion:")
+print("-" * 40)
+print(f"fib({n}) = {fibonacci_recursive(n)}")
