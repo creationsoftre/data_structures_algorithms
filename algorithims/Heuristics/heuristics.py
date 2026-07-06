@@ -206,7 +206,87 @@ def greedy_heuristic_path(grid, start, target):
 
 
 
+# ------------------------------------------------------------
+# Greedy heuristic search with trace
+# ------------------------------------------------------------
+#
+# This version prints each decision.
+#
+# It helps us see:
+#
+#   Current position
+#   Valid neighbors
+#   Heuristic score for each neighbor
+#   Why a move was selected
+# ------------------------------------------------------------
 
+def greedy_heuristic_path_with_trace(grid, start, target):
+    current = start
+    path = [current]
+    visited = set()
+
+    print("Heuristic Search Trace")
+    print("=" * 60)
+    print(f"Start: {start}")
+    print(f"Target: {target}")
+    print()
+    print("Heuristic rule:")
+    print("  Pick the valid neighbor with the smallest distance to the target.")
+    print()
+    print("Distance formula:")
+    print("  abs(current_row - target_row) + abs(current_col - target_col)")
+    print("=" * 60)
+    print()
+
+    while current != target:
+        visited.add(current)
+
+        print(f"Current position: {current}")
+
+        neighbors = get_neighbors(grid, current)
+
+        print(f"Valid neighbors: {neighbors}")
+
+        unvisited_neighbors = []
+
+        for neighbor in neighbors:
+            if neighbor not in visited:
+                unvisited_neighbors.append(neighbor)
+
+        if len(unvisited_neighbors) == 0:
+            print("No unvisited neighbors left.")
+            print("The heuristic search got stuck.")
+            return None
+
+        print("Heuristic scores:")
+
+        for neighbor in unvisited_neighbors:
+            score = heuristic(neighbor, target)
+            print(f"  {neighbor} -> distance to target = {score}")
+
+        next_position = min(
+            unvisited_neighbors,
+            key=lambda neighbor: heuristic(neighbor, target)
+        )
+
+        print()
+        print(f"Decision: Move to {next_position}")
+        print(
+            f"Why? {next_position} has the smallest distance "
+            f"to the target."
+        )
+
+        current = next_position
+        path.append(current)
+
+        print(f"Path so far: {path}")
+        print("-" * 60)
+        print()
+
+    print("Target reached.")
+    print(f"Final path: {path}")
+
+    return path
 
 
 
@@ -251,3 +331,6 @@ path = greedy_heuristic_path(grid, start, target)
 print("Regular Heuristic Result")
 print("-" * 60)
 print(f"Path found: {path}")
+
+print()
+greedy_heuristic_path_with_trace(grid, start, target)
