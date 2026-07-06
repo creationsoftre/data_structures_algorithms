@@ -61,3 +61,31 @@
 # Why?
 #   We sort the items by value_per_weight.
 #
+# ------------------------------------------------------------
+# SPACE COMPLEXITY
+# ------------------------------------------------------------
+#
+# Space Complexity:
+#   O(n)
+#
+# Why?
+#   We store the selected items.
+#
+# ------------------------------------------------------------
+# IMPORTANT NOTE
+# ------------------------------------------------------------
+#
+# Greedy works for fractional knapsack because we can take part
+# of an item.
+#
+# Greedy does not always work for 0/1 knapsack because we cannot
+# split items.
+#
+# Fractional knapsack:
+#
+#   Take all of an item, or take part of it.
+#
+# 0/1 knapsack:
+#
+#   Take the whole item, or skip it.
+# ============================================================
