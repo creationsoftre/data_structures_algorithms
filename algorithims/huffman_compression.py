@@ -49,3 +49,55 @@
 #
 #   n = number of characters in the string
 #
+# ------------------------------------------------------------
+# SPACE COMPLEXITY
+# ------------------------------------------------------------
+#
+# Space Complexity:
+#   O(n)
+#
+# Why?
+#   In the worst case, the compressed result can be about the
+#   same size or larger than the original input.
+#
+# ------------------------------------------------------------
+# IMPORTANT NOTE
+# ------------------------------------------------------------
+#
+# Compression is not always smaller.
+#
+# RLE works well when there are many repeated characters.
+#
+# Good example:
+#
+#   "AAAAAABBBBCC"
+#
+# Bad example:
+#
+#   "ABCDEF"
+#
+# "ABCDEF" could become:
+#
+#   "A1B1C1D1E1F1"
+#
+# That is larger than the original.
+#
+# So a real compression function should only return the compressed
+# version if it is actually smaller.
+# ============================================================
+
+
+# ------------------------------------------------------------
+# Compress using Run-Length Encoding
+# ------------------------------------------------------------
+#
+# This function compresses repeated characters.
+#
+# Example:
+#
+#   "AAAABBBCCDAA"
+#
+# becomes:
+#
+#   "A4B3C2D1A2"
+# ------------------------------------------------------------
