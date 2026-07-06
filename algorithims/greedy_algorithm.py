@@ -144,6 +144,63 @@ def coin_change_greedy(amount, coins):
 
 
 # ------------------------------------------------------------
+# Greedy coin change with trace
+# ------------------------------------------------------------
+#
+# This version prints each greedy choice.
+#
+# It helps us see:
+#
+#   Which coin is selected
+#   Why the coin is selected
+#   What amount is left
+# ------------------------------------------------------------
+
+def coin_change_greedy_with_trace(amount, coins):
+    coins.sort(reverse=True)
+
+    result = []
+
+    print("Greedy Coin Change Trace")
+    print("=" * 40)
+    print(f"Starting amount: {amount}")
+    print(f"Coins available: {coins}")
+    print()
+    print("Greedy rule:")
+    print("Choose the largest coin that does not go over the remaining amount.")
+    print("-" * 40)
+    print()
+
+    for coin in coins:
+        print(f"Checking coin: {coin}")
+
+        while amount >= coin:
+            print(f"  {coin} can fit into remaining amount {amount}.")
+            print(f"  Choose {coin}.")
+
+            result.append(coin)
+            amount -= coin
+
+            print(f"  Remaining amount: {amount}")
+            print(f"  Coins used so far: {result}")
+            print()
+
+        print(f"Done checking coin: {coin}")
+        print("-" * 40)
+
+    print()
+    print("Final Result")
+    print("-" * 40)
+    print(f"Coins used: {result}")
+    print(f"Number of coins: {len(result)}")
+
+    return result
+
+
+
+
+
+# ------------------------------------------------------------
 # Main Program
 # ------------------------------------------------------------
 
@@ -162,3 +219,6 @@ print("Regular Greedy Result")
 print("-" * 40)
 print(f"Coins used: {result}")
 print(f"Number of coins: {len(result)}")
+
+print()
+coin_change_greedy_with_trace(amount, coins.copy())
