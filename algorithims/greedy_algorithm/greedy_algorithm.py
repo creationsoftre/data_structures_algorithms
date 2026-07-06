@@ -197,7 +197,46 @@ def coin_change_greedy_with_trace(amount, coins):
     return result
 
 
+# ------------------------------------------------------------
+# Greedy failure example
+# ------------------------------------------------------------
+#
+# This shows that greedy does not always give the best answer.
+#
+# coins = [4, 3, 1]
+# amount = 6
+#
+# Greedy chooses:
+#
+#   4 + 1 + 1
+#
+# But the better answer is:
+#
+#   3 + 3
+# ------------------------------------------------------------
 
+def greedy_failure_demo():
+    amount = 6
+    coins = [4, 3, 1]
+
+    print("Greedy Failure Example")
+    print("=" * 40)
+    print(f"Amount: {amount}")
+    print(f"Coins available: {coins}")
+    print()
+    print("Greedy will choose the largest coin first.")
+    print()
+
+    result = coin_change_greedy(amount, coins)
+
+    print(f"Greedy result: {result}")
+    print(f"Number of coins greedy used: {len(result)}")
+    print()
+    print("Better answer:")
+    print("[3, 3]")
+    print("Number of coins better answer uses: 2")
+    print()
+    print("This shows greedy is fast, but not always optimal.")
 
 
 # ------------------------------------------------------------
@@ -222,3 +261,6 @@ print(f"Number of coins: {len(result)}")
 
 print()
 coin_change_greedy_with_trace(amount, coins.copy())
+
+print()
+greedy_failure_demo()
