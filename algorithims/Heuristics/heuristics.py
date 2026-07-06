@@ -81,3 +81,34 @@
 #
 # In this example, our heuristic is distance to the target.
 # ============================================================
+
+# ------------------------------------------------------------
+# Heuristic function
+# ------------------------------------------------------------
+#
+# This function estimates how far a position is from the target.
+#
+# We use Manhattan distance.
+#
+# Manhattan distance means:
+#
+#   How many row moves plus column moves are needed
+#   if we cannot move diagonally?
+#
+# Example:
+#
+#   position = (0, 0)
+#   target   = (3, 3)
+#
+#   distance = abs(0 - 3) + abs(0 - 3)
+#   distance = 3 + 3
+#   distance = 6
+#
+# Smaller distance means closer to the target.
+# ------------------------------------------------------------
+
+def heuristic(position, target):
+    row, col = position
+    target_row, target_col = target
+
+    return abs(row - target_row) + abs(col - target_col)
