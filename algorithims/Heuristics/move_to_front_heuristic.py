@@ -99,3 +99,49 @@
 #
 #   Return False.
 # ------------------------------------------------------------
+
+def move_to_front_search(items, target):
+    # Go through each item by index.
+    for index in range(len(items)):
+
+        # If we find the target, move it to the front.
+        if items[index] == target:
+
+            # Remove the item from its current position.
+            found_item = items.pop(index)
+
+            # Insert the item at the front of the list.
+            items.insert(0, found_item)
+
+            return True
+
+    # If the loop finishes, the target was not found.
+    return False
+
+# ------------------------------------------------------------
+# Main Program
+# ------------------------------------------------------------
+
+items = ["A", "B", "C", "D", "E"]
+
+print("Move-To-Front Heuristic Example")
+print("=" * 50)
+print(f"Original list: {items}")
+print()
+
+print("Regular Search Result")
+print("-" * 50)
+
+found = move_to_front_search(items, "D")
+
+print(f"Found D: {found}")
+print(f"List after search: {items}")
+
+print()
+print("Search for D again")
+print("-" * 50)
+
+found = move_to_front_search(items, "D")
+
+print(f"Found D: {found}")
+print(f"List after second search: {items}")
