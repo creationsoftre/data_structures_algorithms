@@ -139,5 +139,26 @@ def coin_change_greedy(amount, coins):
 
             # Subtract the coin from the remaining amount. 
             amount -= coin
-            
+
     return result
+
+
+# ------------------------------------------------------------
+# Main Program
+# ------------------------------------------------------------
+
+amount = 87
+coins = [25, 10, 5, 1]
+
+print("Greedy Algorithm Example")
+print("=" * 40)
+print(f"Goal: Make {amount} using the fewest coins.")
+print()
+
+result = coin_change_greedy(amount, coins.copy())
+
+
+print("Regular Greedy Result")
+print("-" * 40)
+print(f"Coins used: {result}")
+print(f"Number of coins: {len(result)}")
