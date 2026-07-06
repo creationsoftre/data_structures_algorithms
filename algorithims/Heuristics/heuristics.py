@@ -13,3 +13,23 @@
 #
 # But it can help find a good answer faster.
 #
+# ------------------------------------------------------------
+# EXAMPLE: GRID PATHFINDING
+# ------------------------------------------------------------
+#
+# Problem:
+#
+#   Find a path from a start position to a target position.
+#
+# Example grid:
+#
+#   S . . .
+#   . X . .
+#   . X . .
+#   . . . T
+#
+# S = start
+# T = target
+# X = blocked cell
+# . = open cell
+#
