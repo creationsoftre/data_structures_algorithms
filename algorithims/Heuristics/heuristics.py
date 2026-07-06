@@ -157,6 +157,52 @@ def get_neighbors(grid, position):
 
     return neighbors
 
+# ------------------------------------------------------------
+# Greedy heuristic search
+# ------------------------------------------------------------
+#
+# This is a simple heuristic-based search.
+#
+# Rule:
+#
+#   From the current position, move to the neighbor that appears
+#   closest to the target.
+#
+# This is greedy because it chooses the best-looking move now.
+#
+# This is heuristic because "closest to target" is only an estimate.
+# ------------------------------------------------------------
+
+def greedy_heuristic_path(grid, start, target):
+    current = start
+    path = [current]
+    visited = set()
+
+    while current != target:
+        visited.add(current)
+
+        neighbors = get_neighbors(grid, current)
+
+        # Remove neighbors we already visited.
+        unvisited_neighbors = []
+
+        for neighbor in neighbors:
+            if neighbor not in visited:
+                unvisited_neighbors.append(neighbor)
+
+        # If there are no unvisited neighbors, we are stuck.
+        if len(unvisited_neighbors) == 0:
+            return None
+
+        # Choose the neighbor with the smallest heuristic distance.
+        current = min(
+            unvisited_neighbors,
+            key=lambda neighbor: heuristic(neighbor, target)
+        )
+
+        path.append(current)
+
+    return path
 
 
 
@@ -199,3 +245,9 @@ print_grid(grid)
 print()
 print(f"Goal: Find a path from {start} to {target}.")
 print()
+
+path = greedy_heuristic_path(grid, start, target)
+
+print("Regular Heuristic Result")
+print("-" * 60)
+print(f"Path found: {path}")
