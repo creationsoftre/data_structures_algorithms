@@ -32,3 +32,32 @@
 #
 #   capacity = 50
 #
+# ------------------------------------------------------------
+# GREEDY IDEA
+# ------------------------------------------------------------
+#
+# For each item, calculate:
+#
+#   value_per_weight = value / weight
+#
+# Then:
+#
+#   Take the item with the highest value_per_weight first.
+#
+# Why?
+#
+#   It gives us the most value for each unit of weight.
+#
+# ------------------------------------------------------------
+# BIG O / SPEED
+# ------------------------------------------------------------
+#
+# Time Complexity:
+#   O(n log n)
+#
+# Speed:
+#   Usually fast.
+#
+# Why?
+#   We sort the items by value_per_weight.
+#
