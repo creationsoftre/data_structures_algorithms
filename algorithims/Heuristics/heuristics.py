@@ -112,3 +112,90 @@ def heuristic(position, target):
     target_row, target_col = target
 
     return abs(row - target_row) + abs(col - target_col)
+
+# ------------------------------------------------------------
+# Get valid neighbors
+# ------------------------------------------------------------
+#
+# This function returns the valid moves from the current position.
+#
+# We allow four directions:
+#
+#   up
+#   down
+#   left
+#   right
+#
+# We do not allow:
+#
+#   diagonal moves
+#   moves outside the grid
+#   moves into blocked cells
+# ------------------------------------------------------------
+
+def get_neighbors(grid, position):
+    row, col = position
+
+    possible_moves = [
+        (row - 1, col),  # up
+        (row + 1, col),  # down
+        (row, col - 1),  # left
+        (row, col + 1)   # right
+    ]
+
+    neighbors = []
+
+    for move_row, move_col in possible_moves:
+        # Check if the move is inside the grid.
+        inside_rows = 0 <= move_row < len(grid)
+        inside_cols = 0 <= move_col < len(grid[0])
+
+        if inside_rows and inside_cols:
+            # Check if the cell is not blocked.
+            if grid[move_row][move_col] != "X":
+                neighbors.append((move_row, move_col))
+
+    return neighbors
+
+
+
+
+
+
+
+
+
+
+# ------------------------------------------------------------
+# Print grid
+# ------------------------------------------------------------
+#
+# This helper prints the grid in a readable way.
+# ------------------------------------------------------------
+
+def print_grid(grid):
+    for row in grid:
+        print(" ".join(row))
+
+
+# ------------------------------------------------------------
+# Main Program
+# ------------------------------------------------------------
+
+grid = [
+    ["S", ".", ".", "."],
+    [".", "X", ".", "."],
+    [".", "X", ".", "."],
+    [".", ".", ".", "T"]
+]
+
+start = (0, 0)
+target = (3, 3)
+
+print("Heuristics Example")
+print("=" * 60)
+print("Grid:")
+print_grid(grid)
+print()
+print(f"Goal: Find a path from {start} to {target}.")
+print()
