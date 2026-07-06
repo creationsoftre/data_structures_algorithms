@@ -145,6 +145,53 @@ def compress_rle(text):
     return text
 
 # ------------------------------------------------------------
+# Decompress Run-Length Encoding
+# ------------------------------------------------------------
+#
+# This function reverses RLE compression.
+#
+# Example:
+#
+#   "A4B3C2D1A2"
+#
+# becomes:
+#
+#   "AAAABBBCCDAA"
+# ------------------------------------------------------------
+
+def decompress_rle(compressed_text):
+    # Store the decompressed characters here.
+    decompressed = []
+
+    index = 0
+
+    while index < len(compressed_text):
+        # The character is stored first.
+        char = compressed_text[index]
+
+        # Move to the count.
+        index += 1
+
+        # Build the count in case it has more than one digit.
+        #
+        # Example:
+        #   A12 means A appears 12 times.
+        count_text = ""
+
+        while index < len(compressed_text) and compressed_text[index].isdigit():
+            count_text += compressed_text[index]
+            index += 1
+
+        # Convert the count from text to a number.
+        count = int(count_text)
+
+        # Repeat the character count times.
+        decompressed.append(char * count)
+
+    return "".join(decompressed)
+
+
+# ------------------------------------------------------------
 # Main Programming
 # ------------------------------------------------------------
 
@@ -160,5 +207,16 @@ compressed_text = compress_rle(text)
 print("Regular Compression Result")
 print("-" * 60)
 print(f"Compressed result: {compressed_text}")
+
+
+print()
+print("Decompression Example")
+print("-" * 60)
+
+decompressed_text = decompress_rle(compressed_text)
+
+print("Regular Decompressed Result")
+print("-" * 60)
+print(f"Compressed result: {decompressed_text}")
 
 
