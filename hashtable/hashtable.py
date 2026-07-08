@@ -171,10 +171,26 @@ class HashTable:
 
 employee_table = HashTable(10)
 
+# Insert badge 1021.
+# 1021 % 10 = 1
+# Store ["1021", "Trevonte"] at index 1.
 employee_table.insert(1021, "Trevonte")
+
+# Insert badge 1022.
+# 1022 % 10 = 2
+# Store ["1022", "Jordan"] at index 2.
 employee_table.insert(1022, "Jordan")
+
+# Insert badge 1023.
+# 1023 % 10 = 3
+# Store ["1023", "Alex"] at index 3.
 employee_table.insert(1023, "Alex")
+
+# Insert badge 1024.
+# 1024 % 10 = 4
+# Store ["1024", "Morgan"] at index 4.
 employee_table.insert(1024, "Morgan")
+
 
 print("Employee Badge Hash Table")
 print("=" * 40)
@@ -185,14 +201,33 @@ print()
 print("Lookup Employees")
 print("-" * 40)
 
+# Search for badge 1021.
+# 1021 % 10 = 1
+# Check index 1.
+# Stored key is 1021, so return "Trevonte".
 print(f"Badge 1021: {employee_table.get(1021)}")
+
+# Search for badge 1023.
+# 1023 % 10 = 3
+# Check index 3.
+# Stored key is 1023, so return "Alex".
 print(f"Badge 1023: {employee_table.get(1023)}")
+
+# Search for badge 9999.
+# 9999 % 10 = 9
+# Check index 9.
+# Index 9 is empty, so return None.
 print(f"Badge 9999: {employee_table.get(9999)}")
+
 
 print()
 print("Remove Employee")
 print("-" * 40)
 
+# Remove badge 1022.
+# 1022 % 10 = 2
+# Check index 2.
+# Stored key is 1022, so set index 2 back to None.
 removed = employee_table.remove(1022)
 
 print(f"Removed badge 1022: {removed}")
