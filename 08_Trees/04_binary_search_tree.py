@@ -135,3 +135,127 @@
 #
 #   5, 2, 7, 20
 #
+# ------------------------------------------------------------
+# BIG O / SPEED
+# ------------------------------------------------------------
+#
+# Search in a balanced BST:
+#
+#   O(log n)
+#
+# Speed:
+#   Fast.
+#
+# Why?
+#   Each step removes about half of the remaining nodes.
+#
+# Insert in a balanced BST:
+#
+#   O(log n)
+#
+# Speed:
+#   Fast.
+#
+# Why?
+#   We follow the same left/right rule to find the open spot.
+#
+# Remove in a balanced BST:
+#
+#   O(log n)
+#
+# Speed:
+#   Fast, but removal has more cases.
+#
+# Why?
+#   We first search for the node, then rearrange links.
+#
+# ------------------------------------------------------------
+# WORST CASE
+# ------------------------------------------------------------
+#
+# A BST can become slow if values are inserted in sorted order.
+#
+# Example:
+#
+# Insert:
+#
+#   1, 2, 3, 4, 5
+#
+# The tree becomes:
+#
+#   1
+#    \
+#     2
+#      \
+#       3
+#        \
+#         4
+#          \
+#           5
+#
+# This is basically a linked list.
+#
+# Search becomes:
+#
+#   O(n)
+#
+# Speed:
+#   Slow.
+#
+# Why?
+#   We may need to move through every node one at a time.
+#
+# ------------------------------------------------------------
+# SPACE COMPLEXITY
+# ------------------------------------------------------------
+#
+# Storing the BST:
+#
+#   O(n)
+#
+# Why?
+#   The tree stores n nodes.
+#
+# Recursive search / insert:
+#
+#   O(h)
+#
+# h = height of the tree
+#
+# Balanced BST:
+#
+#   h = log n
+#
+# Unbalanced BST:
+#
+#   h = n
+#
+# ------------------------------------------------------------
+# IMPORTANT NOTE
+# ------------------------------------------------------------
+#
+# A BST is only fast when it stays balanced.
+#
+# Balanced tree:
+#
+#              10
+#            /    \
+#           5      15
+#          / \    /  \
+#         2   7  12   20
+#
+# Search is fast because the tree spreads out.
+#
+# Unbalanced tree:
+#
+#   1
+#    \
+#     2
+#      \
+#       3
+#        \
+#         4
+#
+# Search is slow because the tree is shaped like a chain.
+# ============================================================
+
