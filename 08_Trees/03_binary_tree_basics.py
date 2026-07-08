@@ -199,3 +199,32 @@ print("C's children:")
 print("root.right.left = None")
 print(f"root.right.right.value = {root.right.right.value}")
 
+# ------------------------------------------------------------
+# Check if a node is a leaf
+# ------------------------------------------------------------
+#
+# A leaf node has no children.
+#
+# That means:
+#
+#   left is None
+#   right is None
+# ------------------------------------------------------------
+
+def is_leaf(node):
+    # If the node does not exist, it cannot be a leaf.
+    if node is None:
+        return False
+
+    # A node is a leaf if both children are None.
+    return node.left is None and node.right is None
+
+
+print()
+print("Leaf Checks")
+print("-" * 50)
+
+print(f"Is A a leaf? {is_leaf(root)}")
+print(f"Is D a leaf? {is_leaf(root.left.left)}")
+print(f"Is E a leaf? {is_leaf(root.left.right)}")
+print(f"Is F a leaf? {is_leaf(root.right.right)}")
