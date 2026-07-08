@@ -137,3 +137,22 @@
 # Tall chain-like tree:
 #   Slower search.
 # ============================================================
+
+class Node:
+    def __init__(self, value):
+        # Store the value inside the node.
+        self.value = value
+
+        # Smaller values go on the left.
+        self.left = None
+
+        # Larger values go on the right.
+        self.right = None
+
+
+class BinarySearchTree:
+    def __init__(self):
+        # The root is the first node in the tree.
+        #
+        # If root is None, the tree is empty.
+        self.root = None
