@@ -133,3 +133,66 @@
 # Why?
 #   In the worst case, search checks one node per level.
 #
+# ------------------------------------------------------------
+# BIG O / SPEED
+# ------------------------------------------------------------
+#
+# Binary tree search:
+#   O(n)
+#
+# Speed:
+#   Can be slow.
+#
+# Why?
+#   A normal binary tree has no ordering rule.
+#   We may need to check every node.
+#
+# Binary search tree search:
+#   O(log n) average
+#   O(n) worst case
+#
+# Speed:
+#   Fast when the tree is balanced.
+#   Slow when the tree becomes a chain.
+#
+# ------------------------------------------------------------
+# SPACE COMPLEXITY
+# ------------------------------------------------------------
+#
+# Storing a tree:
+#   O(n)
+#
+# Why?
+#   We store n nodes.
+#
+# Recursive traversal:
+#   O(h)
+#
+# Why?
+#   The call stack grows based on tree height.
+#
+# h = height of the tree
+#
+# Balanced tree:
+#   h = log n
+#
+# Unbalanced tree:
+#   h = n
+#
+# ------------------------------------------------------------
+# IMPORTANT NOTE
+# ------------------------------------------------------------
+#
+# A binary tree and a binary search tree are not the same thing.
+#
+# Binary tree:
+#   Each node has at most two children.
+#
+# Binary search tree:
+#   Each node has at most two children AND follows this rule:
+#
+#       left side  = smaller values
+#       right side = larger values
+#
+# The ordering rule is what makes BST search faster.
+# ============================================================
