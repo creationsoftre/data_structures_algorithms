@@ -391,3 +391,40 @@ print()
 print("Nodes skipped:")
 print("5, 2, 7, 20")
 print()
+
+# ------------------------------------------------------------
+# Balanced vs unbalanced explanation
+# ------------------------------------------------------------
+
+print("Balanced vs Unbalanced BST")
+print("=" * 60)
+
+print("Balanced BST:")
+print()
+print("             10")
+print("           /    \\")
+print("          5      15")
+print("         / \\    /  \\")
+print("        2   7  12   20")
+print()
+
+print("A balanced BST spreads values out.")
+print("Search can be O(log n).")
+print()
+
+print("Unbalanced BST:")
+print()
+print("1")
+print(" \\")
+print("  2")
+print("   \\")
+print("    3")
+print("     \\")
+print("      4")
+print("       \\")
+print("        5")
+print()
+
+print("An unbalanced BST can become a chain.")
+print("Search can become O(n).")
+print()
