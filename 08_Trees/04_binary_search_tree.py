@@ -38,3 +38,27 @@
 #
 #   15, 12, 20
 #
+# ------------------------------------------------------------
+# IMPORTANT BST RULE
+# ------------------------------------------------------------
+#
+# The BST rule applies to every node, not just the root.
+#
+# Example:
+#
+#              10
+#            /    \
+#           5      15
+#          / \    /  \
+#         2   7  12   20
+#
+# For node 5:
+#
+#   2 is smaller than 5, so it goes left.
+#   7 is larger than 5, so it goes right.
+#
+# For node 15:
+#
+#   12 is smaller than 15, so it goes left.
+#   20 is larger than 15, so it goes right.
+#
