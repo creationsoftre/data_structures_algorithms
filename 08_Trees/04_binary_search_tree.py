@@ -358,3 +358,36 @@ print("For node 15:")
 print("12 is smaller than 15, so 12 is on the left.")
 print("20 is larger than 15, so 20 is on the right.")
 print()
+
+# ------------------------------------------------------------
+# Search idea without writing full search code yet
+# ------------------------------------------------------------
+
+print("Search Idea")
+print("-" * 60)
+
+print("Search for 12:")
+print()
+
+print("Step 1:")
+print("Start at 10.")
+print("12 > 10, so go right.")
+print()
+
+print("Step 2:")
+print("Now at 15.")
+print("12 < 15, so go left.")
+print()
+
+print("Step 3:")
+print("Now at 12.")
+print("Found it.")
+print()
+
+print("Nodes checked:")
+print("10 -> 15 -> 12")
+print()
+
+print("Nodes skipped:")
+print("5, 2, 7, 20")
+print()
