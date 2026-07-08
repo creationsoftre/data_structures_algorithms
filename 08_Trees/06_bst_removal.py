@@ -85,5 +85,69 @@
 #
 #   Smallest value in that subtree is 12.
 #
-#   So 12 replaces 10.
 #
+#   Full Tree After 12 replaces 10.
+#         12
+#       /    \
+#      5      15
+#     / \       \
+#    2   7       20
+# ------------------------------------------------------------
+# BIG O / SPEED
+# ------------------------------------------------------------
+#
+# Remove in a balanced BST:
+#
+#   O(log n)
+#
+# Speed:
+#   Fast.
+#
+# Why?
+#   We follow one path down the tree.
+#
+# Remove in an unbalanced BST:
+#
+#   O(n)
+#
+# Speed:
+#   Slow.
+#
+# Why?
+#   The tree can become a chain.
+#
+# ------------------------------------------------------------
+# SPACE COMPLEXITY
+# ------------------------------------------------------------
+#
+# Recursive removal:
+#
+#   O(h)
+#
+# h = height of the tree
+#
+# Balanced tree:
+#
+#   h = log n
+#
+# Unbalanced tree:
+#
+#   h = n
+#
+# ------------------------------------------------------------
+# IMPORTANT NOTE
+# ------------------------------------------------------------
+#
+# The hardest case is removing a node with two children.
+#
+# Why?
+#   We cannot simply delete it because it has two subtrees
+#   connected to it.
+#
+# Fix:
+#   Replace it with the inorder successor.
+#
+# Inorder successor:
+#   The smallest value in the node's right subtree.
+# ============================================================
+
