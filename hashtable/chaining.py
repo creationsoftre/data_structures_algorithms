@@ -36,3 +36,22 @@
 #   O(n)
 #   Slower if many keys land in the same chain.
 #
+# ------------------------------------------------------------
+# SPACE COMPLEXITY
+# ------------------------------------------------------------
+#
+# O(n)
+#
+# We store n key-value pairs.
+#
+# ------------------------------------------------------------
+# IMPORTANT NOTE
+# ------------------------------------------------------------
+#
+# Chaining does not avoid collisions.
+#
+# It gives collisions a place to go.
+#
+# If many keys land at the same index, that index's chain becomes
+# longer, and searching inside that chain becomes slower.
+# ============================================================
