@@ -247,7 +247,7 @@ class QuadraticProbingHashTable:
 
 
 # ------------------------------------------------------------
-# Real example: Employee badge lookup with quadratic probing
+# Main Program
 # ------------------------------------------------------------
 
 employee_table = QuadraticProbingHashTable(11)

@@ -185,7 +185,7 @@ class LinearProbingHashTable:
 
 
 # ------------------------------------------------------------
-# Real example: Employee badge lookup with linear probing
+# Main Program
 # ------------------------------------------------------------
 
 employee_table = LinearProbingHashTable(10)

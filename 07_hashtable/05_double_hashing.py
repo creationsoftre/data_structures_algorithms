@@ -282,7 +282,7 @@ class DoubleHashingHashTable:
 
 
 # ------------------------------------------------------------
-# Main Programming
+# Main Program
 # ------------------------------------------------------------
 
 employee_table = DoubleHashingHashTable(11, 7)
