@@ -99,3 +99,103 @@
 #
 # Do not assume a binary tree is sorted.
 # ============================================================
+
+# ------------------------------------------------------------
+# Node class
+# ------------------------------------------------------------
+#
+# A node stores:
+#
+#   1. A value
+#   2. A left child
+#   3. A right child
+#
+# If a child does not exist, it is stored as None.
+# ------------------------------------------------------------
+
+class Node:
+    def __init__(self, value):
+        # Store the value inside the node.
+        #
+        # Example:
+        #   "A"
+        #   10
+        #   "Trevonte"
+        self.value = value
+
+        # Store the left child.
+        #
+        # This starts as None because the node does not have
+        # a left child yet.
+        self.left = None
+
+        # Store the right child.
+        #
+        # This starts as None because the node does not have
+        # a right child yet.
+        self.right = None
+
+# ------------------------------------------------------------
+# Build a simple binary tree manually
+# ------------------------------------------------------------
+#
+# We will build this tree:
+#
+#              A
+#            /   \
+#           B     C
+#          / \     \
+#         D   E     F
+#
+# This is not a Binary Search Tree.
+#
+# It is just a regular binary tree.
+# ------------------------------------------------------------
+
+root = Node("A")
+
+root.left = Node("B")
+root.right = Node("C")
+
+root.left.left = Node("D")
+root.left.right = Node("E")
+
+root.right.right = Node("F")
+
+# ------------------------------------------------------------
+# Print root and children
+# ------------------------------------------------------------
+#
+# This helps us see how the nodes are connected.
+# ------------------------------------------------------------
+
+print("Binary Tree Basics")
+print("=" * 50)
+
+print("Tree structure:")
+print()
+print("             A")
+print("           /   \\")
+print("          B     C")
+print("         / \\     \\")
+print("        D   E     F")
+print()
+
+print("Root:")
+print(f"root.value = {root.value}")
+print()
+
+print("Root's children:")
+print(f"root.left.value = {root.left.value}")
+print(f"root.right.value = {root.right.value}")
+print()
+
+print("B's children:")
+print(f"root.left.left.value = {root.left.left.value}")
+print(f"root.left.right.value = {root.left.right.value}")
+print()
+
+print("C's children:")
+print("root.right.left = None")
+print(f"root.right.right.value = {root.right.right.value}")
+
