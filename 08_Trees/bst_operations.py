@@ -138,6 +138,7 @@
 #   Slower search.
 # ============================================================
 
+
 class Node:
     def __init__(self, value):
         # Store the value inside the node.
@@ -214,7 +215,6 @@ class BinarySearchTree:
                 # This simple BST does not allow duplicates.
                 return
 
-
     # --------------------------------------------------------
     # Search
     # --------------------------------------------------------
@@ -231,6 +231,38 @@ class BinarySearchTree:
     #
     #   Balanced tree:   O(log n)
     #   Unbalanced tree: O(n)
+    # --------------------------------------------------------
+
+    def search(self, target):
+        # Start at the root.
+        current = self.root
+
+        # Keep searching until we run out of nodes.
+        while current is not None:
+
+            # If the current node is the target, we found it.
+            if target == current.value:
+                return True
+
+            # If target is smaller, search left.
+            elif target < current.value:
+                current = current.left
+
+            # If target is larger, search right.
+            else:
+                current = current.right
+
+        # If we reach None, the target is not in the tree.
+        return False
+
+    # --------------------------------------------------------
+    # Search with explanation
+    # --------------------------------------------------------
+    #
+    # This version prints the decisions.
+    #
+    # It helps show why BST search is faster than normal
+    # binary tree search.
     # --------------------------------------------------------
 
     def search_with_steps(self, target):
@@ -262,3 +294,176 @@ class BinarySearchTree:
         print("Reached None.")
         print(f"{target} is not in the tree.")
         return False
+
+    # --------------------------------------------------------
+    # Insert with explanation
+    # --------------------------------------------------------
+    #
+    # This version prints the path used to insert the value.
+    # --------------------------------------------------------
+
+    def insert_with_steps(self, value):
+        print(f"Insert {value}")
+        print("-" * 60)
+
+        new_node = Node(value)
+
+        if self.root is None:
+            self.root = new_node
+            print("Tree is empty.")
+            print(f"{value} becomes the root.")
+            return
+
+        current = self.root
+
+        while True:
+            print(f"Current node: {current.value}")
+
+            if value < current.value:
+                print(f"{value} < {current.value}")
+                print("Go left.")
+
+                if current.left is None:
+                    current.left = new_node
+                    print(f"Left child is empty.")
+                    print(f"Insert {value} as left child of {current.value}.")
+                    return
+
+                print()
+                current = current.left
+
+            elif value > current.value:
+                print(f"{value} > {current.value}")
+                print("Go right.")
+
+                if current.right is None:
+                    current.right = new_node
+                    print(f"Right child is empty.")
+                    print(f"Insert {value} as right child of {current.value}.")
+                    return
+
+                print()
+                current = current.right
+
+            else:
+                print(f"{value} already exists.")
+                print("This BST does not allow duplicates.")
+                return
+
+
+# ------------------------------------------------------------
+# Build a BST
+# ------------------------------------------------------------
+#
+# Insert values in this order:
+#
+#   10, 5, 15, 2, 7, 12, 20
+#
+# This creates:
+#
+#              10
+#            /    \
+#           5      15
+#          / \    /  \
+#         2   7  12   20
+# ------------------------------------------------------------
+
+bst = BinarySearchTree()
+
+print("BST Operations - Search and Insert")
+print("=" * 60)
+print()
+
+print("Build BST")
+print("-" * 60)
+
+# Insert 10.
+# Tree is empty, so 10 becomes the root.
+bst.insert_with_steps(10)
+print()
+
+# Insert 5.
+# Start at 10.
+# 5 < 10, so go left.
+# Left child is empty, so insert 5 there.
+bst.insert_with_steps(5)
+print()
+
+# Insert 15.
+# Start at 10.
+# 15 > 10, so go right.
+# Right child is empty, so insert 15 there.
+bst.insert_with_steps(15)
+print()
+
+# Insert 2.
+# Start at 10.
+# 2 < 10, so go left to 5.
+# 2 < 5, so go left.
+# Left child is empty, so insert 2 there.
+bst.insert_with_steps(2)
+print()
+
+# Insert 7.
+# Start at 10.
+# 7 < 10, so go left to 5.
+# 7 > 5, so go right.
+# Right child is empty, so insert 7 there.
+bst.insert_with_steps(7)
+print()
+
+# Insert 12.
+# Start at 10.
+# 12 > 10, so go right to 15.
+# 12 < 15, so go left.
+# Left child is empty, so insert 12 there.
+bst.insert_with_steps(12)
+print()
+
+# Insert 20.
+# Start at 10.
+# 20 > 10, so go right to 15.
+# 20 > 15, so go right.
+# Right child is empty, so insert 20 there.
+bst.insert_with_steps(20)
+print()
+
+
+# ------------------------------------------------------------
+# Search examples
+# ------------------------------------------------------------
+
+print()
+print("BST Search Examples")
+print("=" * 60)
+print()
+
+bst.search_with_steps(12)
+
+print()
+bst.search_with_steps(7)
+
+print()
+bst.search_with_steps(99)
+
+
+# ------------------------------------------------------------
+# Balanced vs unbalanced reminder
+# ------------------------------------------------------------
+
+print()
+print("Speed Reminder")
+print("=" * 60)
+
+print("Balanced BST:")
+print("Search and insert are usually O(log n).")
+print()
+
+print("Unbalanced BST:")
+print("Search and insert can become O(n).")
+print()
+
+print("Why?")
+print("BST performance depends on height.")
+print("A shorter tree is faster.")
+print("A tall chain-like tree is slower.")
