@@ -326,4 +326,35 @@ print("Smaller values go left.")
 print("Larger values go right.")
 print()
 
+# ------------------------------------------------------------
+# Explain root rule
+# ------------------------------------------------------------
 
+print("Root Rule")
+print("-" * 60)
+
+print("Root value: 10")
+print()
+print("Left side of 10:")
+print("5, 2, and 7 are smaller than 10.")
+print()
+print("Right side of 10:")
+print("15, 12, and 20 are larger than 10.")
+print()
+
+# ------------------------------------------------------------
+# Explain child node rules
+# ------------------------------------------------------------
+
+print("The Rule Applies To Every Node")
+print("-" * 60)
+
+print("For node 5:")
+print("2 is smaller than 5, so 2 is on the left.")
+print("7 is larger than 5, so 7 is on the right.")
+print()
+
+print("For node 15:")
+print("12 is smaller than 15, so 12 is on the left.")
+print("20 is larger than 15, so 20 is on the right.")
+print()
