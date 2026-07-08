@@ -157,7 +157,7 @@ class BinarySearchTree:
         # If root is None, the tree is empty.
         self.root = None
 
-# --------------------------------------------------------
+    # --------------------------------------------------------
     # Insert
     # --------------------------------------------------------
     #
@@ -214,3 +214,51 @@ class BinarySearchTree:
                 # This simple BST does not allow duplicates.
                 return
 
+
+    # --------------------------------------------------------
+    # Search
+    # --------------------------------------------------------
+    #
+    # Search checks if a value exists in the BST.
+    #
+    # Rule:
+    #
+    #   If target equals current value, found it.
+    #   If target is smaller, go left.
+    #   If target is larger, go right.
+    #
+    # Time Complexity:
+    #
+    #   Balanced tree:   O(log n)
+    #   Unbalanced tree: O(n)
+    # --------------------------------------------------------
+
+    def search_with_steps(self, target):
+        print(f"Search for {target}")
+        print("-" * 60)
+
+        current = self.root
+
+        while current is not None:
+            print(f"Current node: {current.value}")
+
+            if target == current.value:
+                print(f"{target} == {current.value}")
+                print("Found it.")
+                return True
+
+            elif target < current.value:
+                print(f"{target} < {current.value}")
+                print("Go left.")
+                print()
+                current = current.left
+
+            else:
+                print(f"{target} > {current.value}")
+                print("Go right.")
+                print()
+                current = current.right
+
+        print("Reached None.")
+        print(f"{target} is not in the tree.")
+        return False
