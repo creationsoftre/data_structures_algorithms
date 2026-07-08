@@ -156,3 +156,61 @@ class BinarySearchTree:
         #
         # If root is None, the tree is empty.
         self.root = None
+
+# --------------------------------------------------------
+    # Insert
+    # --------------------------------------------------------
+    #
+    # Insert adds a new value into the BST.
+    #
+    # Rule:
+    #
+    #   If new value is smaller, go left.
+    #   If new value is larger, go right.
+    #
+    # Time Complexity:
+    #
+    #   Balanced tree:   O(log n)
+    #   Unbalanced tree: O(n)
+    # --------------------------------------------------------
+
+    def insert(self, value):
+        new_node = Node(value)
+
+        # If the tree is empty, the new node becomes the root.
+        if self.root is None:
+            self.root = new_node
+            return
+
+        # Start at the root.
+        current = self.root
+
+        while True:
+            # If the new value is smaller, go left.
+            if value < current.value:
+
+                # If there is no left child, insert here.
+                if current.left is None:
+                    current.left = new_node
+                    return
+
+                # Otherwise, keep moving left.
+                current = current.left
+
+            # If the new value is larger, go right.
+            elif value > current.value:
+
+                # If there is no right child, insert here.
+                if current.right is None:
+                    current.right = new_node
+                    return
+
+                # Otherwise, keep moving right.
+                current = current.right
+
+            else:
+                # If the value already exists, do nothing.
+                #
+                # This simple BST does not allow duplicates.
+                return
+
