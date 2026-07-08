@@ -228,3 +228,118 @@ print(f"Is A a leaf? {is_leaf(root)}")
 print(f"Is D a leaf? {is_leaf(root.left.left)}")
 print(f"Is E a leaf? {is_leaf(root.left.right)}")
 print(f"Is F a leaf? {is_leaf(root.right.right)}")
+
+# ------------------------------------------------------------
+# Count nodes
+# ------------------------------------------------------------
+#
+# This function counts how many nodes are in the tree.
+#
+# Since a normal binary tree is not sorted, we may need to visit
+# every node.
+#
+# Time Complexity:
+#
+#   O(n)
+#
+# Why?
+#   We count each node one time.
+# ------------------------------------------------------------
+
+def count_nodes(node):
+    # Base case:
+    # If there is no node, count 0.
+    if node is None:
+        return 0
+
+    # Count the current node.
+    current_node = 1
+
+    # Count the nodes on the left side.
+    left_count = count_nodes(node.left)
+
+    # Count the nodes on the right side.
+    right_count = count_nodes(node.right)
+
+    # Total = current node + left side + right side.
+    return current_node + left_count + right_count
+
+
+print()
+print("Count Nodes")
+print("-" * 50)
+
+total_nodes = count_nodes(root)
+
+print("This tree has 6 nodes:")
+print("A, B, C, D, E, F")
+print(f"Total nodes counted: {total_nodes}")
+
+
+# ------------------------------------------------------------
+# Find height
+# ------------------------------------------------------------
+#
+# Height is the longest path from a node down to a leaf.
+#
+# In this example:
+#
+#              A
+#            /   \
+#           B     C
+#          / \     \
+#         D   E     F
+#
+# Longest path:
+#
+#   A -> B -> D
+#
+# or
+#
+#   A -> C -> F
+#
+# These paths have 2 edges.
+#
+# So the height is 2.
+#
+# Time Complexity:
+#
+#   O(n)
+#
+# Why?
+#   We may need to check every node.
+# ------------------------------------------------------------
+
+def height(node):
+    # Base case:
+    # An empty tree has height -1.
+    #
+    # Why -1?
+    # A leaf node should have height 0.
+    #
+    # If a leaf's left and right children return -1:
+    #
+    #   height = 1 + max(-1, -1)
+    #   height = 0
+    if node is None:
+        return -1
+
+    # Find the height of the left subtree.
+    left_height = height(node.left)
+
+    # Find the height of the right subtree.
+    right_height = height(node.right)
+
+    # The height is 1 plus the taller side.
+    return 1 + max(left_height, right_height)
+
+
+print()
+print("Tree Height")
+print("-" * 50)
+
+tree_height = height(root)
+
+print("Height counts edges from root to deepest leaf.")
+print(f"Tree height: {tree_height}")
+print()
