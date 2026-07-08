@@ -340,6 +340,95 @@ print("-" * 50)
 
 tree_height = height(root)
 
-print("Height counts edges from root to deepest leaf.")
+print("Height Explanation")
+print("-" * 50)
+
+print("Height starts counting at 0.")
+print()
+print("That means a tree with only one node has height 0.")
+print()
+
+print("For this tree:")
+print()
+print("             A")
+print("           /   \\")
+print("          B     C")
+print("         / \\     \\")
+print("        D   E     F")
+print()
+
+print("Levels:")
+print("Level 1: A")
+print("Level 2: B, C")
+print("Level 3: D, E, F")
+print()
+
+print("There are 3 levels, but height counts edges, not levels.")
+print()
+
+print("Longest path example:")
+print("A -> B -> D")
+print()
+
+print("Edge count:")
+print("A to B = 1 edge")
+print("B to D = 1 edge")
+print("Total edges = 2")
+print()
+
+print("So even though the tree has 3 levels, the height is 2.")
 print(f"Tree height: {tree_height}")
+
+# ------------------------------------------------------------
+# Search a normal binary tree
+# ------------------------------------------------------------
+#
+# Since this is not a Binary Search Tree, there is no rule that
+# tells us where to go.
+#
+# We cannot say:
+#
+#   smaller values go left
+#   larger values go right
+#
+# So we may need to search both sides.
+#
+# Time Complexity:
+#
+#   O(n)
+#
+# Why?
+#   The target could be anywhere.
+# ------------------------------------------------------------
+
+def search_binary_tree(node, target):
+    # Base case:
+    # If there is no node, the target was not found here.
+    if node is None:
+        return False
+
+    # Check the current node.
+    if node.value == target:
+        return True
+
+    # Search the left side.
+    found_left = search_binary_tree(node.left, target)
+
+    # Search the right side.
+    found_right = search_binary_tree(node.right, target)
+
+    # If either side found the target, return True.
+    return found_left or found_right
+
+
+print()
+print("Search Binary Tree")
+print("-" * 50)
+
+print("A regular binary tree is not sorted.")
+print("So searching may need to check every node.")
+print()
+
+print(f"Search for E: {search_binary_tree(root, 'E')}")
+print(f"Search for Z: {search_binary_tree(root, 'Z')}")
 print()
