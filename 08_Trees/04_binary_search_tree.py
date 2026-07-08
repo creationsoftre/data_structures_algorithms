@@ -259,3 +259,71 @@
 # Search is slow because the tree is shaped like a chain.
 # ============================================================
 
+# ------------------------------------------------------------
+# Node class
+# ------------------------------------------------------------
+#
+# A BST node stores:
+#
+#   1. A value
+#   2. A left child
+#   3. A right child
+#
+# The left child should contain smaller values.
+# The right child should contain larger values.
+# ------------------------------------------------------------
+
+class Node:
+    def __init__(self, value):
+        self.value = value
+        self.left = None
+        self.right = None
+
+# ------------------------------------------------------------
+# Build a BST manually
+# ------------------------------------------------------------
+#
+# We will build this tree:
+#
+#              10
+#            /    \
+#           5      15
+#          / \    /  \
+#         2   7  12   20
+#
+# This is a valid BST because:
+#
+#   left values are smaller
+#   right values are larger
+# ------------------------------------------------------------
+
+root = Node(10)
+
+root.left = Node(5)
+root.right = Node(15)
+
+root.left.left = Node(2)
+root.left.right = Node(7)
+
+root.right.left = Node(12)
+root.right.right = Node(20)
+
+
+print("Binary Search Tree Basics")
+print("=" * 60)
+
+print("BST structure:")
+print()
+print("             10")
+print("           /    \\")
+print("          5      15")
+print("         / \\    /  \\")
+print("        2   7  12   20")
+print()
+
+print("BST Rule:")
+print("Smaller values go left.")
+print("Larger values go right.")
+print()
+
+
