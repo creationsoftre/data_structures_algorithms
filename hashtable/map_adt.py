@@ -44,3 +44,51 @@
 # print_map()
 #   Print all key-value pairs.
 #
+# ------------------------------------------------------------
+# BIG O / SPEED
+# ------------------------------------------------------------
+#
+# This simple version uses a list.
+#
+# Search:
+#   O(n)
+#
+# Speed:
+#   Can be slow as the map grows.
+#
+# Why?
+#   We may need to check each key one by one.
+#
+# Insert:
+#   O(n)
+#
+# Speed:
+#   Can be slow if we need to check whether the key already exists.
+#
+# Remove:
+#   O(n)
+#
+# Speed:
+#   Can be slow because we may need to search through the list.
+#
+# ------------------------------------------------------------
+# SPACE COMPLEXITY
+# ------------------------------------------------------------
+#
+# Space Complexity:
+#   O(n)
+#
+# Why?
+#   We store n key-value pairs.
+#
+# ------------------------------------------------------------
+# IMPORTANT NOTE
+# ------------------------------------------------------------
+#
+# This file explains the Map ADT concept.
+#
+# It does not use hashing yet.
+#
+# Later, a hash table will make map operations faster by using
+# a hash function to jump directly to an index.
+# ============================================================
