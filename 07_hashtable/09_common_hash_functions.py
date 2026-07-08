@@ -46,3 +46,18 @@
 #
 # These hash functions only use a few variables while calculating.
 #
+# ------------------------------------------------------------
+# IMPORTANT NOTE
+# ------------------------------------------------------------
+#
+# A good hash function spreads keys evenly across the table.
+#
+# Bad hash function:
+#   Sends too many keys to the same index.
+#
+# Good hash function:
+#   Spreads keys across many indexes.
+#
+# A hash function does not remove collisions completely.
+# It only tries to reduce them.
+# ============================================================
