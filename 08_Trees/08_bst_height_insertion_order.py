@@ -264,3 +264,271 @@
 # Different shape.
 # Different speed.
 # ============================================================
+
+
+class Node:
+    def __init__(self, value):
+        self.value = value
+        self.left = None
+        self.right = None
+
+
+class BinarySearchTree:
+    def __init__(self):
+        self.root = None
+
+    # --------------------------------------------------------
+    # Insert
+    # --------------------------------------------------------
+
+    def insert(self, value):
+        new_node = Node(value)
+
+        if self.root is None:
+            self.root = new_node
+            return
+
+        current = self.root
+
+        while True:
+            if value < current.value:
+                if current.left is None:
+                    current.left = new_node
+                    return
+
+                current = current.left
+
+            elif value > current.value:
+                if current.right is None:
+                    current.right = new_node
+                    return
+
+                current = current.right
+
+            else:
+                return
+
+    # --------------------------------------------------------
+    # Search with step count
+    # --------------------------------------------------------
+    #
+    # This counts how many nodes are checked during search.
+    # --------------------------------------------------------
+
+    def search_with_count(self, target):
+        current = self.root
+        comparisons = 0
+
+        while current is not None:
+            comparisons += 1
+
+            if target == current.value:
+                return True, comparisons
+
+            elif target < current.value:
+                current = current.left
+
+            else:
+                current = current.right
+
+        return False, comparisons
+
+    # --------------------------------------------------------
+    # Height
+    # --------------------------------------------------------
+    #
+    # Height counts edges from root to deepest leaf.
+    #
+    # A tree with one node has height 0.
+    #
+    # Empty tree returns -1 so a leaf node becomes:
+    #
+    #   1 + max(-1, -1)
+    #   1 + -1
+    #   0
+    # --------------------------------------------------------
+
+    def height(self):
+        return self._height_recursive(self.root)
+
+    def _height_recursive(self, node):
+        if node is None:
+            return -1
+
+        left_height = self._height_recursive(node.left)
+        right_height = self._height_recursive(node.right)
+
+        return 1 + max(left_height, right_height)
+
+    # --------------------------------------------------------
+    # Print tree visually
+    # --------------------------------------------------------
+
+    def print_tree_visual(self):
+        if self.root is None:
+            print("Tree is empty.")
+            return
+
+        lines = self._build_tree_lines(self.root)
+
+        for line in lines:
+            print(line)
+
+    def _build_tree_lines(self, node):
+        if node is None:
+            return []
+
+        node_text = str(node.value)
+
+        if node.left is None and node.right is None:
+            return [node_text]
+
+        left_lines = self._build_tree_lines(node.left)
+        right_lines = self._build_tree_lines(node.right)
+
+        left_width = max(len(line) for line in left_lines) if left_lines else 0
+        right_width = max(len(line) for line in right_lines) if right_lines else 0
+
+        left_lines = [line.ljust(left_width) for line in left_lines]
+        right_lines = [line.ljust(right_width) for line in right_lines]
+
+        root_line = " " * left_width + node_text + " " * right_width
+
+        branch_line = ""
+
+        if node.left is not None:
+            branch_line += " " * (left_width - 1) + "/"
+        else:
+            branch_line += " " * left_width
+
+        branch_line += " " * len(node_text)
+
+        if node.right is not None:
+            branch_line += "\\"
+        else:
+            branch_line += " "
+
+        branch_line += " " * (right_width - 1)
+
+        child_lines = []
+
+        max_child_lines = max(len(left_lines), len(right_lines))
+
+        for i in range(max_child_lines):
+            if i < len(left_lines):
+                left_part = left_lines[i]
+            else:
+                left_part = " " * left_width
+
+            if i < len(right_lines):
+                right_part = right_lines[i]
+            else:
+                right_part = " " * right_width
+
+            child_lines.append(left_part + " " * len(node_text) + right_part)
+
+        return [root_line, branch_line] + child_lines
+
+
+# ------------------------------------------------------------
+# Build an unbalanced BST
+# ------------------------------------------------------------
+
+unbalanced_bst = BinarySearchTree()
+
+bad_order = [1, 2, 3, 4, 5, 6, 7]
+
+for value in bad_order:
+    unbalanced_bst.insert(value)
+
+
+# ------------------------------------------------------------
+# Build a balanced-looking BST
+# ------------------------------------------------------------
+
+balanced_bst = BinarySearchTree()
+
+better_order = [4, 2, 6, 1, 3, 5, 7]
+
+for value in better_order:
+    balanced_bst.insert(value)
+
+
+# ------------------------------------------------------------
+# Compare both trees
+# ------------------------------------------------------------
+
+print("BST Height and Insertion Order")
+print("=" * 60)
+print()
+
+print("Same values:")
+print("1, 2, 3, 4, 5, 6, 7")
+print()
+
+print("Bad insertion order:")
+print(bad_order)
+print()
+
+print("Unbalanced BST:")
+print("-" * 60)
+unbalanced_bst.print_tree_visual()
+print()
+
+print("Height explanation:")
+print("Height starts at 0 and counts edges.")
+print("The longest path is:")
+print("1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7")
+print("That path has 6 edges.")
+print(f"Unbalanced tree height: {unbalanced_bst.height()}")
+print()
+
+found, comparisons = unbalanced_bst.search_with_count(7)
+
+print("Search for 7 in unbalanced BST:")
+print("Path:")
+print("1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7")
+print(f"Found: {found}")
+print(f"Comparisons: {comparisons}")
+print()
+
+print("=" * 60)
+print()
+
+print("Better insertion order:")
+print(better_order)
+print()
+
+print("Balanced-looking BST:")
+print("-" * 60)
+balanced_bst.print_tree_visual()
+print()
+
+print("Height explanation:")
+print("Height starts at 0 and counts edges.")
+print("The longest path is:")
+print("4 -> 6 -> 7")
+print("That path has 2 edges.")
+print(f"Balanced tree height: {balanced_bst.height()}")
+print()
+
+found, comparisons = balanced_bst.search_with_count(7)
+
+print("Search for 7 in balanced-looking BST:")
+print("Path:")
+print("4 -> 6 -> 7")
+print(f"Found: {found}")
+print(f"Comparisons: {comparisons}")
+print()
+
+print("=" * 60)
+print("Main Takeaway")
+print("=" * 60)
+
+print("A BST can be fast or slow depending on its shape.")
+print()
+print("Sorted insert order can create a chain.")
+print("That makes search O(n).")
+print()
+print("A balanced shape keeps the tree short.")
+print("That makes search O(log n).")
