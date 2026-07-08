@@ -95,3 +95,41 @@
 #
 #   1 + 2 + 4 + 8 = 15
 #
+# ------------------------------------------------------------
+# IMPORTANT FORMULAS
+# ------------------------------------------------------------
+#
+# Perfect binary tree nodes:
+#
+#   N = 2^levels - 1
+#
+# Example:
+#
+#   levels = 4
+#   N = 2^4 - 1
+#   N = 16 - 1
+#   N = 15
+#
+# Find levels from nodes:
+#
+#   levels = log2(N + 1)
+#
+# Example:
+#
+#   N = 15
+#   levels = log2(15 + 1)
+#   levels = log2(16)
+#   levels = 4
+#
+# Worst-case comparisons in a perfect BST:
+#
+#   comparisons = levels
+#
+# Example:
+#
+#   N = 15
+#   comparisons = 4
+#
+# Why?
+#   In the worst case, search checks one node per level.
+#
