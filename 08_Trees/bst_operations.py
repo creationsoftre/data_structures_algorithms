@@ -1,0 +1,139 @@
+# ============================================================
+# BST Operations - Search and Insert
+# ============================================================
+#
+# A Binary Search Tree uses this rule:
+#
+#   smaller values go left
+#   larger values go right
+#
+# Because of this rule, we do not always need to check every node.
+#
+# ------------------------------------------------------------
+# SIMPLE BST EXAMPLE
+# ------------------------------------------------------------
+#
+#              10
+#            /    \
+#           5      15
+#          / \    /  \
+#         2   7  12   20
+#
+# Search for 12:
+#
+#   Start at 10.
+#   12 > 10, so go right.
+#
+#   Now at 15.
+#   12 < 15, so go left.
+#
+#   Now at 12.
+#   Found it.
+#
+# We skipped:
+#
+#   5, 2, 7, 20
+#
+# ------------------------------------------------------------
+# BIG O / SPEED
+# ------------------------------------------------------------
+#
+# Search in a balanced BST:
+#
+#   O(log n)
+#
+# Speed:
+#   Fast.
+#
+# Why?
+#   Each comparison removes about half of the remaining tree.
+#
+# Insert in a balanced BST:
+#
+#   O(log n)
+#
+# Speed:
+#   Fast.
+#
+# Why?
+#   Insert follows the same left/right path as search.
+#
+# ------------------------------------------------------------
+# WORST CASE
+# ------------------------------------------------------------
+#
+# Search in an unbalanced BST:
+#
+#   O(n)
+#
+# Insert in an unbalanced BST:
+#
+#   O(n)
+#
+# Speed:
+#   Slow.
+#
+# Why?
+#   The tree can become a chain.
+#
+# Example:
+#
+#   1
+#    \
+#     2
+#      \
+#       3
+#        \
+#         4
+#
+# Searching for 4 checks:
+#
+#   1 -> 2 -> 3 -> 4
+#
+# ------------------------------------------------------------
+# SPACE COMPLEXITY
+# ------------------------------------------------------------
+#
+# Storing the BST:
+#
+#   O(n)
+#
+# Why?
+#   We store n nodes.
+#
+# Iterative search:
+#
+#   O(1)
+#
+# Why?
+#   We only use a few variables.
+#
+# Recursive search:
+#
+#   O(h)
+#
+# Why?
+#   Recursive calls use the call stack.
+#
+# h = height of the tree
+#
+# Balanced tree:
+#
+#   h = log n
+#
+# Unbalanced tree:
+#
+#   h = n
+#
+# ------------------------------------------------------------
+# IMPORTANT NOTE
+# ------------------------------------------------------------
+#
+# BST speed depends on tree height.
+#
+# Short tree:
+#   Faster search.
+#
+# Tall chain-like tree:
+#   Slower search.
+# ============================================================
