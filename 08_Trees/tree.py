@@ -47,3 +47,51 @@
 # Level:
 #   A row in the tree.
 #
+# ------------------------------------------------------------
+# BINARY TREE
+# ------------------------------------------------------------
+#
+# A binary tree is a tree where each node has at most two children.
+#
+# The two children are usually called:
+#
+#   left child
+#   right child
+#
+# Example:
+#
+#              10
+#            /    \
+#           5      15
+#          / \    /  \
+#         2   7  12   20
+#
+# Each node has no more than two children.
+#
+# ------------------------------------------------------------
+# PERFECT BINARY TREE
+# ------------------------------------------------------------
+#
+# A perfect binary tree has every level completely filled.
+#
+# Example with 15 nodes:
+#
+#              1
+#           /     \
+#          2       3
+#        /  \     /  \
+#       4    5   6    7
+#      / \  / \ / \  / \
+#     8  9 10 11 12 13 14 15
+#
+# Number of nodes by level:
+#
+#   Level 1: 1 node
+#   Level 2: 2 nodes
+#   Level 3: 4 nodes
+#   Level 4: 8 nodes
+#
+# Total:
+#
+#   1 + 2 + 4 + 8 = 15
+#
