@@ -50,3 +50,23 @@
 #
 # Store key 30 at index 1.
 #
+# ------------------------------------------------------------
+# BIG O / SPEED
+# ------------------------------------------------------------
+#
+# Average insert/search/remove:
+#   O(1)
+#   Very fast when the table is not too full.
+#
+# Worst-case insert/search/remove:
+#   O(n)
+#   Slower if many keys collide or the table is almost full.
+#
+# ------------------------------------------------------------
+# SPACE COMPLEXITY
+# ------------------------------------------------------------
+#
+# O(n)
+#
+# We store n key-value pairs.
+#
