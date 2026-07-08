@@ -40,3 +40,23 @@
 #
 # This is called rehashing.
 #
+# ------------------------------------------------------------
+# LOAD FACTOR
+# ------------------------------------------------------------
+#
+# Load factor measures how full the hash table is.
+#
+# Formula:
+#
+#   load_factor = number_of_items / table_size
+#
+# Example:
+#
+#   number_of_items = 7
+#   table_size = 10
+#
+#   load_factor = 7 / 10
+#   load_factor = 0.7
+#
+# If the load factor gets too high, we resize the table.
+#
