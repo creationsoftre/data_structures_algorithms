@@ -62,3 +62,34 @@
 #   12 is smaller than 15, so it goes left.
 #   20 is larger than 15, so it goes right.
 #
+# ------------------------------------------------------------
+# WHY BST SEARCH CAN BE FAST
+# ------------------------------------------------------------
+#
+# A regular binary tree is not sorted.
+#
+# So if we search for a value, we may need to check every node.
+#
+# Regular binary tree search:
+#
+#   O(n)
+#
+# A BST is sorted by a rule.
+#
+# At each node, we can decide which side to search.
+#
+# If target is smaller:
+#
+#   go left
+#
+# If target is larger:
+#
+#   go right
+#
+# That means we can ignore about half of the tree each step,
+# if the tree is balanced.
+#
+# Balanced BST search:
+#
+#   O(log n)
+#
