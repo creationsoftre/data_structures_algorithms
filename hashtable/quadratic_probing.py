@@ -72,3 +72,34 @@
 #
 # Store key 44 at index 4.
 #
+# ------------------------------------------------------------
+# BIG O / SPEED
+# ------------------------------------------------------------
+#
+# Average insert/search/remove:
+#   O(1)
+#   Very fast when the table is not too full.
+#
+# Worst-case insert/search/remove:
+#   O(n)
+#   Slower if many keys collide or the table is almost full.
+#
+# ------------------------------------------------------------
+# SPACE COMPLEXITY
+# ------------------------------------------------------------
+#
+# O(n)
+#
+# We store n key-value pairs.
+#
+# ------------------------------------------------------------
+# IMPORTANT NOTE
+# ------------------------------------------------------------
+#
+# Quadratic probing can reduce clustering compared to linear probing.
+#
+# But it can still have problems if the table gets too full.
+#
+# It is common to use a prime table size, like 11, 17, or 23,
+# to help spread values better.
+# ============================================================
