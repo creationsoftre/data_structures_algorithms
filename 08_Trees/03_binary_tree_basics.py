@@ -45,3 +45,57 @@
 #   AND smaller values go left,
 #   AND larger values go right.
 #
+# ------------------------------------------------------------
+# BIG O / SPEED
+# ------------------------------------------------------------
+#
+# Searching a normal binary tree:
+#
+#   O(n)
+#
+# Speed:
+#   Can be slow.
+#
+# Why?
+#   A regular binary tree has no sorting rule.
+#   The value could be anywhere.
+#   We may need to check every node.
+#
+# ------------------------------------------------------------
+# SPACE COMPLEXITY
+# ------------------------------------------------------------
+#
+# Storing the tree:
+#
+#   O(n)
+#
+# Why?
+#   A tree with n nodes stores n node objects.
+#
+# Recursive traversal:
+#
+#   O(h)
+#
+# Why?
+#   Recursive calls use the call stack.
+#
+# h = height of the tree
+#
+# Balanced tree:
+#
+#   h = log n
+#
+# Unbalanced tree:
+#
+#   h = n
+#
+# ------------------------------------------------------------
+# IMPORTANT NOTE
+# ------------------------------------------------------------
+#
+# A binary tree is a structure.
+#
+# A binary search tree is a structure plus an ordering rule.
+#
+# Do not assume a binary tree is sorted.
+# ============================================================
