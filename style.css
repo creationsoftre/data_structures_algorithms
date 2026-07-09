@@ -354,6 +354,145 @@ img.file-icon {
   white-space: pre-wrap;
 }
 
+.browser-shell {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 6px;
+  height: 100%;
+  min-height: 0;
+}
+
+.browser-toolbar {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 6px;
+}
+
+.browser-address-label {
+  color: #111;
+}
+
+.browser-address {
+  height: 24px;
+  min-width: 0;
+  padding: 2px 5px;
+  border: 2px solid var(--win98-shadow);
+  border-top-color: var(--win98-dark);
+  border-left-color: var(--win98-dark);
+  border-right-color: var(--win98-light);
+  border-bottom-color: var(--win98-light);
+  background: #fff;
+  font: inherit;
+}
+
+.browser-open-link {
+  display: inline-grid;
+  place-items: center;
+  color: #000;
+  text-decoration: none;
+}
+
+.browser-page {
+  min-height: 0;
+  overflow: auto;
+  padding: 16px;
+  border: 2px solid var(--win98-shadow);
+  border-top-color: var(--win98-dark);
+  border-left-color: var(--win98-dark);
+  border-right-color: var(--win98-light);
+  border-bottom-color: var(--win98-light);
+  background: #fff;
+}
+
+.github-profile {
+  max-width: 860px;
+  margin: 0 auto;
+  color: #111;
+  font-family: Tahoma, Arial, sans-serif;
+}
+
+.github-profile-header {
+  display: grid;
+  grid-template-columns: 96px minmax(0, 1fr);
+  gap: 16px;
+  align-items: start;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #b8b8b8;
+}
+
+.github-avatar {
+  width: 96px;
+  height: 96px;
+  border: 1px solid #808080;
+  object-fit: cover;
+}
+
+.github-profile h2,
+.github-profile h3,
+.github-profile h4,
+.github-profile p {
+  margin-top: 0;
+}
+
+.github-profile h2 {
+  margin-bottom: 2px;
+  font-size: 22px;
+}
+
+.github-login {
+  margin-bottom: 10px;
+  color: #555;
+}
+
+.github-bio {
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+
+.github-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  margin: 0;
+}
+
+.github-stats dt {
+  font-weight: 700;
+}
+
+.github-stats dd {
+  margin: 0;
+}
+
+.github-repos {
+  display: grid;
+  gap: 8px;
+}
+
+.github-repo {
+  padding: 10px;
+  border: 1px solid #b8b8b8;
+  background: #f8f8f8;
+}
+
+.github-repo h4 {
+  margin-bottom: 6px;
+  color: #000080;
+  font-size: 14px;
+}
+
+.github-repo p {
+  margin-bottom: 6px;
+  line-height: 1.35;
+}
+
+.github-repo-meta {
+  margin-bottom: 0;
+  color: #555;
+  font-size: 11px;
+}
+
 .terminal-placeholder {
   height: 100%;
   margin: 0;

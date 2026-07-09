@@ -63,6 +63,11 @@
       return;
     }
 
+    if (item.type === "browser" && item.url) {
+      openBrowserWindow(item);
+      return;
+    }
+
     if (item.type === "link" && item.url) {
       window.open(item.url, "_blank", "noopener");
       return;
@@ -125,6 +130,164 @@
       height: "220px",
       iconPath: "assets/icons/msg_information-2.png"
     });
+  }
+
+  function openBrowserWindow(item) {
+    var shell = document.createElement("div");
+    var toolbar = document.createElement("div");
+    var label = document.createElement("span");
+    var address = document.createElement("input");
+    var openLink = document.createElement("a");
+    var browserPage = document.createElement("div");
+
+    shell.className = "browser-shell";
+    toolbar.className = "browser-toolbar";
+    label.className = "browser-address-label";
+    label.textContent = "Address";
+
+    address.className = "browser-address";
+    address.type = "text";
+    address.value = item.url;
+    address.readOnly = true;
+
+    openLink.className = "win98-button browser-open-link";
+    openLink.href = item.url;
+    openLink.target = "_blank";
+    openLink.rel = "noopener";
+    openLink.textContent = "Open";
+
+    browserPage.className = "browser-page";
+    browserPage.textContent = "Loading " + item.url + "...";
+
+    toolbar.append(label, address, openLink);
+    shell.append(toolbar, browserPage);
+
+    WindowManager.open({
+      title: item.label || "Internet Explorer",
+      content: shell,
+      width: item.width || "760px",
+      height: item.height || "520px",
+      iconPath: item.iconPath
+    });
+
+    renderBrowserPage(item.url, browserPage);
+  }
+
+  function renderBrowserPage(url, target) {
+    var githubUser = getGithubUsername(url);
+
+    if (!githubUser) {
+      target.textContent = "This browser preview only supports GitHub profile URLs right now.";
+      return;
+    }
+
+    Promise.all([
+      fetchJson("https://api.github.com/users/" + githubUser),
+      fetchJson("https://api.github.com/users/" + githubUser + "/repos?sort=updated&per_page=8")
+    ])
+      .then(function (results) {
+        renderGithubProfile(target, results[0], results[1]);
+      })
+      .catch(function (error) {
+        target.innerHTML = "";
+        target.appendChild(createMessage("Could not load GitHub profile data. " + error.message));
+      });
+  }
+
+  function fetchJson(url) {
+    return fetch(url).then(function (response) {
+      if (!response.ok) {
+        throw new Error(response.status + " " + response.statusText);
+      }
+      return response.json();
+    });
+  }
+
+  function getGithubUsername(url) {
+    var parsed = new URL(url, window.location.href);
+
+    if (parsed.hostname !== "github.com") {
+      return "";
+    }
+
+    return parsed.pathname.split("/").filter(Boolean)[0] || "";
+  }
+
+  function renderGithubProfile(target, user, repos) {
+    var profile = document.createElement("article");
+    var header = document.createElement("header");
+    var avatar = document.createElement("img");
+    var identity = document.createElement("div");
+    var name = document.createElement("h2");
+    var login = document.createElement("p");
+    var bio = document.createElement("p");
+    var stats = document.createElement("dl");
+    var repoTitle = document.createElement("h3");
+    var repoList = document.createElement("div");
+
+    target.innerHTML = "";
+    profile.className = "github-profile";
+    header.className = "github-profile-header";
+    avatar.className = "github-avatar";
+    avatar.src = user.avatar_url;
+    avatar.alt = "";
+    avatar.draggable = false;
+
+    name.textContent = user.name || user.login;
+    login.className = "github-login";
+    login.textContent = "@" + user.login;
+    bio.className = "github-bio";
+    bio.textContent = user.bio || "GitHub profile";
+
+    stats.className = "github-stats";
+    stats.append(
+      createGithubStat("Repos", user.public_repos),
+      createGithubStat("Followers", user.followers),
+      createGithubStat("Following", user.following)
+    );
+
+    identity.append(name, login, bio, stats);
+    header.append(avatar, identity);
+
+    repoTitle.textContent = "Recent repositories";
+    repoList.className = "github-repos";
+    repos.forEach(function (repo) {
+      repoList.appendChild(createRepoCard(repo));
+    });
+
+    profile.append(header, repoTitle, repoList);
+    target.appendChild(profile);
+  }
+
+  function createGithubStat(label, value) {
+    var fragment = document.createDocumentFragment();
+    var term = document.createElement("dt");
+    var detail = document.createElement("dd");
+
+    term.textContent = label;
+    detail.textContent = value;
+    fragment.append(term, detail);
+    return fragment;
+  }
+
+  function createRepoCard(repo) {
+    var card = document.createElement("section");
+    var title = document.createElement("h4");
+    var description = document.createElement("p");
+    var meta = document.createElement("p");
+
+    card.className = "github-repo";
+    title.textContent = repo.name;
+    description.textContent = repo.description || "No description provided.";
+    meta.className = "github-repo-meta";
+    meta.textContent = [
+      repo.language || "Code",
+      "Stars " + repo.stargazers_count,
+      "Updated " + new Date(repo.updated_at).toLocaleDateString()
+    ].join(" | ");
+
+    card.append(title, description, meta);
+    return card;
   }
 
   function createIconElement(item, className) {

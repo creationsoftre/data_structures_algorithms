@@ -13,6 +13,13 @@
       "label": "Code",
       "path": "/code",
       "iconPath": "assets/icons/directory_closed-1.png"
+    },
+    {
+      "id": "internet-explorer",
+      "type": "browser",
+      "label": "Internet Explorer",
+      "url": "https://github.com/creationsoftre",
+      "iconPath": "assets/icons/msie1-2.png"
     }
   ],
   "folders": {
