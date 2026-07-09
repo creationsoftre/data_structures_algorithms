@@ -163,6 +163,7 @@ span.icon-art {
   background: var(--win98-face);
   box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.4);
   pointer-events: auto;
+  overflow: hidden;
 }
 
 .window.is-active {
@@ -205,6 +206,7 @@ span.icon-art {
 
 .window-body {
   flex: 1;
+  min-height: 0;
   margin: 2px;
   padding: 8px;
   overflow: auto;
@@ -214,6 +216,24 @@ span.icon-art {
   border-right-color: var(--win98-light);
   border-bottom-color: var(--win98-light);
   background: #fff;
+}
+
+.resize-grip {
+  position: absolute;
+  right: 2px;
+  bottom: 2px;
+  width: 14px;
+  height: 14px;
+  padding: 0;
+  border: 0;
+  background:
+    linear-gradient(135deg, transparent 0 45%, var(--win98-shadow) 45% 52%, transparent 52% 100%),
+    linear-gradient(135deg, transparent 0 62%, var(--win98-light) 62% 69%, transparent 69% 100%);
+  cursor: nwse-resize;
+}
+
+.resize-grip:focus {
+  outline: 1px dotted #000;
 }
 
 .folder-grid {

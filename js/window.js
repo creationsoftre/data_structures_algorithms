@@ -24,6 +24,7 @@
     var title = document.createElement("div");
     var close = document.createElement("button");
     var body = document.createElement("div");
+    var resizeGrip = document.createElement("button");
 
     win.className = "window" + (config.className ? " " + config.className : "");
     win.id = id;
@@ -56,8 +57,13 @@
       body.appendChild(config.content);
     }
 
+    resizeGrip.className = "resize-grip";
+    resizeGrip.type = "button";
+    resizeGrip.setAttribute("aria-label", "Resize " + config.title);
+    resizeGrip.addEventListener("pointerdown", startResize);
+
     titlebar.append(title, close);
-    win.append(titlebar, body);
+    win.append(titlebar, body, resizeGrip);
     windowsLayer.appendChild(win);
 
     var taskbarButton = document.createElement("button");
@@ -109,6 +115,48 @@
       titlebar.addEventListener("pointerup", stop);
       titlebar.addEventListener("pointercancel", stop);
     }
+
+    function startResize(event) {
+      event.preventDefault();
+      event.stopPropagation();
+      focusWindow(win);
+      resizeGrip.setPointerCapture(event.pointerId);
+
+      var startX = event.clientX;
+      var startY = event.clientY;
+      var startWidth = win.offsetWidth;
+      var startHeight = win.offsetHeight;
+      var startLeft = win.offsetLeft;
+      var startTop = win.offsetTop;
+      var desktopRect = windowsLayer.getBoundingClientRect();
+      var minWidth = parsePixelValue(config.minWidth, 280);
+      var minHeight = parsePixelValue(config.minHeight, 180);
+
+      function resize(moveEvent) {
+        var maxWidth = desktopRect.width - startLeft;
+        var maxHeight = desktopRect.height - startTop;
+        var nextWidth = startWidth + moveEvent.clientX - startX;
+        var nextHeight = startHeight + moveEvent.clientY - startY;
+
+        win.style.width = Math.max(minWidth, Math.min(nextWidth, maxWidth)) + "px";
+        win.style.height = Math.max(minHeight, Math.min(nextHeight, maxHeight)) + "px";
+      }
+
+      function stopResize() {
+        resizeGrip.removeEventListener("pointermove", resize);
+        resizeGrip.removeEventListener("pointerup", stopResize);
+        resizeGrip.removeEventListener("pointercancel", stopResize);
+      }
+
+      resizeGrip.addEventListener("pointermove", resize);
+      resizeGrip.addEventListener("pointerup", stopResize);
+      resizeGrip.addEventListener("pointercancel", stopResize);
+    }
+  }
+
+  function parsePixelValue(value, fallback) {
+    var parsed = parseInt(value, 10);
+    return Number.isFinite(parsed) ? parsed : fallback;
   }
 
   function focusWindow(win) {
