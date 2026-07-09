@@ -1,0 +1,384 @@
+:root {
+  --win98-face: #c0c0c0;
+  --win98-shadow: #808080;
+  --win98-dark: #404040;
+  --win98-light: #ffffff;
+  --win98-blue: #000080;
+  --desktop: #008080;
+  --text: #050505;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  overflow: hidden;
+  color: var(--text);
+  font-family: "MS Sans Serif", Tahoma, Arial, sans-serif;
+  font-size: 12px;
+  background: var(--desktop);
+}
+
+button {
+  font: inherit;
+}
+
+.desktop {
+  position: relative;
+  width: 100vw;
+  height: calc(100vh - 34px);
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 18% 22%, rgba(255, 255, 255, 0.12) 0 1px, transparent 1px 100%),
+    linear-gradient(135deg, #008080 0%, #006f73 55%, #007b7b 100%);
+  background-size: 18px 18px, 100% 100%;
+}
+
+.desktop-icons {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-rows: repeat(8, 76px);
+  grid-auto-columns: 86px;
+  gap: 4px 8px;
+  align-content: start;
+  justify-content: start;
+  padding: 16px 10px;
+  height: 100%;
+}
+
+.desktop-icon {
+  width: 76px;
+  min-height: 70px;
+  padding: 4px;
+  border: 1px dotted transparent;
+  color: #fff;
+  text-align: center;
+  text-shadow: 1px 1px #000;
+  background: transparent;
+  cursor: default;
+}
+
+.desktop-icon:focus,
+.desktop-icon.is-selected {
+  outline: none;
+  border-color: #fff;
+  background: rgba(0, 0, 128, 0.45);
+}
+
+.icon-art {
+  width: 34px;
+  height: 34px;
+  margin: 0 auto 5px;
+}
+
+span.icon-art {
+  display: grid;
+  place-items: center;
+  border: 2px solid var(--win98-light);
+  border-right-color: var(--win98-shadow);
+  border-bottom-color: var(--win98-shadow);
+  color: #111;
+  font-size: 20px;
+  line-height: 1;
+  text-shadow: none;
+  background: #f1d66a;
+  box-shadow: 1px 1px 0 #000;
+}
+
+.icon-art.folder {
+  background: linear-gradient(#ffe89a 0 35%, #e5bd3b 35% 100%);
+}
+
+.icon-art.terminal {
+  color: #39ff57;
+  background: #111;
+}
+
+.icon-art.info {
+  color: #fff;
+  background: #2454c6;
+}
+
+.icon-art.github {
+  color: #fff;
+  background: #2b2b2b;
+}
+
+.icon-label {
+  display: block;
+  overflow-wrap: anywhere;
+}
+
+.windows-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.window {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  min-width: 280px;
+  min-height: 180px;
+  border: 2px solid var(--win98-face);
+  border-top-color: var(--win98-light);
+  border-left-color: var(--win98-light);
+  border-right-color: var(--win98-dark);
+  border-bottom-color: var(--win98-dark);
+  background: var(--win98-face);
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.4);
+  pointer-events: auto;
+}
+
+.window.is-active {
+  z-index: 20;
+}
+
+.titlebar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  height: 24px;
+  padding: 2px 3px;
+  color: #fff;
+  background: linear-gradient(90deg, var(--win98-blue), #1084d0);
+  cursor: move;
+  user-select: none;
+}
+
+.titlebar-title {
+  flex: 1;
+  overflow: hidden;
+  font-weight: 700;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.titlebar-button {
+  display: grid;
+  place-items: center;
+  width: 18px;
+  height: 18px;
+  padding: 0;
+  border: 2px solid var(--win98-face);
+  border-top-color: var(--win98-light);
+  border-left-color: var(--win98-light);
+  border-right-color: var(--win98-dark);
+  border-bottom-color: var(--win98-dark);
+  background: var(--win98-face);
+}
+
+.window-body {
+  flex: 1;
+  margin: 2px;
+  padding: 8px;
+  overflow: auto;
+  border: 2px solid var(--win98-shadow);
+  border-top-color: var(--win98-dark);
+  border-left-color: var(--win98-dark);
+  border-right-color: var(--win98-light);
+  border-bottom-color: var(--win98-light);
+  background: #fff;
+}
+
+.folder-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(92px, 1fr));
+  gap: 10px;
+}
+
+.folder-item {
+  min-height: 76px;
+  padding: 5px;
+  border: 1px dotted transparent;
+  text-align: center;
+  background: transparent;
+  cursor: default;
+}
+
+.folder-item:focus,
+.folder-item:hover {
+  outline: none;
+  border-color: var(--win98-blue);
+  background: #dce8ff;
+}
+
+.file-icon {
+  width: 34px;
+  height: 40px;
+  margin: 0 auto 5px;
+}
+
+span.file-icon {
+  display: grid;
+  place-items: center;
+  border: 1px solid #000;
+  background: linear-gradient(135deg, #fff 0 76%, #dcdcdc 76% 100%);
+  color: #000080;
+  font-weight: 700;
+}
+
+.image-icon {
+  display: block;
+  object-fit: contain;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+img.file-icon {
+  height: 34px;
+}
+
+.code-window {
+  min-width: min(720px, calc(100vw - 24px));
+  min-height: min(480px, calc(100vh - 80px));
+}
+
+.code-viewer {
+  height: 100%;
+  margin: 0;
+  padding: 10px;
+  overflow: auto;
+  color: #d7ffd7;
+  background: #071107;
+  font: 13px/1.45 Consolas, "Courier New", monospace;
+  white-space: pre;
+}
+
+.terminal-placeholder {
+  height: 100%;
+  margin: 0;
+  padding: 10px;
+  color: #39ff57;
+  background: #050505;
+  font: 13px/1.45 Consolas, "Courier New", monospace;
+}
+
+.taskbar {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  height: 34px;
+  padding: 3px 5px;
+  border-top: 2px solid var(--win98-light);
+  background: var(--win98-face);
+}
+
+.start-button,
+.taskbar-item,
+.clock {
+  height: 26px;
+  border: 2px solid var(--win98-face);
+  border-top-color: var(--win98-light);
+  border-left-color: var(--win98-light);
+  border-right-color: var(--win98-dark);
+  border-bottom-color: var(--win98-dark);
+  background: var(--win98-face);
+}
+
+.start-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  min-width: 72px;
+  padding: 0 8px;
+  font-weight: 700;
+}
+
+.start-button:active,
+.taskbar-item.is-active {
+  border-top-color: var(--win98-dark);
+  border-left-color: var(--win98-dark);
+  border-right-color: var(--win98-light);
+  border-bottom-color: var(--win98-light);
+}
+
+.start-logo {
+  width: 16px;
+  height: 16px;
+  background:
+    linear-gradient(90deg, #f44336 0 50%, #4caf50 50% 100%) 0 0 / 100% 50% no-repeat,
+    linear-gradient(90deg, #2196f3 0 50%, #ffeb3b 50% 100%) 0 100% / 100% 50% no-repeat;
+}
+
+.taskbar-items {
+  display: flex;
+  flex: 1;
+  gap: 4px;
+  min-width: 0;
+}
+
+.taskbar-item {
+  max-width: 180px;
+  min-width: 90px;
+  padding: 0 8px;
+  overflow: hidden;
+  text-align: left;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.clock {
+  display: grid;
+  place-items: center;
+  min-width: 76px;
+  padding: 0 8px;
+  border-top-color: var(--win98-shadow);
+  border-left-color: var(--win98-shadow);
+  border-right-color: var(--win98-light);
+  border-bottom-color: var(--win98-light);
+}
+
+.message {
+  max-width: 54ch;
+  line-height: 1.45;
+}
+
+.muted {
+  color: #555;
+}
+
+.report-card h2 {
+  margin: 0 0 10px;
+}
+
+.report-card dl {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 8px 14px;
+  margin: 0;
+}
+
+.report-card dt {
+  font-weight: 700;
+}
+
+.report-card dd {
+  margin: 0;
+}
+
+@media (max-width: 640px) {
+  .desktop-icons {
+    grid-template-rows: repeat(6, 74px);
+    grid-auto-columns: 82px;
+    padding: 10px 6px;
+  }
+
+  .window {
+    max-width: calc(100vw - 16px);
+    max-height: calc(100vh - 50px);
+  }
+
+  .taskbar-item {
+    min-width: 64px;
+  }
+}

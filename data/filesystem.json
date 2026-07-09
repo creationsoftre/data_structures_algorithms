@@ -1,0 +1,500 @@
+{
+  "desktop": [
+    {
+      "id": "code",
+      "type": "folder",
+      "label": "Code",
+      "path": "/code",
+      "iconPath": "assets/icons/directory_closed-1.png"
+    }
+  ],
+  "folders": {
+    "/code": {
+      "label": "Code",
+      "items": [
+        {
+          "id": "datastructures_algorithms",
+          "type": "folder",
+          "label": "datastructures_algorithms",
+          "path": "/code/datastructures_algorithms",
+          "iconPath": "assets/icons/directory_closed-1.png"
+        }
+      ]
+    },
+    "/code/datastructures_algorithms": {
+      "label": "datastructures_algorithms",
+      "items": [
+        {
+          "id": "01_data_structures",
+          "type": "folder",
+          "label": "01_data_structures",
+          "path": "/code/datastructures_algorithms/01_data_structures",
+          "iconPath": "assets/icons/directory_closed-1.png"
+        },
+        {
+          "id": "02_algorithims",
+          "type": "folder",
+          "label": "02_algorithims",
+          "path": "/code/datastructures_algorithms/02_algorithims",
+          "iconPath": "assets/icons/directory_closed-1.png"
+        },
+        {
+          "id": "03_dynamic_programming",
+          "type": "folder",
+          "label": "03_dynamic_programming",
+          "path": "/code/datastructures_algorithms/03_dynamic_programming",
+          "iconPath": "assets/icons/directory_closed-1.png"
+        },
+        {
+          "id": "04_List",
+          "type": "folder",
+          "label": "04_List",
+          "path": "/code/datastructures_algorithms/04_List",
+          "iconPath": "assets/icons/directory_closed-1.png"
+        },
+        {
+          "id": "05_stack",
+          "type": "folder",
+          "label": "05_stack",
+          "path": "/code/datastructures_algorithms/05_stack",
+          "iconPath": "assets/icons/directory_closed-1.png"
+        },
+        {
+          "id": "06_queue",
+          "type": "folder",
+          "label": "06_queue",
+          "path": "/code/datastructures_algorithms/06_queue",
+          "iconPath": "assets/icons/directory_closed-1.png"
+        },
+        {
+          "id": "07_hashtable",
+          "type": "folder",
+          "label": "07_hashtable",
+          "path": "/code/datastructures_algorithms/07_hashtable",
+          "iconPath": "assets/icons/directory_closed-1.png"
+        },
+        {
+          "id": "08_Trees",
+          "type": "folder",
+          "label": "08_Trees",
+          "path": "/code/datastructures_algorithms/08_Trees",
+          "iconPath": "assets/icons/directory_closed-1.png"
+        },
+        {
+          "id": "09_avl_trees",
+          "type": "folder",
+          "label": "09_avl_trees",
+          "path": "/code/datastructures_algorithms/09_avl_trees",
+          "iconPath": "assets/icons/directory_closed-1.png"
+        }
+      ]
+    },
+    "/code/datastructures_algorithms/01_data_structures": {
+      "label": "01_data_structures",
+      "items": [
+        {
+          "id": "01_record",
+          "type": "file",
+          "label": "01_record.py",
+          "path": "content/01_data_structures/01_record.py",
+          "iconPath": "assets/icons/file_lines-1.png"
+        },
+        {
+          "id": "02_array",
+          "type": "file",
+          "label": "02_array.py",
+          "path": "content/01_data_structures/02_array.py",
+          "iconPath": "assets/icons/file_lines-1.png"
+        },
+        {
+          "id": "03_linkedlist",
+          "type": "file",
+          "label": "03_linkedlist.py",
+          "path": "content/01_data_structures/03_linkedlist.py",
+          "iconPath": "assets/icons/file_lines-1.png"
+        },
+        {
+          "id": "04_binarytree",
+          "type": "file",
+          "label": "04_binarytree.py",
+          "path": "content/01_data_structures/04_binarytree.py",
+          "iconPath": "assets/icons/file_lines-1.png"
+        },
+        {
+          "id": "05_hashtable",
+          "type": "file",
+          "label": "05_hashtable.py",
+          "path": "content/01_data_structures/05_hashtable.py",
+          "iconPath": "assets/icons/file_lines-1.png"
+        },
+        {
+          "id": "06_heap",
+          "type": "file",
+          "label": "06_heap.py",
+          "path": "content/01_data_structures/06_heap.py",
+          "iconPath": "assets/icons/file_lines-1.png"
+        },
+        {
+          "id": "07_graph",
+          "type": "file",
+          "label": "07_graph.py",
+          "path": "content/01_data_structures/07_graph.py",
+          "iconPath": "assets/icons/file_lines-1.png"
+        }
+      ]
+    },
+    "/code/datastructures_algorithms/02_algorithims": {
+      "label": "02_algorithims",
+      "items": [
+        {
+          "id": "greedy_algorithm",
+          "type": "folder",
+          "label": "greedy_algorithm",
+          "path": "/code/datastructures_algorithms/02_algorithims/greedy_algorithm",
+          "iconPath": "assets/icons/directory_closed-1.png"
+        },
+        {
+          "id": "Heuristics",
+          "type": "folder",
+          "label": "Heuristics",
+          "path": "/code/datastructures_algorithms/02_algorithims/Heuristics",
+          "iconPath": "assets/icons/directory_closed-1.png"
+        },
+        {
+          "id": "huffman_compression",
+          "type": "folder",
+          "label": "huffman_compression",
+          "path": "/code/datastructures_algorithms/02_algorithims/huffman_compression",
+          "iconPath": "assets/icons/directory_closed-1.png"
+        },
+        {
+          "id": "binary_search_tree",
+          "type": "file",
+          "label": "binary_search_tree.py",
+          "path": "content/02_algorithims/binary_search_tree.py",
+          "iconPath": "assets/icons/file_lines-1.png"
+        },
+        {
+          "id": "longest_path",
+          "type": "file",
+          "label": "longest_path.py",
+          "path": "content/02_algorithims/longest_path.py",
+          "iconPath": "assets/icons/file_lines-1.png"
+        },
+        {
+          "id": "np_complete",
+          "type": "file",
+          "label": "np_complete.py",
+          "path": "content/02_algorithims/np_complete.py",
+          "iconPath": "assets/icons/file_lines-1.png"
+        },
+        {
+          "id": "shortest_path",
+          "type": "file",
+          "label": "shortest_path.py",
+          "path": "content/02_algorithims/shortest_path.py",
+          "iconPath": "assets/icons/file_lines-1.png"
+        }
+      ]
+    },
+    "/code/datastructures_algorithms/02_algorithims/greedy_algorithm": {
+      "label": "greedy_algorithm",
+      "items": [
+        {
+          "id": "fractional_knapsack",
+          "type": "file",
+          "label": "fractional_knapsack.py",
+          "path": "content/02_algorithims/greedy_algorithm/fractional_knapsack.py",
+          "iconPath": "assets/icons/file_lines-1.png"
+        },
+        {
+          "id": "greedy_algorithm_file",
+          "type": "file",
+          "label": "greedy_algorithm.py",
+          "path": "content/02_algorithims/greedy_algorithm/greedy_algorithm.py",
+          "iconPath": "assets/icons/file_lines-1.png"
+        }
+      ]
+    },
+    "/code/datastructures_algorithms/02_algorithims/Heuristics": {
+      "label": "Heuristics",
+      "items": [
+        {
+          "id": "heuristics",
+          "type": "file",
+          "label": "heuristics.py",
+          "path": "content/02_algorithims/Heuristics/heuristics.py",
+          "iconPath": "assets/icons/file_lines-1.png"
+        },
+        {
+          "id": "move_to_front_heuristic",
+          "type": "file",
+          "label": "move_to_front_heuristic.py",
+          "path": "content/02_algorithims/Heuristics/move_to_front_heuristic.py",
+          "iconPath": "assets/icons/file_lines-1.png"
+        },
+        {
+          "id": "non_optimal_heuristic",
+          "type": "file",
+          "label": "non_optimal_heuristic.py",
+          "path": "content/02_algorithims/Heuristics/non_optimal_heuristic.py",
+          "iconPath": "assets/icons/file_lines-1.png"
+        },
+        {
+          "id": "self_adjusting_heuristic",
+          "type": "file",
+          "label": "self_adjusting_heuristic.py",
+          "path": "content/02_algorithims/Heuristics/self_adjusting_heuristic.py",
+          "iconPath": "assets/icons/file_lines-1.png"
+        }
+      ]
+    },
+    "/code/datastructures_algorithms/02_algorithims/huffman_compression": {
+      "label": "huffman_compression",
+      "items": [
+        {
+          "id": "frequency_table",
+          "type": "file",
+          "label": "frequency_table.py",
+          "path": "content/02_algorithims/huffman_compression/frequency_table.py",
+          "iconPath": "assets/icons/file_lines-1.png"
+        },
+        {
+          "id": "huffman_compression_file",
+          "type": "file",
+          "label": "huffman_compression.py",
+          "path": "content/02_algorithims/huffman_compression/huffman_compression.py",
+          "iconPath": "assets/icons/file_lines-1.png"
+        },
+        {
+          "id": "tree_node",
+          "type": "file",
+          "label": "tree_node.py",
+          "path": "content/02_algorithims/huffman_compression/tree_node.py",
+          "iconPath": "assets/icons/file_lines-1.png"
+        }
+      ]
+    },
+    "/code/datastructures_algorithms/03_dynamic_programming": {
+      "label": "03_dynamic_programming",
+      "items": [
+        {
+          "id": "01_iterative",
+          "type": "file",
+          "label": "01_iterative.py",
+          "path": "content/03_dynamic_programming/01_iterative.py",
+          "iconPath": "assets/icons/file_lines-1.png"
+        },
+        {
+          "id": "02_longest_common_substring",
+          "type": "file",
+          "label": "02_longest_common_substring.py",
+          "path": "content/03_dynamic_programming/02_longest_common_substring.py",
+          "iconPath": "assets/icons/file_lines-1.png"
+        },
+        {
+          "id": "03_recursive",
+          "type": "file",
+          "label": "03_recursive.py",
+          "path": "content/03_dynamic_programming/03_recursive.py",
+          "iconPath": "assets/icons/file_lines-1.png"
+        },
+        {
+          "id": "04_space_optimization",
+          "type": "file",
+          "label": "04_space_optimization.py",
+          "path": "content/03_dynamic_programming/04_space_optimization.py",
+          "iconPath": "assets/icons/file_lines-1.png"
+        }
+      ]
+    },
+    "/code/datastructures_algorithms/04_List": {
+      "label": "04_List",
+      "items": []
+    },
+    "/code/datastructures_algorithms/05_stack": {
+      "label": "05_stack",
+      "items": []
+    },
+    "/code/datastructures_algorithms/06_queue": {
+      "label": "06_queue",
+      "items": []
+    },
+    "/code/datastructures_algorithms/07_hashtable": {
+      "label": "07_hashtable",
+      "items": [
+        {
+          "id": "01_map_adt",
+          "type": "file",
+          "label": "01_map_adt.py",
+          "path": "content/07_hashtable/01_map_adt.py",
+          "iconPath": "assets/icons/file_lines-1.png"
+        },
+        {
+          "id": "02_hashtable",
+          "type": "file",
+          "label": "02_hashtable.py",
+          "path": "content/07_hashtable/02_hashtable.py",
+          "iconPath": "assets/icons/file_lines-1.png"
+        },
+        {
+          "id": "03_chaining",
+          "type": "file",
+          "label": "03_chaining.py",
+          "path": "content/07_hashtable/03_chaining.py",
+          "iconPath": "assets/icons/file_lines-1.png"
+        },
+        {
+          "id": "04_linear_probing",
+          "type": "file",
+          "label": "04_linear_probing.py",
+          "path": "content/07_hashtable/04_linear_probing.py",
+          "iconPath": "assets/icons/file_lines-1.png"
+        },
+        {
+          "id": "05_double_hashing",
+          "type": "file",
+          "label": "05_double_hashing.py",
+          "path": "content/07_hashtable/05_double_hashing.py",
+          "iconPath": "assets/icons/file_lines-1.png"
+        },
+        {
+          "id": "06_quadratic_probing",
+          "type": "file",
+          "label": "06_quadratic_probing.py",
+          "path": "content/07_hashtable/06_quadratic_probing.py",
+          "iconPath": "assets/icons/file_lines-1.png"
+        },
+        {
+          "id": "08_resize",
+          "type": "file",
+          "label": "08_resize.py",
+          "path": "content/07_hashtable/08_resize.py",
+          "iconPath": "assets/icons/file_lines-1.png"
+        },
+        {
+          "id": "09_common_hash_functions",
+          "type": "file",
+          "label": "09_common_hash_functions.py",
+          "path": "content/07_hashtable/09_common_hash_functions.py",
+          "iconPath": "assets/icons/file_lines-1.png"
+        },
+        {
+          "id": "10_direct_hashing",
+          "type": "file",
+          "label": "10_direct_hashing.py",
+          "path": "content/07_hashtable/10_direct_hashing.py",
+          "iconPath": "assets/icons/file_lines-1.png"
+        },
+        {
+          "id": "11_password_hashing",
+          "type": "file",
+          "label": "11_password_hashing.py",
+          "path": "content/07_hashtable/11_password_hashing.py",
+          "iconPath": "assets/icons/file_lines-1.png"
+        }
+      ]
+    },
+    "/code/datastructures_algorithms/08_Trees": {
+      "label": "08_Trees",
+      "items": [
+        {
+          "id": "01_tree_notes",
+          "type": "file",
+          "label": "01_tree_notes.py",
+          "path": "content/08_Trees/01_tree_notes.py",
+          "iconPath": "assets/icons/file_lines-1.png"
+        },
+        {
+          "id": "02_tree_math_helper",
+          "type": "file",
+          "label": "02_tree_math_helper.py",
+          "path": "content/08_Trees/02_tree_math_helper.py",
+          "iconPath": "assets/icons/file_lines-1.png"
+        },
+        {
+          "id": "03_binary_tree_basics",
+          "type": "file",
+          "label": "03_binary_tree_basics.py",
+          "path": "content/08_Trees/03_binary_tree_basics.py",
+          "iconPath": "assets/icons/file_lines-1.png"
+        },
+        {
+          "id": "04_binary_search_tree",
+          "type": "file",
+          "label": "04_binary_search_tree.py",
+          "path": "content/08_Trees/04_binary_search_tree.py",
+          "iconPath": "assets/icons/file_lines-1.png"
+        },
+        {
+          "id": "05_bst_operations",
+          "type": "file",
+          "label": "05_bst_operations.py",
+          "path": "content/08_Trees/05_bst_operations.py",
+          "iconPath": "assets/icons/file_lines-1.png"
+        },
+        {
+          "id": "06_bst_removal",
+          "type": "file",
+          "label": "06_bst_removal.py",
+          "path": "content/08_Trees/06_bst_removal.py",
+          "iconPath": "assets/icons/file_lines-1.png"
+        },
+        {
+          "id": "07_bst_traversals",
+          "type": "file",
+          "label": "07_bst_traversals.py",
+          "path": "content/08_Trees/07_bst_traversals.py",
+          "iconPath": "assets/icons/file_lines-1.png"
+        },
+        {
+          "id": "08_bst_height_insertion_order",
+          "type": "file",
+          "label": "08_bst_height_insertion_order.py",
+          "path": "content/08_Trees/08_bst_height_insertion_order.py",
+          "iconPath": "assets/icons/file_lines-1.png"
+        },
+        {
+          "id": "09_bst_recursion",
+          "type": "file",
+          "label": "09_bst_recursion.py",
+          "path": "content/08_Trees/09_bst_recursion.py",
+          "iconPath": "assets/icons/file_lines-1.png"
+        },
+        {
+          "id": "10_set_adt_notes",
+          "type": "file",
+          "label": "10_set_adt_notes.py",
+          "path": "content/08_Trees/10_set_adt_notes.py",
+          "iconPath": "assets/icons/file_lines-1.png"
+        },
+        {
+          "id": "11_python_set_class",
+          "type": "file",
+          "label": "11_python_set_class.py",
+          "path": "content/08_Trees/11_python_set_class.py",
+          "iconPath": "assets/icons/file_lines-1.png"
+        },
+        {
+          "id": "tries_basic",
+          "type": "file",
+          "label": "tries_basic.py",
+          "path": "content/08_Trees/tries_basic.py",
+          "iconPath": "assets/icons/file_lines-1.png"
+        }
+      ]
+    },
+    "/code/datastructures_algorithms/09_avl_trees": {
+      "label": "09_avl_trees",
+      "items": [
+        {
+          "id": "avl_tree",
+          "type": "file",
+          "label": "avl_tree.py",
+          "path": "content/09_avl_trees/avl_tree.py",
+          "iconPath": "assets/icons/file_lines-1.png"
+        }
+      ]
+    }
+  }
+}
