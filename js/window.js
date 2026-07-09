@@ -67,9 +67,13 @@
     windowsLayer.appendChild(win);
 
     var taskbarButton = document.createElement("button");
+    var taskbarLabel = document.createElement("span");
     taskbarButton.className = "taskbar-item";
     taskbarButton.type = "button";
-    taskbarButton.textContent = config.title;
+    taskbarLabel.className = "taskbar-label";
+    taskbarLabel.textContent = config.title;
+    appendTaskbarIcon(taskbarButton, config);
+    taskbarButton.appendChild(taskbarLabel);
     taskbarButton.addEventListener("click", function () {
       focusWindow(win);
     });
@@ -157,6 +161,29 @@
   function parsePixelValue(value, fallback) {
     var parsed = parseInt(value, 10);
     return Number.isFinite(parsed) ? parsed : fallback;
+  }
+
+  function appendTaskbarIcon(button, config) {
+    var icon = null;
+
+    if (config.iconPath) {
+      icon = document.createElement("img");
+      icon.src = config.iconPath;
+      icon.alt = "";
+      icon.draggable = false;
+    } else if (config.icon) {
+      icon = document.createElement("span");
+      icon.className = "taskbar-icon-glyph " + config.icon;
+      icon.textContent = config.iconText || "";
+    }
+
+    if (!icon) {
+      return;
+    }
+
+    icon.className = (icon.className ? icon.className + " " : "") + "taskbar-icon";
+    icon.setAttribute("aria-hidden", "true");
+    button.appendChild(icon);
   }
 
   function focusWindow(win) {

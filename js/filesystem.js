@@ -42,7 +42,10 @@
         content: shell,
         width: item.width || "720px",
         height: item.height || "480px",
-        className: "code-window"
+        className: "code-window",
+        iconPath: item.iconPath || "assets/icons/file_lines-1.png",
+        icon: item.icon,
+        iconText: item.iconText
       });
 
       shell.className = "code-shell";

@@ -54,7 +54,7 @@
 
   function openItem(item) {
     if (item.type === "folder") {
-      openFolderWindow(item.path);
+      openFolderWindow(item.path, item);
       return;
     }
 
@@ -73,7 +73,7 @@
     }
   }
 
-  function openFolderWindow(path) {
+  function openFolderWindow(path, sourceItem) {
     var folder = RetroFS.getFolder(path);
     var grid = document.createElement("div");
 
@@ -91,7 +91,10 @@
       title: folder.label || "Folder",
       content: grid,
       width: folder.width || "500px",
-      height: folder.height || "340px"
+      height: folder.height || "340px",
+      iconPath: sourceItem && sourceItem.iconPath ? sourceItem.iconPath : folder.iconPath || "assets/icons/directory_closed-1.png",
+      icon: sourceItem && sourceItem.icon ? sourceItem.icon : folder.icon,
+      iconText: sourceItem && sourceItem.iconText ? sourceItem.iconText : folder.iconText
     });
   }
 
@@ -119,7 +122,8 @@
       title: title,
       content: createMessage(message),
       width: "460px",
-      height: "220px"
+      height: "220px",
+      iconPath: "assets/icons/msg_information-2.png"
     });
   }
 
