@@ -1,6 +1,13 @@
 {
   "desktop": [
     {
+      "id": "recycle-bin",
+      "type": "folder",
+      "label": "Recycle Bin",
+      "path": "/recycle-bin",
+      "iconPath": "assets/icons/recycle_bin_empty-4.png"
+    },
+    {
       "id": "code",
       "type": "folder",
       "label": "Code",
@@ -9,6 +16,10 @@
     }
   ],
   "folders": {
+    "/recycle-bin": {
+      "label": "Recycle Bin",
+      "items": []
+    },
     "/code": {
       "label": "Code",
       "items": [

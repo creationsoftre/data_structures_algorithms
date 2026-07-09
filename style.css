@@ -43,18 +43,12 @@ button {
 }
 
 .desktop-icons {
-  display: grid;
-  grid-auto-flow: column;
-  grid-template-rows: repeat(8, 76px);
-  grid-auto-columns: 86px;
-  gap: 4px 8px;
-  align-content: start;
-  justify-content: start;
-  padding: 16px 10px;
+  position: relative;
   height: 100%;
 }
 
 .desktop-icon {
+  position: absolute;
   width: 76px;
   min-height: 70px;
   padding: 4px;
@@ -64,6 +58,12 @@ button {
   text-shadow: 1px 1px #000;
   background: transparent;
   cursor: default;
+  touch-action: none;
+  user-select: none;
+}
+
+.desktop-icon.is-dragging {
+  z-index: 5;
 }
 
 .desktop-icon:focus,
@@ -110,6 +110,32 @@ span.icon-art {
 .icon-art.github {
   color: #fff;
   background: #2b2b2b;
+}
+
+.icon-art.trash {
+  position: relative;
+  border: 1px solid #000;
+  background: linear-gradient(#f7f7f7, #cfcfcf);
+  box-shadow: inset 2px 0 0 #fff, inset -2px 0 0 #808080, 1px 1px 0 #000;
+}
+
+.icon-art.trash::before {
+  content: "";
+  position: absolute;
+  top: -6px;
+  left: 7px;
+  width: 18px;
+  height: 5px;
+  border: 1px solid #000;
+  background: #dcdcdc;
+}
+
+.icon-art.trash::after {
+  content: "";
+  position: absolute;
+  inset: 7px 8px 5px;
+  border-left: 1px solid #808080;
+  border-right: 1px solid #808080;
 }
 
 .icon-label {
@@ -367,12 +393,6 @@ img.file-icon {
 }
 
 @media (max-width: 640px) {
-  .desktop-icons {
-    grid-template-rows: repeat(6, 74px);
-    grid-auto-columns: 82px;
-    padding: 10px 6px;
-  }
-
   .window {
     max-width: calc(100vw - 16px);
     max-height: calc(100vh - 50px);

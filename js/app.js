@@ -23,33 +23,31 @@
 
   function renderDesktop() {
     iconsRoot.innerHTML = "";
-    RetroFS.getDesktopItems().forEach(function (item) {
-      iconsRoot.appendChild(createDesktopIcon(item));
+    RetroFS.getDesktopItems().forEach(function (item, index) {
+      iconsRoot.appendChild(createDesktopIcon(item, index));
     });
   }
 
-  function createDesktopIcon(item) {
+  function createDesktopIcon(item, index) {
     var button = document.createElement("button");
     var icon = createIconElement(item, "icon-art");
     var label = document.createElement("span");
+    var position = getDefaultIconPosition(index);
 
     button.className = "desktop-icon";
     button.type = "button";
     button.dataset.itemId = item.id || "";
+    button.style.left = position.left + "px";
+    button.style.top = position.top + "px";
 
     label.className = "icon-label";
     label.textContent = item.label || "";
 
     button.append(icon, label);
-    button.addEventListener("click", function () {
-      document.querySelectorAll(".desktop-icon").forEach(function (desktopIcon) {
-        desktopIcon.classList.remove("is-selected");
-      });
-      button.classList.add("is-selected");
-    });
     button.addEventListener("dblclick", function () {
       openItem(item);
     });
+    enableDesktopIconDrag(button);
 
     return button;
   }
@@ -133,6 +131,7 @@
       image.alt = "";
       image.width = 32;
       image.height = 32;
+      image.draggable = false;
       image.setAttribute("aria-hidden", "true");
       return image;
     }
@@ -142,6 +141,106 @@
     icon.textContent = item.iconText || "";
     icon.setAttribute("aria-hidden", "true");
     return icon;
+  }
+
+  function getDefaultIconPosition(index) {
+    var rowHeight = 76;
+    var columnWidth = 86;
+    var maxRows = Math.max(1, Math.floor(iconsRoot.clientHeight / rowHeight));
+    var row = index % maxRows;
+    var column = Math.floor(index / maxRows);
+
+    return {
+      left: 10 + column * columnWidth,
+      top: 16 + row * rowHeight
+    };
+  }
+
+  function enableDesktopIconDrag(button) {
+    button.addEventListener("mousedown", function (event) {
+      if (event.button !== 0) {
+        return;
+      }
+
+      event.preventDefault();
+
+      var startX = event.clientX;
+      var startY = event.clientY;
+      var startLeft = button.offsetLeft;
+      var startTop = button.offsetTop;
+
+      selectDesktopIcon(button);
+      button.classList.add("is-dragging");
+
+      function move(moveEvent) {
+        var nextLeft = startLeft + moveEvent.clientX - startX;
+        var nextTop = startTop + moveEvent.clientY - startY;
+        var maxLeft = iconsRoot.clientWidth - button.offsetWidth;
+        var maxTop = iconsRoot.clientHeight - button.offsetHeight;
+
+        button.style.left = Math.max(0, Math.min(nextLeft, maxLeft)) + "px";
+        button.style.top = Math.max(0, Math.min(nextTop, maxTop)) + "px";
+      }
+
+      function stop() {
+        button.classList.remove("is-dragging");
+        button.classList.remove("is-selected");
+        button.blur();
+        document.removeEventListener("mousemove", move);
+        document.removeEventListener("mouseup", stop);
+      }
+
+      document.addEventListener("mousemove", move);
+      document.addEventListener("mouseup", stop);
+    });
+
+    button.addEventListener("touchstart", function (event) {
+      if (event.touches.length !== 1) {
+        return;
+      }
+
+      var touch = event.touches[0];
+      var startX = touch.clientX;
+      var startY = touch.clientY;
+      var startLeft = button.offsetLeft;
+      var startTop = button.offsetTop;
+
+      selectDesktopIcon(button);
+      button.classList.add("is-dragging");
+
+      function move(moveEvent) {
+        var nextTouch = moveEvent.touches[0];
+        var nextLeft = startLeft + nextTouch.clientX - startX;
+        var nextTop = startTop + nextTouch.clientY - startY;
+        var maxLeft = iconsRoot.clientWidth - button.offsetWidth;
+        var maxTop = iconsRoot.clientHeight - button.offsetHeight;
+
+        moveEvent.preventDefault();
+
+        button.style.left = Math.max(0, Math.min(nextLeft, maxLeft)) + "px";
+        button.style.top = Math.max(0, Math.min(nextTop, maxTop)) + "px";
+      }
+
+      function stop() {
+        button.classList.remove("is-dragging");
+        button.classList.remove("is-selected");
+        button.blur();
+        document.removeEventListener("touchmove", move);
+        document.removeEventListener("touchend", stop);
+        document.removeEventListener("touchcancel", stop);
+      }
+
+      document.addEventListener("touchmove", move, { passive: false });
+      document.addEventListener("touchend", stop);
+      document.addEventListener("touchcancel", stop);
+    });
+  }
+
+  function selectDesktopIcon(button) {
+    document.querySelectorAll(".desktop-icon").forEach(function (desktopIcon) {
+      desktopIcon.classList.remove("is-selected");
+    });
+    button.classList.add("is-selected");
   }
 
   function updateClock() {
