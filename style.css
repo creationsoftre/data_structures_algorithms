@@ -544,9 +544,9 @@ img.file-icon {
 .start-logo {
   width: 16px;
   height: 16px;
-  background:
-    linear-gradient(90deg, #f44336 0 50%, #4caf50 50% 100%) 0 0 / 100% 50% no-repeat,
-    linear-gradient(90deg, #2196f3 0 50%, #ffeb3b 50% 100%) 0 100% / 100% 50% no-repeat;
+  background: url("assets/icons/windows-0.png") center / contain no-repeat;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
 }
 
 .taskbar-items {
