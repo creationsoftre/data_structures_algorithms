@@ -5,6 +5,7 @@
   var answers = {};
   var currentIndex = 0;
   var root = null;
+  var STORAGE_KEY = "codeDeskQuizHistory";
 
   window.QuizApp = { open: open };
 
@@ -35,6 +36,7 @@
     });
     var start = button("Start Quiz", startQuiz);
     panel.append(title, copy, details, start);
+    appendHistory(panel);
     root.appendChild(panel);
   }
 
@@ -96,6 +98,7 @@
 
   function renderResults() {
     var result = QuizEngine.grade(activeQuiz, answers);
+    saveAttempt(result);
     root.innerHTML = "";
     var report = element("section", "quiz-results");
     var hero = element("header", "quiz-score-hero");
@@ -164,6 +167,56 @@
     if (existing) existing.remove();
     var notice = element("p", "quiz-notice", message);
     root.querySelector(".quiz-actions").before(notice);
+  }
+
+  function appendHistory(panel) {
+    var history = loadHistory();
+    if (!history.length) return;
+    var section = element("section", "quiz-history");
+    var heading = element("div", "quiz-history-heading");
+    heading.append(element("h2", "", "Recent attempts"), button("Clear History", function () {
+      if (window.confirm("Clear all saved quiz scores from this browser?")) {
+        localStorage.removeItem(STORAGE_KEY);
+        renderWelcome();
+      }
+    }));
+    var list = element("div", "quiz-history-list");
+    history.slice(0, 5).forEach(function (attempt) {
+      var row = element("div", "quiz-history-row");
+      row.append(
+        element("strong", "", attempt.score + "%"),
+        element("span", "", attempt.correct + "/" + attempt.total + " correct"),
+        element("time", "", new Date(attempt.date).toLocaleDateString())
+      );
+      list.appendChild(row);
+    });
+    section.append(heading, list);
+    panel.appendChild(section);
+  }
+
+  function saveAttempt(result) {
+    var history = loadHistory();
+    history.unshift({
+      date: new Date().toISOString(),
+      score: result.score,
+      correct: result.correct,
+      total: result.total,
+      weakTopics: result.weakTopics.slice()
+    });
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(history.slice(0, 20)));
+    } catch (error) {
+      // Quiz grading still works when browser storage is blocked or full.
+    }
+  }
+
+  function loadHistory() {
+    try {
+      var parsed = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
+      return Array.isArray(parsed) ? parsed : [];
+    } catch (error) {
+      return [];
+    }
   }
 
   function button(text, handler) {

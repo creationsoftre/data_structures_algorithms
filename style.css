@@ -631,6 +631,12 @@ img.file-icon {
 .quiz-welcome h1, .quiz-results h1 { margin: 0 0 12px; font-size: 22px; }
 .quiz-welcome p { font-size: 13px; line-height: 1.5; }
 .quiz-summary-list { margin: 18px 0 24px; padding-left: 22px; line-height: 1.8; }
+.quiz-history { margin-top: 24px; padding-top: 14px; border-top: 1px solid #aaa; }
+.quiz-history-heading { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.quiz-history-heading h2 { margin: 0; font-size: 15px; }
+.quiz-history-list { display: grid; gap: 4px; margin-top: 8px; }
+.quiz-history-row { display: grid; grid-template-columns: 50px 1fr auto; gap: 8px; padding: 6px; border: 1px solid #bbb; background: #f2f2f2; }
+.quiz-history-row time { color: #555; }
 .quiz-header { display: grid; grid-template-columns: 1fr auto; gap: 8px 16px; padding: 14px 16px; border-bottom: 1px solid var(--win98-shadow); background: var(--win98-face); }
 .quiz-topic { color: #333; }
 .quiz-progress { grid-column: 1 / -1; height: 18px; padding: 2px; border: 2px solid; border-color: var(--win98-dark) var(--win98-light) var(--win98-light) var(--win98-dark); background: #fff; }

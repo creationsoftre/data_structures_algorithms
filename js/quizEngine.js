@@ -17,6 +17,15 @@
     var pool = questions.slice();
     if (focusTopics && focusTopics.length) {
       pool = pool.filter(function (question) { return focusTopics.indexOf(question.topic) !== -1; });
+      return shuffle(pool).slice(0, Math.min(count || 20, pool.length));
+    }
+
+    if ((count || 20) === 20) {
+      return shuffle([].concat(
+        takeCompetency(pool, "Explains Algorithms", 6),
+        takeCompetency(pool, "Determines Data Structure Impact", 6),
+        takeCompetency(pool, "Applies Algorithms", 8)
+      ));
     }
     return shuffle(pool).slice(0, Math.min(count || 20, pool.length));
   }
@@ -70,5 +79,11 @@
       items[target] = value;
     }
     return items;
+  }
+
+  function takeCompetency(questions, competency, count) {
+    return shuffle(questions.filter(function (question) {
+      return question.competency === competency;
+    })).slice(0, count);
   }
 })();
