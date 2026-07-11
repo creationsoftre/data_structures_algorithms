@@ -41,10 +41,13 @@
       return { question: question, selected: selected, correct: correct };
     });
 
+    var representedWeight = Object.keys(competency).reduce(function (total, name) {
+      return total + (WEIGHTS[name] || 0);
+    }, 0);
     var overall = Object.keys(WEIGHTS).reduce(function (score, name) {
       var result = competency[name] || { correct: 0, total: 0 };
       var percent = result.total ? result.correct / result.total : 0;
-      return score + percent * WEIGHTS[name] * 100;
+      return score + percent * WEIGHTS[name] / (representedWeight || 1) * 100;
     }, 0);
 
     return {

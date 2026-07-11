@@ -29,9 +29,10 @@
     root.innerHTML = "";
     var panel = element("section", "quiz-welcome");
     var title = element("h1", "", "Data Structures & Algorithms Quiz");
-    var copy = element("p", "", "Answer 20 multiple-choice questions. Your results will identify the competencies and topics that need the most attention.");
+    var questionCount = Math.min(20, QuizQuestions.length);
+    var copy = element("p", "", "Answer " + questionCount + " multiple-choice " + (questionCount === 1 ? "question" : "questions") + ". Your results will identify the competencies and topics that need the most attention.");
     var details = element("ul", "quiz-summary-list");
-    ["20 randomized questions", "Feedback after the final answer", "Weighted to the C949 competency distribution", "No time limit"].forEach(function (text) {
+    [questionCount + (questionCount === 1 ? " sample question" : " randomized questions"), "Feedback after the final answer", "Competency and topic breakdown", "No time limit"].forEach(function (text) {
       details.appendChild(element("li", "", text));
     });
     var start = button("Start Quiz", startQuiz);
@@ -109,7 +110,7 @@
 
     var competencyTitle = element("h2", "", "Competency breakdown");
     var competency = element("div", "quiz-breakdown");
-    Object.keys(QuizEngine.weights).forEach(function (name) {
+    Object.keys(result.competency).forEach(function (name) {
       competency.appendChild(resultRow(name, result.competency[name], Math.round(QuizEngine.weights[name] * 100) + "% of assessment"));
     });
 

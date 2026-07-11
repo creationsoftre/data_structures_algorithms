@@ -1,50 +1,22 @@
 (function () {
   "use strict";
 
+  // Question template: duplicate this object and give each question a unique id.
+  // Valid competencies are listed in QuizEngine.weights.
   window.QuizQuestions = [
-    q("alg-01", "Explains Algorithms", "Algorithm Fundamentals", "Which property guarantees that an algorithm eventually stops?", ["Definiteness", "Finiteness", "Generality", "Modularity"], 1, "Finiteness requires an algorithm to finish after a finite number of steps."),
-    q("alg-02", "Explains Algorithms", "Algorithm Fundamentals", "What does definiteness require from an algorithm?", ["Every step is precise and unambiguous", "It uses the least memory possible", "It accepts only one input", "It is written recursively"], 0, "Definiteness means every operation is clearly and exactly specified."),
-    q("alg-03", "Explains Algorithms", "Algorithm Fundamentals", "An algorithm designed to handle a range of valid inputs rather than one special case demonstrates what?", ["Effectiveness", "Correctness", "Generality", "Encryption"], 2, "Generality describes a solution that works for a class of problems or inputs."),
-    q("alg-04", "Explains Algorithms", "Algorithm Strategies", "Which strategy tries every possible solution and is usually practical only for small inputs?", ["Greedy", "Brute force", "Dynamic programming", "Divide and conquer"], 1, "Brute force exhaustively tests possible solutions and can become expensive as inputs grow."),
-    q("alg-05", "Explains Algorithms", "Algorithm Strategies", "What distinguishes dynamic programming from plain recursion?", ["It never uses loops", "It works only on sorted input", "It stores and reuses subproblem results", "It always runs in constant time"], 2, "Dynamic programming avoids repeated work by caching or tabulating intermediate results."),
-    q("alg-06", "Explains Algorithms", "Recursion", "What is the purpose of a recursive function's base case?", ["To start another recursive call", "To stop the recursion", "To sort the input", "To allocate the heap"], 1, "The base case produces a result without another recursive call, allowing the call stack to unwind."),
-    q("alg-07", "Explains Algorithms", "Complexity", "What is the worst-case time complexity of linear search over n items?", ["O(1)", "O(log n)", "O(n)", "O(n²)"], 2, "Linear search may inspect all n items in the worst case."),
-    q("alg-08", "Explains Algorithms", "Complexity", "Binary search has O(log n) time because it does what on each step?", ["Checks every remaining item", "Halves the remaining search space", "Sorts the entire collection", "Uses a hash function"], 1, "Each comparison eliminates half of the remaining sorted search interval."),
-    q("alg-09", "Explains Algorithms", "Complexity", "Two separate loops each run n times, one after the other. What is their combined complexity?", ["O(1)", "O(log n)", "O(n)", "O(n²)"], 2, "Sequential O(n) operations add to O(2n), which simplifies to O(n)."),
-    q("alg-10", "Explains Algorithms", "Complexity", "Two nested loops each run n times. What is their combined complexity?", ["O(n)", "O(n log n)", "O(n²)", "O(2n)"], 2, "Nested loop costs multiply: n times n produces O(n²)."),
-    q("ds-01", "Determines Data Structure Impact", "Arrays and Lists", "Which operation is typically O(1) for an array?", ["Insert at the beginning", "Access an element by index", "Find an unsorted value", "Delete the first element"], 1, "An array calculates an indexed element's address directly."),
-    q("ds-02", "Determines Data Structure Impact", "Arrays and Lists", "Why is inserting at the front of an array usually O(n)?", ["The array must be sorted", "Existing elements must be shifted", "A tree rotation is required", "Every value must be hashed"], 1, "Making room at the front requires shifting the existing elements."),
-    q("ds-03", "Determines Data Structure Impact", "Stacks and Queues", "Which ordering rule does a stack follow?", ["FIFO", "LIFO", "Lowest priority first", "Random order"], 1, "A stack is last in, first out: the newest item is removed first."),
-    q("ds-04", "Determines Data Structure Impact", "Stacks and Queues", "Which structure best models customers waiting in the order they arrived?", ["Stack", "Queue", "Binary search tree", "Set"], 1, "A queue uses first in, first out ordering."),
-    q("ds-05", "Determines Data Structure Impact", "Hash Tables", "What is a collision in a hash table?", ["A key is deleted", "Two keys map to the same index", "The table is sorted", "A value is recursive"], 1, "A collision occurs when distinct keys produce the same table location."),
-    q("ds-06", "Determines Data Structure Impact", "Hash Tables", "How does separate chaining resolve collisions?", ["It stores collided entries in a collection at the index", "It rejects the second key", "It sorts all keys", "It doubles every hash value"], 0, "Separate chaining keeps a bucket, often a linked list, for entries sharing an index."),
-    q("ds-07", "Determines Data Structure Impact", "Trees", "In a binary search tree, where are values smaller than a node normally stored?", ["In its right subtree", "In its left subtree", "Only at the root", "In a hash bucket"], 1, "The BST ordering property places smaller values to the left and larger values to the right."),
-    q("ds-08", "Determines Data Structure Impact", "Trees", "Which traversal of a binary search tree visits values in sorted order?", ["Preorder", "Postorder", "Level order", "Inorder"], 3, "Inorder traversal visits the left subtree, node, then right subtree."),
-    q("ds-09", "Determines Data Structure Impact", "Trees", "What problem do AVL tree rotations correct?", ["Hash collisions", "An excessive balance factor", "Duplicate queue entries", "Unsorted arrays"], 1, "AVL rotations restore balance when subtree heights differ beyond the allowed range."),
-    q("ds-10", "Determines Data Structure Impact", "Graphs", "Which representation is generally space-efficient for a sparse graph?", ["Adjacency matrix", "Adjacency list", "Complete binary tree", "Contiguous stack"], 1, "An adjacency list stores existing edges rather than a cell for every possible vertex pair."),
-    q("ds-11", "Determines Data Structure Impact", "Graphs", "Which data structure does breadth-first search normally use?", ["Queue", "Stack", "Hash-only set", "Priority-free tree"], 0, "A queue processes vertices layer by layer in breadth-first order."),
-    q("ds-12", "Determines Data Structure Impact", "Graphs", "Which data structure commonly supports an iterative depth-first search?", ["Queue", "Stack", "Array index only", "Min-heap"], 1, "A stack explores deeply before returning to earlier branches."),
-    q("apply-01", "Applies Algorithms", "Searching", "What prerequisite must hold before using standard binary search?", ["The collection is sorted", "The collection is a linked list", "Every value is unique", "The target is present"], 0, "Binary search relies on sorted order to decide which half can be discarded."),
-    q("apply-02", "Applies Algorithms", "Sorting", "Which sorting method repeatedly compares adjacent elements and swaps those out of order?", ["Merge sort", "Bubble sort", "Selection sort", "Counting sort"], 1, "Bubble sort moves out-of-order adjacent values through repeated passes."),
-    q("apply-03", "Applies Algorithms", "Sorting", "Which algorithm divides a collection, sorts both halves, and combines them?", ["Linear search", "Merge sort", "Selection sort", "Breadth-first search"], 1, "Merge sort uses divide and conquer, followed by a merge step."),
-    q("apply-04", "Applies Algorithms", "Sorting", "What is merge sort's typical time complexity?", ["O(1)", "O(log n)", "O(n log n)", "O(n² log n)"], 2, "Merge sort has log n levels and performs O(n) merging work per level."),
-    q("apply-05", "Applies Algorithms", "Algorithm Strategies", "A greedy algorithm makes which kind of choice at each step?", ["A locally optimal choice", "Every possible choice", "A random choice only", "The choice using most memory"], 0, "Greedy methods choose the best-looking immediate option, which does not always produce a global optimum."),
-    q("apply-06", "Applies Algorithms", "Algorithm Strategies", "Which technique explores a choice and undoes it when it cannot lead to a valid solution?", ["Hashing", "Backtracking", "Linear probing", "Memoization"], 1, "Backtracking abandons unsuccessful partial solutions and tries alternatives."),
-    q("apply-07", "Applies Algorithms", "Graphs", "For an unweighted graph, which algorithm finds a shortest path by number of edges?", ["Depth-first search", "Breadth-first search", "Selection sort", "Binary search"], 1, "Breadth-first search discovers vertices in increasing distance from the start."),
-    q("apply-08", "Applies Algorithms", "Graphs", "Dijkstra's algorithm is not suitable when a graph contains what?", ["Positive weights", "Directed edges", "Negative edge weights", "More than one path"], 2, "Negative edges can invalidate Dijkstra's greedy decision that a finalized distance is optimal."),
-    q("apply-09", "Applies Algorithms", "Hash Tables", "When open addressing encounters a collision, what does linear probing do?", ["Checks subsequent slots in sequence", "Creates a child tree", "Removes the original key", "Searches only the same slot"], 0, "Linear probing advances through table positions until it finds the key or an available slot."),
-    q("apply-10", "Applies Algorithms", "Hash Tables", "Why is a hash table commonly resized as its load factor grows?", ["To preserve efficient access and reduce collisions", "To make keys alphabetical", "To convert it into a queue", "To guarantee O(1) worst-case sorting"], 0, "A crowded table has more collisions; resizing helps retain efficient average operations."),
-    q("apply-11", "Applies Algorithms", "Trees", "Which case is required when recursively searching a binary tree?", ["A null-node base case", "A sorted array", "A hash collision", "A queue overflow"], 0, "A null-node base case stops recursion when the search moves beyond a leaf."),
-    q("apply-12", "Applies Algorithms", "Dynamic Programming", "What does memoization usually store?", ["Only the original input", "Results of previously solved subproblems", "A sorted copy of every array", "The program's source code"], 1, "Memoization caches subproblem results so later calls can reuse them."),
-    q("apply-13", "Applies Algorithms", "Complexity", "An algorithm performs constant work for each item in an n-item list. What is its time complexity?", ["O(1)", "O(log n)", "O(n)", "O(n²)"], 2, "Doing a constant amount of work n times produces linear O(n) time."),
-    q("apply-14", "Applies Algorithms", "Problem Solving", "When is a heuristic most appropriate?", ["When an exact solution is required instantly", "When a useful approximate solution is acceptable", "When no input exists", "When every possible solution must be tested"], 1, "Heuristics trade guaranteed optimality for a practical solution, often on difficult problems."),
-    q("apply-15", "Applies Algorithms", "Programming Concepts", "Which statement best describes dynamic memory allocation?", ["Memory is assigned only at compile time", "Memory is requested while the program runs", "Variables can never change size", "All values are stored in source files"], 1, "Dynamic allocation requests and manages memory during program execution."),
-    q("apply-16", "Applies Algorithms", "Programming Concepts", "What benefit does an enumeration provide?", ["It restricts a value to a named set of constants", "It automatically sorts arrays", "It removes all type checking", "It replaces recursion"], 0, "An enum models a small, predefined set of meaningful named values."),
-    q("apply-17", "Applies Algorithms", "Trees", "Removing a BST node with two children commonly uses which replacement?", ["Any random leaf", "Its inorder successor or predecessor", "The root of another tree", "A hash table bucket"], 1, "The inorder successor or predecessor preserves the BST ordering property."),
-    q("apply-18", "Applies Algorithms", "Recursion", "What resource can deep recursion exhaust?", ["The call stack", "The hash function", "The queue's FIFO rule", "The compiler keyword list"], 0, "Each recursive call adds a stack frame, so excessive depth can overflow the call stack.")
+    {
+      id: "sample-01",
+      competency: "Explains Algorithms",
+      topic: "Sample Topic",
+      prompt: "Which answer demonstrates the format of a multiple-choice quiz question?",
+      choices: [
+        "The correct answer",
+        "An incorrect distractor",
+        "Another incorrect distractor",
+        "A final incorrect distractor"
+      ],
+      answer: 0,
+      explanation: "This sample shows the required fields: competency, topic, prompt, four choices, the zero-based answer index, and an explanation."
+    }
   ];
-
-  function q(id, competency, topic, prompt, choices, answer, explanation) {
-    return { id: id, competency: competency, topic: topic, prompt: prompt, choices: choices, answer: answer, explanation: explanation };
-  }
 })();
