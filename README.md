@@ -10,6 +10,8 @@ This repository started as a place to keep my code, explanations, and practical 
 
 As I shared what I was learning with friends and coworkers, I wanted to give them something more engaging than a collection of source files. That idea became this interactive desktop: visitors can explore folders, open examples, read the code, and run Python directly in the browser.
 
+The desktop also includes a course-study quiz template with competency scores, topic-level feedback, answer explanations, weak-area practice, and attempt history saved locally in the browser. The question bank is being developed from course-aligned source material.
+
 The project is a growing record of my learning, not a finished reference guide. I will continue adding examples and improving the visual experience as I progress through my degree.
 
 ## Topics

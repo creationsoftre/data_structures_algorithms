@@ -20,6 +20,12 @@
       "label": "Internet Explorer",
       "url": "https://github.com/creationsoftre",
       "iconPath": "assets/icons/msie1-2.png"
+    },
+    {
+      "id": "c949-quiz",
+      "type": "quiz",
+      "label": "C949 Quiz",
+      "iconPath": "assets/icons/msg_information-2.png"
     }
   ],
   "folders": {

@@ -68,6 +68,11 @@
       return;
     }
 
+    if (item.type === "quiz") {
+      QuizApp.open();
+      return;
+    }
+
     if (item.type === "link" && item.url) {
       window.open(item.url, "_blank", "noopener");
       return;
