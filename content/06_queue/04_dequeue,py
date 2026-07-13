@@ -1,0 +1,247 @@
+# ============================================================
+# Queue Using deque - High-Level Notes
+# ============================================================
+#
+# DESCRIPTION
+# ------------------------------------------------------------
+#
+# A queue can be built using Python's deque class.
+#
+# deque stands for:
+#
+#   Double-Ended Queue
+#
+# It is imported from the collections module.
+#
+# A deque allows items to be added or removed efficiently
+# from both ends.
+#
+# For a normal queue:
+#
+#   Items are added at the rear.
+#   Items are removed from the front.
+#
+# Queue rule:
+#
+#   First In, First Out
+#
+# This is commonly called:
+#
+#   FIFO
+#
+#
+# EXAMPLE - CUSTOMER CHECKOUT LINE
+# ------------------------------------------------------------
+#
+#   Front                                      Rear
+#     |                                          |
+#     v                                          v
+#
+#   Customer A -> Customer B -> Customer C -> Customer D
+#
+# Customer A entered the line first.
+#
+# Customer A will be helped and removed first.
+#
+# New customers are added at the rear of the queue.
+#
+#
+# WHY USE deque?
+# ------------------------------------------------------------
+#
+# Python lists can be used as queues, but removing the first
+# item with pop(0) requires the remaining items to shift.
+#
+# List removal from the front:
+#
+#   O(n)
+#
+# deque can remove the first item without shifting the other
+# items.
+#
+# deque removal from the front:
+#
+#   O(1)
+#
+# This makes deque a better choice for implementing queues
+# in Python.
+#
+#
+# MAIN QUEUE OPERATIONS
+# ------------------------------------------------------------
+#
+# enqueue(item)
+#     Adds an item to the rear using append().
+#
+# dequeue()
+#     Removes and returns the front item using popleft().
+#
+# peek()
+#     Returns the front item without removing it.
+#
+# is_empty()
+#     Checks whether the deque contains no items.
+#
+# size()
+#     Returns the number of items currently in the deque.
+#
+#
+# ============================================================
+# TIME COMPLEXITY
+# ============================================================
+#
+#   Operation       Time Complexity
+#   -------------------------------
+#   enqueue()            O(1)
+#   dequeue()            O(1)
+#   peek()               O(1)
+#   is_empty()           O(1)
+#   size()               O(1)
+#
+# append() adds an item directly to the rear.
+#
+# popleft() removes an item directly from the front.
+#
+# Searching through the entire queue requires:
+#
+#   O(n)
+#
+#
+# ============================================================
+# SPACE COMPLEXITY
+# ============================================================
+#
+#   O(n)
+#
+# The deque needs space for every item it stores.
+#
+#
+# ============================================================
+# DEQUE QUEUE IMPLEMENTATION
+# ============================================================
+
+
+from collections import deque
+
+
+class DequeQueue:
+    def __init__(self):
+        # Create an empty deque to store the queue's items.
+        self.items = deque()
+
+    def enqueue(self, item):
+        # Add the new item to the rear of the queue.
+        #
+        # append() adds an item to the right side of the deque.
+        self.items.append(item)
+
+    def dequeue(self):
+        # A value cannot be removed from an empty queue.
+        if self.is_empty():
+            return None
+
+        # Remove and return the item at the front of the queue.
+        #
+        # popleft() removes the item from the left side.
+        return self.items.popleft()
+
+    def peek(self):
+        # An empty queue does not have a front item.
+        if self.is_empty():
+            return None
+
+        # Return the front item without removing it.
+        #
+        # Index 0 represents the first item in the deque.
+        return self.items[0]
+
+    def is_empty(self):
+        # The queue is empty when the deque contains no items.
+        return len(self.items) == 0
+
+    def size(self):
+        # Return the number of items currently in the queue.
+        return len(self.items)
+
+
+# ============================================================
+# CODE EXAMPLE - CUSTOMER CHECKOUT LINE
+# ============================================================
+#
+# Create a deque-based queue for a customer checkout line.
+checkout_line = DequeQueue()
+
+# Customer A enters the checkout line.
+#
+# Queue:
+#
+#   Front / Rear
+#        |
+#        v
+#
+#   Customer A
+checkout_line.enqueue("Customer A")
+
+# Customer B enters behind Customer A.
+#
+# Queue:
+#
+#   Front               Rear
+#     |                    |
+#     v                    v
+#
+#   Customer A -> Customer B
+checkout_line.enqueue("Customer B")
+
+# Customer C enters behind Customer B.
+#
+# Queue:
+#
+#   Front                            Rear
+#     |                                |
+#     v                                v
+#
+#   Customer A -> Customer B -> Customer C
+checkout_line.enqueue("Customer C")
+
+# Customer D enters at the rear of the line.
+#
+# Queue:
+#
+#   Front                                          Rear
+#     |                                              |
+#     v                                              v
+#
+#   Customer A -> Customer B -> Customer C -> Customer D
+checkout_line.enqueue("Customer D")
+
+# peek() returns the next customer without removing them.
+print("Next customer:", checkout_line.peek())
+
+# size() returns the number of customers currently in line.
+print("Customers in line:", checkout_line.size())
+
+# The cashier helps the customer at the front of the line.
+#
+# dequeue() uses popleft() to remove Customer A.
+helped_customer = checkout_line.dequeue()
+
+# Customer A was removed because Customer A entered first.
+print("Helping:", helped_customer)
+
+# Customer B is now at the front of the queue.
+print("Next customer:", checkout_line.peek())
+
+# Display the number of customers remaining in line.
+print("Customers remaining:", checkout_line.size())
+
+# ============================================================
+# EXPECTED OUTPUT
+# ============================================================
+#
+# Next customer: Customer A
+# Customers in line: 4
+# Helping: Customer A
+# Next customer: Customer B
+# Customers remaining: 3
+# ============================================================
