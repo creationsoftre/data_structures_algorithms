@@ -13,7 +13,7 @@
     root = document.createElement("div");
     root.className = "quiz-app";
     WindowManager.open({
-      title: "C949 Quiz",
+      title: "Quiz",
       content: root,
       width: "760px",
       height: "560px",
