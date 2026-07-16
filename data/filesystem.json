@@ -110,6 +110,34 @@
           "label": "09_avl_trees",
           "path": "/code/datastructures_algorithms/09_avl_trees",
           "iconPath": "assets/icons/directory_closed-1.png"
+        },
+        {
+          "id": "0_Notes",
+          "type": "folder",
+          "label": "0_Notes",
+          "path": "/code/datastructures_algorithms/0_Notes",
+          "iconPath": "assets/icons/directory_closed-1.png"
+        },
+        {
+          "id": "10_Heaps_Treaps",
+          "type": "folder",
+          "label": "10_Heaps_Treaps",
+          "path": "/code/datastructures_algorithms/10_Heaps_Treaps",
+          "iconPath": "assets/icons/directory_closed-1.png"
+        },
+        {
+          "id": "11_graphs",
+          "type": "folder",
+          "label": "11_graphs",
+          "path": "/code/datastructures_algorithms/11_graphs",
+          "iconPath": "assets/icons/directory_closed-1.png"
+        },
+        {
+          "id": "12_B-Tree",
+          "type": "folder",
+          "label": "12_B-Tree",
+          "path": "/code/datastructures_algorithms/12_B-Tree",
+          "iconPath": "assets/icons/directory_closed-1.png"
         }
       ]
     },
@@ -338,11 +366,62 @@
     },
     "/code/datastructures_algorithms/05_stack": {
       "label": "05_stack",
-      "items": []
+      "items": [
+        {
+          "id": "01_stack_adt",
+          "type": "file",
+          "label": "01_stack_adt.py",
+          "path": "content/05_stack/01_stack_adt.py",
+          "iconPath": "assets/icons/file_lines-1.png"
+        },
+        {
+          "id": "02_stack_linked_list",
+          "type": "file",
+          "label": "02_stack_linked_list.py",
+          "path": "content/05_stack/02_stack_linked_list.py",
+          "iconPath": "assets/icons/file_lines-1.png"
+        },
+        {
+          "id": "03_stack_array",
+          "type": "file",
+          "label": "03_stack_array.py",
+          "path": "content/05_stack/03_stack_array.py",
+          "iconPath": "assets/icons/file_lines-1.png"
+        }
+      ]
     },
     "/code/datastructures_algorithms/06_queue": {
       "label": "06_queue",
-      "items": []
+      "items": [
+        {
+          "id": "01_queue_adt",
+          "type": "file",
+          "label": "01_queue_adt.py",
+          "path": "content/06_queue/01_queue_adt.py",
+          "iconPath": "assets/icons/file_lines-1.png"
+        },
+        {
+          "id": "02_queue_linked_list",
+          "type": "file",
+          "label": "02_queue_linked_list.py",
+          "path": "content/06_queue/02_queue_linked_list.py",
+          "iconPath": "assets/icons/file_lines-1.png"
+        },
+        {
+          "id": "03_queue_array",
+          "type": "file",
+          "label": "03_queue_array.py",
+          "path": "content/06_queue/03_queue_array.py",
+          "iconPath": "assets/icons/file_lines-1.png"
+        },
+        {
+          "id": "04_dequeue",
+          "type": "file",
+          "label": "04_dequeue,py",
+          "path": "content/06_queue/04_dequeue,py",
+          "iconPath": "assets/icons/file_lines-1.png"
+        }
+      ]
     },
     "/code/datastructures_algorithms/07_hashtable": {
       "label": "07_hashtable",
@@ -516,6 +595,180 @@
           "type": "file",
           "label": "avl_tree.py",
           "path": "content/09_avl_trees/avl_tree.py",
+          "iconPath": "assets/icons/file_lines-1.png"
+        }
+      ]
+    },
+    "/code/datastructures_algorithms/0_Notes": {
+      "label": "0_Notes",
+      "items": [
+        {
+          "id": "bfs_dfs_explained",
+          "type": "file",
+          "label": "bfs_dfs_explained.md",
+          "path": "content/0_Notes/bfs_dfs_explained.md",
+          "iconPath": "assets/icons/file_lines-1.png"
+        },
+        {
+          "id": "graph_storage_types",
+          "type": "file",
+          "label": "graph_storage_types.md",
+          "path": "content/0_Notes/graph_storage_types.md",
+          "iconPath": "assets/icons/file_lines-1.png"
+        }
+      ]
+    },
+    "/code/datastructures_algorithms/10_Heaps_Treaps": {
+      "label": "10_Heaps_Treaps",
+      "items": [
+        {
+          "id": "01_heaps",
+          "type": "file",
+          "label": "01_heaps.py",
+          "path": "content/10_Heaps_Treaps/01_heaps.py",
+          "iconPath": "assets/icons/file_lines-1.png"
+        },
+        {
+          "id": "03_heap_sort",
+          "type": "file",
+          "label": "03_heap_sort.py",
+          "path": "content/10_Heaps_Treaps/03_heap_sort.py",
+          "iconPath": "assets/icons/file_lines-1.png"
+        },
+        {
+          "id": "04_priority_queue",
+          "type": "file",
+          "label": "04_priority_queue.py",
+          "path": "content/10_Heaps_Treaps/04_priority_queue.py",
+          "iconPath": "assets/icons/file_lines-1.png"
+        },
+        {
+          "id": "05_treaps",
+          "type": "file",
+          "label": "05_treaps.py",
+          "path": "content/10_Heaps_Treaps/05_treaps.py",
+          "iconPath": "assets/icons/file_lines-1.png"
+        }
+      ]
+    },
+    "/code/datastructures_algorithms/11_graphs": {
+      "label": "11_graphs",
+      "items": [
+        {
+          "id": "01_graph",
+          "type": "file",
+          "label": "01_graph.py",
+          "path": "content/11_graphs/01_graph.py",
+          "iconPath": "assets/icons/file_lines-1.png"
+        },
+        {
+          "id": "02_adjacency_lists",
+          "type": "file",
+          "label": "02_adjacency_lists.py",
+          "path": "content/11_graphs/02_adjacency_lists.py",
+          "iconPath": "assets/icons/file_lines-1.png"
+        },
+        {
+          "id": "03_directed_graphs",
+          "type": "file",
+          "label": "03_directed graphs.py",
+          "path": "content/11_graphs/03_directed graphs.py",
+          "iconPath": "assets/icons/file_lines-1.png"
+        },
+        {
+          "id": "04_weighted_graphs",
+          "type": "file",
+          "label": "04_weighted_graphs.py",
+          "path": "content/11_graphs/04_weighted_graphs.py",
+          "iconPath": "assets/icons/file_lines-1.png"
+        },
+        {
+          "id": "05_graph_bfs",
+          "type": "file",
+          "label": "05_graph_bfs.py",
+          "path": "content/11_graphs/05_graph_bfs.py",
+          "iconPath": "assets/icons/file_lines-1.png"
+        },
+        {
+          "id": "05_graph_dfs",
+          "type": "file",
+          "label": "05_graph_dfs.py",
+          "path": "content/11_graphs/05_graph_dfs.py",
+          "iconPath": "assets/icons/file_lines-1.png"
+        },
+        {
+          "id": "06_dijkstras_shortest_path",
+          "type": "file",
+          "label": "06_dijkstras_shortest_path.py",
+          "path": "content/11_graphs/06_dijkstras_shortest_path.py",
+          "iconPath": "assets/icons/file_lines-1.png"
+        },
+        {
+          "id": "07_bellman_Fords_shortest_path",
+          "type": "file",
+          "label": "07_bellman_Fords_shortest_path.py",
+          "path": "content/11_graphs/07_bellman_Fords_shortest_path.py",
+          "iconPath": "assets/icons/file_lines-1.png"
+        },
+        {
+          "id": "08_toplogical_sort",
+          "type": "file",
+          "label": "08_toplogical_sort.py",
+          "path": "content/11_graphs/08_toplogical_sort.py",
+          "iconPath": "assets/icons/file_lines-1.png"
+        },
+        {
+          "id": "09_min_spanning_tree",
+          "type": "file",
+          "label": "09_min_spanning_tree.py",
+          "path": "content/11_graphs/09_min_spanning_tree.py",
+          "iconPath": "assets/icons/file_lines-1.png"
+        },
+        {
+          "id": "10_all_pairs_shortest_path",
+          "type": "file",
+          "label": "10_all_pairs_shortest_path.py",
+          "path": "content/11_graphs/10_all_pairs_shortest_path.py",
+          "iconPath": "assets/icons/file_lines-1.png"
+        }
+      ]
+    },
+    "/code/datastructures_algorithms/12_B-Tree": {
+      "label": "12_B-Tree",
+      "items": [
+        {
+          "id": "01_b_tree_insert",
+          "type": "file",
+          "label": "01_b_tree_insert.py",
+          "path": "content/12_B-Tree/01_b_tree_insert.py",
+          "iconPath": "assets/icons/file_lines-1.png"
+        },
+        {
+          "id": "02_b_tree_removal",
+          "type": "file",
+          "label": "02_b_tree_removal.py",
+          "path": "content/12_B-Tree/02_b_tree_removal.py",
+          "iconPath": "assets/icons/file_lines-1.png"
+        },
+        {
+          "id": "03_b_tree_rotate",
+          "type": "file",
+          "label": "03_b_tree_rotate.py",
+          "path": "content/12_B-Tree/03_b_tree_rotate.py",
+          "iconPath": "assets/icons/file_lines-1.png"
+        },
+        {
+          "id": "04_b_tree_fusion",
+          "type": "file",
+          "label": "04_b_tree_fusion.py",
+          "path": "content/12_B-Tree/04_b_tree_fusion.py",
+          "iconPath": "assets/icons/file_lines-1.png"
+        },
+        {
+          "id": "05_iterable_234_tree",
+          "type": "file",
+          "label": "05_iterable_234_tree.py",
+          "path": "content/12_B-Tree/05_iterable_234_tree.py",
           "iconPath": "assets/icons/file_lines-1.png"
         }
       ]
