@@ -22,9 +22,9 @@
       "iconPath": "assets/icons/msie1-2.png"
     },
     {
-      "id": "c949-quiz",
+      "id": "quiz",
       "type": "quiz",
-      "label": "C949 Quiz",
+      "label": "Quiz",
       "iconPath": "assets/icons/msg_information-2.png"
     }
   ],
