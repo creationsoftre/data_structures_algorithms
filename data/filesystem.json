@@ -362,7 +362,144 @@
     },
     "/code/datastructures_algorithms/04_List": {
       "label": "04_List",
-      "items": []
+      "items": [
+        {
+          "id": "singly_linked_list",
+          "type": "folder",
+          "label": "singly_linked_list",
+          "path": "/code/datastructures_algorithms/04_List/singly_linked_list",
+          "iconPath": "assets/icons/directory_closed-1.png"
+        },
+        {
+          "id": "doubly_linked_list",
+          "type": "folder",
+          "label": "doubly_linked_list",
+          "path": "/code/datastructures_algorithms/04_List/doubly_linked_list",
+          "iconPath": "assets/icons/directory_closed-1.png"
+        }
+      ]
+    },
+    "/code/datastructures_algorithms/04_List/singly_linked_list": {
+      "label": "singly_linked_list",
+      "items": [
+        {
+          "id": "singly_01_search",
+          "type": "file",
+          "label": "01_singly_linked_list_search.py",
+          "path": "content/04_List/singly_linked_list/01_singly_linked_list_search.py",
+          "iconPath": "assets/icons/file_lines-1.png"
+        },
+        {
+          "id": "singly_02_insert",
+          "type": "file",
+          "label": "02_singly_linked_list_insert.py",
+          "path": "content/04_List/singly_linked_list/02_singly_linked_list_insert.py",
+          "iconPath": "assets/icons/file_lines-1.png"
+        },
+        {
+          "id": "singly_03_remove",
+          "type": "file",
+          "label": "03_singly_linked_list_remove.py",
+          "path": "content/04_List/singly_linked_list/03_singly_linked_list_remove.py",
+          "iconPath": "assets/icons/file_lines-1.png"
+        },
+        {
+          "id": "singly_04_traversal",
+          "type": "file",
+          "label": "04_singly_linked_list_traversal.py",
+          "path": "content/04_List/singly_linked_list/04_singly_linked_list_traversal.py",
+          "iconPath": "assets/icons/file_lines-1.png"
+        },
+        {
+          "id": "singly_05_sorting",
+          "type": "file",
+          "label": "05_singly_linked_list_sorting.py",
+          "path": "content/04_List/singly_linked_list/05_singly_linked_list_sorting.py",
+          "iconPath": "assets/icons/file_lines-1.png"
+        },
+        {
+          "id": "singly_06_dummy_node",
+          "type": "file",
+          "label": "06_singly_linked_list_dummy_node.py",
+          "path": "content/04_List/singly_linked_list/06_singly_linked_list_dummy_node.py",
+          "iconPath": "assets/icons/file_lines-1.png"
+        },
+        {
+          "id": "singly_07_recursion",
+          "type": "file",
+          "label": "07_singly_linked_list_recursion.py",
+          "path": "content/04_List/singly_linked_list/07_singly_linked_list_recursion.py",
+          "iconPath": "assets/icons/file_lines-1.png"
+        },
+        {
+          "id": "singly_08_array",
+          "type": "file",
+          "label": "08_singly_linked_list_array.py",
+          "path": "content/04_List/singly_linked_list/08_singly_linked_list_array.py",
+          "iconPath": "assets/icons/file_lines-1.png"
+        }
+      ]
+    },
+    "/code/datastructures_algorithms/04_List/doubly_linked_list": {
+      "label": "doubly_linked_list",
+      "items": [
+        {
+          "id": "doubly_01_search",
+          "type": "file",
+          "label": "01_doubly_linked_list_search.py",
+          "path": "content/04_List/doubly_linked_list/01_doubly_linked_list_search.py",
+          "iconPath": "assets/icons/file_lines-1.png"
+        },
+        {
+          "id": "doubly_02_insert",
+          "type": "file",
+          "label": "02_doubly_linked_list_insert.py",
+          "path": "content/04_List/doubly_linked_list/02_doubly_linked_list_insert.py",
+          "iconPath": "assets/icons/file_lines-1.png"
+        },
+        {
+          "id": "doubly_03_remove",
+          "type": "file",
+          "label": "03_doubly_linked_list_remove.py",
+          "path": "content/04_List/doubly_linked_list/03_doubly_linked_list_remove.py",
+          "iconPath": "assets/icons/file_lines-1.png"
+        },
+        {
+          "id": "doubly_04_traversal",
+          "type": "file",
+          "label": "04_doubly_linked_list_traversal.py",
+          "path": "content/04_List/doubly_linked_list/04_doubly_linked_list_traversal.py",
+          "iconPath": "assets/icons/file_lines-1.png"
+        },
+        {
+          "id": "doubly_05_sorting",
+          "type": "file",
+          "label": "05_doubly_linked_list_sorting.py",
+          "path": "content/04_List/doubly_linked_list/05_doubly_linked_list_sorting.py",
+          "iconPath": "assets/icons/file_lines-1.png"
+        },
+        {
+          "id": "doubly_06_dummy_node",
+          "type": "file",
+          "label": "06_doubly_linked_list_dummy_node.py",
+          "path": "content/04_List/doubly_linked_list/06_doubly_linked_list_dummy_node.py",
+          "iconPath": "assets/icons/file_lines-1.png"
+        },
+        {
+          "id": "doubly_07_recursion",
+          "type": "file",
+          "label": "07_doubly_linked_list_recursion.py",
+          "path": "content/04_List/doubly_linked_list/07_doubly_linked_list_recursion.py",
+          "iconPath": "assets/icons/file_lines-1.png"
+        },
+        {
+          "id": "doubly_08_array",
+          "type": "file",
+          "label": "08_doubly_linked_list_array.py",
+          "path": "content/04_List/doubly_linked_list/08_doubly_linked_list_array.py",
+          "iconPath": "assets/icons/file_lines-1.png"
+        }
+      ]
     },
     "/code/datastructures_algorithms/05_stack": {
       "label": "05_stack",
